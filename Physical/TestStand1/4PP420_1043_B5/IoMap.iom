@@ -1,0 +1,26 @@
+(********************************************************************
+ * COPYRIGHT -- Bernecker + Rainer
+ ********************************************************************
+ * File: IoMap.iom
+ * Author: necidj
+ * Created: March 11, 2014
+ ********************************************************************
+ * IO mapping file
+ ********************************************************************)
+VAR_CONFIG
+	Cyclic#1.gAxis04_DrvIf.iLifeCnt AT %IB."8I74xxxxxxx.01P-1".SDC_LifeCnt;
+	Cyclic#1.gAxis04_DrvIf.iDrvOK AT %IX."8I74xxxxxxx.01P-1".ETAD_Input_Bool_02;
+	Cyclic#1.gAxis04_DrvIf.oSetTime AT %QW."8I74xxxxxxx.01P-1".SDC_SetTime;
+	Cyclic#1.gAxis04_DrvIf.oSetPos AT %QW."8I74xxxxxxx.01P-1".LFRD_Output;
+	Cyclic#1.gAxis04_DiDoIf.iLifeCntDriveReady AT %IB."8I74xxxxxxx.01P-1".SDC_LifeCnt;
+	Cyclic#1.gAxis04_DiDoIf.iLifeCntDriveEnable AT %IB."8I74xxxxxxx.01P-1".SDC_LifeCnt;
+	Cyclic#1.gAxis04_DiDoIf.oDriveEnable AT %QX."8I74xxxxxxx.01P-1".CMDD_Output_Bool_00;
+	Cyclic#1.gAxis04_ModuleOk AT %QX."8I74xxxxxxx.01P-1".CMDD_Output_Bool_01;
+	Cyclic#1.gAxis04_ModuleOk AT %QX."8I74xxxxxxx.01P-1".CMDD_Output_Bool_02;
+	Cyclic#1.gAxis04_ModuleOk AT %IX."8I74xxxxxxx.01P-1".ModuleOk;
+	Cyclic#1.gAxis04_DiDoIf.oDriveEnable AT %QX."8I74xxxxxxx.01P-1".CMDD_Output_Bool_03;
+	Cyclic#1.gAxis04_DiDoIf.iDriveReady AT %IX."8I74xxxxxxx.01P-1".ETAD_Input_Bool_02;
+	gAxis04_EncIf.iActPos AT %IW."X20DC2396".Encoder01;
+	gAxis04_EncIf.iEncOK AT %IX."X20DC2396".ModuleOk;
+	gAxis04_DrvIf.oBrake AT %QX."8I74xxxxxxx.01P-1".OL1R_Output_Bool_02;
+END_VAR
