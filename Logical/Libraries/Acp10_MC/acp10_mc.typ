@@ -234,6 +234,9 @@ TYPE
 		RefOffset : DINT;
 		Checksum : UDINT;
 	END_STRUCT;
+	MC_ENDLESS_POSITION_ACP_ENC_TYP : 	STRUCT  (*structure to save the endless position*)
+		EndlessPositionDataAcpEnc : ARRAY[0..15] OF DINT;
+	END_STRUCT;
 	MC_ERRORRECORD_REF : 	STRUCT  (*structure with error messages that can occur after executing the command*)
 		ParID : UINT; (*ParID at which the error occurred*)
 		Number : UINT; (*error number*)
@@ -360,11 +363,13 @@ TYPE
 	MC_SETUP_CONTROLLER_PAR_REF : 	STRUCT  (*structure with parameters for the setup*)
 		Mode : UINT; (*mode for the controller setup*)
 		Orientation : USINT; (*orientation for the controller setup*)
+		OperatingPoint : USINT; (*selection of the operating point for the controller setup*)
 		MaxCurrentPercent : REAL; (*percentage of the rated current which is used durring Setup [%]*)
 		MaxSpeedPercent : REAL; (*maximum speed of the movement in reference to the limits [%]*)
 		MaxDistance : REAL; (*maximum distance which is moved durring the setup*)
 		MaxLagError : REAL; (*maximum lag error which can occure durring the setup*)
 		PropAmplificationPercent : REAL; (*percentage for proportional amplification [%]*)
+		SignalOrder : UDINT; (*order of excitation signal*)
 	END_STRUCT;
 	MC_SETUP_IND_MOTOR_CFG_REF : 	STRUCT  (*structure with the configuration parameters*)
 		DatObj : MC_DATOBJ_REF; (*parameters for saving the setup data*)
@@ -393,6 +398,7 @@ TYPE
 		RatedSpeed : REAL; (*rated numbers of revolutions [1/min]*)
 		RatedFrequency : REAL; (*rated frequenzy [Hz]*)
 		PowerFactor : REAL; (*cos phi*)
+		ThermalTrippingTime : REAL; (*tripping time at thermal overload [s]*)
 		OptionalData : MC_SETUP_IND_MOTOR_PAR_OPT_REF; (*optional parameters for the motorsetup*)
 	END_STRUCT;
 	MC_SETUP_ISQ_RIPPLE_CFG_REF : 	STRUCT  (*structure with the configuration parameters*)
@@ -446,6 +452,7 @@ TYPE
 		PolePairs : USINT; (*number of polepairs*)
 		PeakCurrent : REAL; (*maximal current [A]*)
 		PeakTorque : REAL; (*maximal torque [Nm]*)
+		ThermalTrippingTime : REAL; (*tripping time at thermal overload [s]*)
 		OptionalData : MC_SETUP_SYNC_MOTOR_PAR_OPT_REF; (*optional parameter for the motor setup*)
 	END_STRUCT;
 	MC_SWITCHES_REF : 	STRUCT  (*structure with switches reference *)
@@ -553,6 +560,9 @@ TYPE
 		HomingStatusRecIndex : USINT; (*internal variable*)
 		FbID : USINT; (*internal variable*)
 		startTick : UDINT; (*internal variable*)
+		C_NCHomingMode : USINT; (*internal variable*)
+		Reserve1 : USINT; (*internal variable*)
+		Reserve2 : UINT; (*internal variable*)
 	END_STRUCT;
 	MC_0069_IS_TYP : 	STRUCT  (*internal structure for MC_BR_CyclicRead *)
 		C_Valid : BOOL; (*internal variable*)
@@ -1781,5 +1791,32 @@ TYPE
 		StateIndex : USINT; (*internal variable*)
 		state : USINT; (*internal variable*)
 		LockIDPar : USINT; (*internal variable*)
+	END_STRUCT;
+	MC_0138_IS_TYP : 	STRUCT  (*internal structure for MC_BR_InitEndlessPosAcpEnc*)
+		ErrorID : UINT; (*internal variable*)
+		Error : BOOL; (*internal variable*)
+		slot : USINT; (*internal variable*)
+		state : USINT; (*internal variable*)
+		DataValid : BOOL; (*internal variable*)
+		Busy : BOOL; (*internal variable*)
+		Done : BOOL; (*internal variable*)
+	END_STRUCT;
+	MC_0139_IS_TYP : 	STRUCT  (*internal structure for MC_BR_NetworkInit*)
+		Execute : BOOL; (*internal variable*)
+		Done : BOOL; (*internal variable*)
+		Busy : BOOL; (*internal variable*)
+		Error : BOOL; (*internal variable*)
+		ErrorID : UINT; (*internal variable*)
+		Command : UINT; (*internal variable*)
+		state : USINT; (*internal variable*)
+	END_STRUCT;
+	MC_0140_IS_TYP : 	STRUCT (*internal structure for MC_BR_CommandError*)
+		Execute  : BOOL; (*internal variable*)
+		Done  : BOOL; (*internal variable*)
+		Busy  : BOOL; (*internal variable*)
+		Error : BOOL; (*internal variable*)
+		ErrorID : UINT; (*internal variable*)
+		Command : UINT; (*internal variable*)
+		state : USINT; (*internal variable*)
 	END_STRUCT;
 END_TYPE

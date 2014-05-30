@@ -9,7 +9,7 @@
     <Object Type="Package">Motion</Object>
   </Objects>
   <Configuration>
-    <AutomationRuntime Version="L3.09" />
+    <AutomationRuntime Version="O3.09" />
     <Build GccVersion="4.1.2" />
     <DefaultTargetMemory Tasks="UserROM" />
   </Configuration>

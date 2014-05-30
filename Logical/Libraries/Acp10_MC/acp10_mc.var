@@ -32,6 +32,11 @@ VAR CONSTANT
 	mcCHECK : UINT := 1; (*mode for automat compensation check*)
 	mcCHECK_HOMING_OFF : USINT := 1; (*disable homing check*)
 	mcCLOSE : USINT := 0;
+	mcCMD_ERROR : UINT := 1; (*error command*)
+	mcCMD_ERROR_STOP : UINT := 2; (*error command*)
+	mcCMD_ERROR_STOP_CTRL_OFF : UINT := 3; (*error command*)
+	mcCMD_ERROR_V_STOP_CTRL_OFF : UINT := 4; (*error command*)
+	mcCMD_WARNING : UINT := 0; (*error command *)
 	mcCOMMANDED_POSITION : INT := 1; (*PLCopen motion parameter*)
 	mcCOMMANDED_VELOCITY : INT := 11; (*PLCopen motion parameter*)
 	mcCONTINUE_CONTROLLER_OFF : UINT := 128; (* continue if controller is off *)
@@ -46,6 +51,7 @@ VAR CONSTANT
 	mcDISTANCE_BASED : UINT := 0; (*basis for cam movement (e.g. for MC_BR_CamTransition)*)
 	mcDITHER : USINT := 32; (*setup mode*)
 	mcEDGE_SENSITIVE : USINT := 4; (*additional mode for trigger event*)
+	mcENABLE : UINT := 2;
 	mcENABLE_LIMIT_NEG : INT := 5; (*PLCopen motion parameter*)
 	mcENABLE_LIMIT_POS : INT := 4; (*PLCopen motion parameter*)
 	mcENABLE_POS_LAG_MONITORING : INT := 6; (*PLCopen motion parameter*)
@@ -223,6 +229,8 @@ VAR CONSTANT
 	mcTRACE_TRIGGER : USINT := 3; (*trace status*)
 	mcTRANSITION_OFF : UINT := 0;
 	mcTRANSITION_ON : UINT := 1;
+	mcTUNE_STANDSTILL : USINT := 0; (*constant for OperatingPoint*)
+	mcTUNE_V_CONSTANT : USINT := 1; (*constant for OperatingPoint*)
 	mcUNEQUAL : UINT := 5;
 	mcUPDATE_PERIOD : UINT := 16#8000; (*input for MC_BR_TouchProbe*)
 	mcUSE_AXIS_PERIOD : UINT := 16#4000; (*input for MC_BR_TouchProbe*)

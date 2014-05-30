@@ -2,7 +2,7 @@
 *                    B & R   P O S I T I O N I N G                          *
 *****************************************************************************
 *                                                                           *
-*            Header File for Library ACP10PAR (Version 2421)                * 
+*            Header File for Library ACP10PAR (Version 2431)                * 
 *                                                                           *
 **************************** COPYRIGHT (C) **********************************
 *     THIS SOFTWARE IS THE PROPERTY OF B&R AUSTRIA: ALL RIGHTS RESERVED.    *
@@ -964,14 +964,15 @@
 #define ACP10PAR_TUNE_V_MAX_PERCENT        1102 /* (REAL) Autotuning: Maximum percentage for speed [%] */
 #define ACP10PAR_TUNE_S_MAX                1103 /* (REAL) Autotuning: Maximum movement distance [Units] */
 #define ACP10PAR_TUNE_DS_MAX               1104 /* (REAL) Autotuning: Maximum lag error [Units] */
-#define ACP10PAR_TUNE_SIGNAL_PERIODS       1106 /* (UDINT) Autotuning: Number of stimulation periods */
+#define ACP10PAR_TUNE_SIGNAL_PERIODS       1106 /* (UDINT) Autotuning: Number of excitation periods */
 #define ACP10PAR_TUNE_DRIVE_INERTIA        1109 /* (REAL) Autotuning: Estimated drive inertia [kgm^2] */
-#define ACP10PAR_TUNE_SIGNAL_ORDER         1110 /* (UDINT) Autotuning: Order of stimulation signal */
+#define ACP10PAR_TUNE_SIGNAL_ORDER         1110 /* (UDINT) Autotuning: Order of excitation signal */
 #define ACP10PAR_TUNE_OPTION_BITS          1111 /* (UDINT) Autotuning: Option control bits */
 #define ACP10PAR_TUNE_KV_PERCENT           1112 /* (REAL) Autotuning: Percentage for proportional amplification [%] */
 #define ACP10PAR_TUNE_RESONANCE_FACTOR     1113 /* (REAL) Autotuning: Factor for detection of a resonance */
 #define ACP10PAR_TUNE_INERTIA_F_LOWER      1114 /* (REAL) Autotuning: Lower frequency for estimation of drive inertia [Hz] */
 #define ACP10PAR_TUNE_INERTIA_F_UPPER      1115 /* (REAL) Autotuning: Upper frequency for estimation of drive inertia [Hz] */
+#define ACP10PAR_TUNE_DELAY_TIME           1116 /* (REAL) Autotuning: Delay time during transients [s] */
 #define ACP10PAR_PIDENT_SUB_MODE           1125 /* (UDINT) Parameter identification: Sub-mode */
 #define ACP10PAR_PIDENT_STATE_BITS         1126 /* (UDINT) Parameter identification: State bits */
 #define ACP10PAR_ISQ_RIPPLE_DAT_A_POS      1127 /* (REAL) ISQ-Ripple compensation: Data: Amplitude for quadrant I [A] */
@@ -1087,13 +1088,12 @@
 #define ACP10PAR_MOTOR_BRAKE_TYPE          1260 /* (UINT) Motor holding brake: Type */
 #define ACP10PAR_MOTOR_BRAKE_RESISTANCE    1261 /* (REAL) Motor holding brake: Resistance [Ohm] */
 #define ACP10PAR_MOTOR_BRAKE_INDUCTANCE    1262 /* (REAL) Motor holding brake: Inductance [Henry] */
-#define ACP10PAR_MOTOR_BRAKE_CURR_REL      1263 /* (REAL) Motor holding brake: Release current [A] */
-#define ACP10PAR_MOTOR_BRAKE_CURR_HOLD     1264 /* (REAL) Motor holding brake: Hold current [A] */
 #define ACP10PAR_BRAKE_TEST_DURATION       1266 /* (REAL) Motor holding brake: Test duration [s] */
 #define ACP10PAR_TLIM_ISQ_POS              1270 /* (REAL) CTRL Torque limiter: Absolute value of positive current limit [A] */
 #define ACP10PAR_TLIM_ISQ_NEG              1271 /* (REAL) CTRL Torque limiter: Absolute value of negative current limit [A] */
 #define ACP10PAR_UDC_OFFSET                1278 /* (REAL) CTRL DC bus: Voltage offset [V] */
 #define ACP10PAR_VCTRL_I0_LIM              1279 /* (REAL) Power stage: Summation current: Limit [A] */
+#define ACP10PAR_PIDENT_THERM_TRIP_TIME    1283 /* (REAL) Parameter identification: Tripping time at thermal overload  [s] */
 #define ACP10PAR_VCTRL_RHO_ADD_PARID       1293 /* (UINT) CTRL Vector controller: Parameter ID of the additive commutation angle */
 #define ACP10PAR_VCTRL_RHO_ADD             1294 /* (REAL) CTRL Vector controller: Additive commutation angle [rad] */
 #define ACP10PAR_OBS_VOLT_US1              1295 /* (REAL) Voltage observer: Phase voltage U [V] */
@@ -1224,7 +1224,12 @@
 #define ACP10PAR_SIM_DAMPING               1496 /* (REAL) Simulation mode: Damping parameter of coupling [Nms/rad] */
 #define ACP10PAR_SIM_TORSION               1497 /* (REAL) Simulation mode: Torsion of coupling [Units] */
 #define ACP10PAR_SIM_SPEED2                1498 /* (REAL) Simulation mode: Speed of mass 2 [1/s] */
-#define ACP10PAR_MOTOR_BRAKE_CURR_MAX      1500 /* (REAL) Motor holding brake: Overcurrent limit [A] */
+#define ACP10PAR_CMD_ERROR                 1501 /* (UINT) Messages: Command execute error reaction  */
+#define ACP10PAR_CMD_ERROR_VAX1            1502 /* (UINT) VAX Messages: Command execute error reaction  */
+#define ACP10PAR_MOTOR_TEMPMODEL_MODE      1503 /* (UINT) Motor: Temperature model: Mode */
+#define ACP10PAR_MOTOR_BRAKE_VOLT_REL      1504 /* (REAL) Motor holding brake: Release voltage [V] */
+#define ACP10PAR_MOTOR_BRAKE_VOLT_HOLD     1505 /* (REAL) Motor holding brake: Hold voltage [V] */
+#define ACP10PAR_MOTOR_BRAKE_VOLT_MAX      1506 /* (REAL) Motor holding brake: Overvoltage limit [V] */
 #define ACP10PAR_LOGIC_MODE                3072 /* (UINT) FB LOGIC: Mode */
 #define ACP10PAR_LOGIC_IN1_PARID           3080 /* (UINT) FB LOGIC: Parameter ID of input1 */
 #define ACP10PAR_LOGIC_IN2_PARID           3088 /* (UINT) FB LOGIC: Parameter ID of input2 */

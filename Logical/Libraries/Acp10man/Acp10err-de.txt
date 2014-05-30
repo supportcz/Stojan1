@@ -73,6 +73,7 @@
  1027: Funktion ist für diese Hardware nicht verfügbar
  1028: Maximale Anzahl von Netzwerk-Kopplungen überschritten
  1029: Parameter schreiben nicht erlaubt: Abbruch-Rampe aktiv
+ 1030: Funktion ist bei ACP10SIM nur im Simulationsmodus 'Complete' verfügbar
  2001: Upload der Trace-Daten nicht erlaubt: Aufzeichnung aktiv 
  2003: Trace-Start nicht erlaubt: Aufzeichnung aktiv
  2006: Initialisierung der Trace-Parameter nicht erlaubt: Aufzeichnung aktiv
@@ -87,6 +88,8 @@
        Info('PARID'): Parameter-ID
  4014: Zwei-Geberregelung: Abbruchgrenze der Positionsdifferenz überschritten
        Info(REAL): Aktuelle Positionsdifferenz
+ 4015: Fehler durch Kommando ausgelöst
+       Info(UINT): Kommando-Parameter
  5001: Zielposition überschreitet positive SW-Endlage
  5002: Zielposition überschreitet negative SW-Endlage
  5003: Positive SW-Endlage erreicht
@@ -166,7 +169,7 @@
  6016: CAN-Controller: CAN-Bus Störungen (Sendefehlerzähler größer 96)
        Info(USINT): Slot
  6017: Software: Watchdog aktiv
- 6018: Hardware: Fehler in der 15V-Spannungsversorgung
+ 6018: Hardware: Ausfall der internen Spannungsversorgung
  6019: ACOPOS: Überstrom
  6020: Hardware: Fehler in der 24V-Spannungsversorgung
  6021: Low-Pegel am Reglerfreigabe-Eingang
@@ -194,7 +197,7 @@
  6043: PHASING_MODE ist ungültig
        Info(UINT): PHASING_MODE
  6044: Einphasen: Drehsinn oder Position ungültig
-       Info(REAL): Berechnete Polpaarzahl
+       Info(INT): Berechnete Polpaarzahl
  6045: Leistungsteil: Anschluss X5: Kein Stromfluss
        Info(USINT): Phase
  6046: Einphasen: Keine Rotorbewegung
@@ -230,6 +233,10 @@
  6068: Parameter schreiben bei aktivem Bremsentest nicht erlaubt
        Info(UINT): Fehlercode
  6069: Haltebremse: Überstrom
+ 6070: Parameter schreiben nicht erlaubt: Einphasen aktiv
+ 6071: Einphasen: Polpaarzahl MOTOR_POLEPAIRS nicht gültig
+       Info(INT): Berechnete Polpaarzahl
+ 6072: Haltebremse: Überspannung
  7012: Geber: Hiperface Error Bit
        Info(USINT): Slot
  7013: Geber: Statusmeldung
@@ -433,6 +440,7 @@
  9089: Motorgeber-Temperatursensor: Übertemperatur
        Info(REAL): Temperatur
  9090: Motorgeber-Temperatursensor: Temperaturwert nicht gültig
+ 9091: Leistungsteil: Hauptrelais: Übertemperatur
  9300: Stromregler: Überstrom
        Info(REAL): Grenzwert
 10000: Identifikationsparameter unvollständig
@@ -510,7 +518,7 @@
        Info(UINT): PLCopen_FB
 29240: Die angegebene ParID kann wegen der Datentyp-Größe nicht verwendet werden
        Info(UINT): PLCopen_FB
-29241: Falscher Parametertyp für angegebene ParID
+29241: Falscher Datentyp für angegebene ParID
        Info(UINT): PLCopen_FB
 29242: Zyklische Lesedaten voll
        Info(UINT): PLCopen_FB
@@ -560,7 +568,7 @@
        Info(UINT): PLCopen_FB
 29271: Der ausgewählte FB vom Typ MC_TouchProbe ist nicht aktiv
        Info(UINT): PLCopen_FB
-29272: Kurvenscheiben-Automatendaten nicht initialisiert
+29272: Kurvenscheibenautomaten-Daten nicht initialisiert
        Info(UINT): PLCopen_FB
 29273: Das angegebene 'Subject' ist ungültig
        Info(UINT): PLCopen_FB
@@ -1060,6 +1068,9 @@
        Info(UDINT): Differenz zwischen maxOutTime und minOutTime
 32288: Erweiterte Kopplungs-Daten nicht möglich (Taskklassen-Toleranz ist nicht Null)
        Info(USINT): Nummer der NC-Manager Taskklasse
+32289: Netzwerk Kopplung: SDC/SIM Master und Slave in unterschiedlichen Taskklassen
+32290: INIT Broadcast Datenpunkt: Aufruf der NC-Aktion nur in SDC Taskklasse erlaubt
+       Info(USINT): Taskklassennummer des zugehörigen SDC Interface
 32302: Setup starten nicht möglich: Es ist bereits eine Setup-Operation aktiv
 32322: Datenblock Upload/Download: Der Datenobjekt Name ist Null
 32323: Datenblock Upload/Download: Die Datenblock Parameter-ID ist ungültig
@@ -1140,6 +1151,9 @@
        Info(UINT): Status von RtkCreateCriticalSection()
 32513: Die Critical Section für globale Variablen ist bereits vorhanden 
 32514: Fehler beim Erzeugen der Critical Section für globale Variablen
+       Info(UINT): Status von RtkCreateCriticalSection()
+32515: Die Critical Section für Netzwerk-Kopplung ist bereits vorhanden 
+32516: Fehler beim Erzeugen der Critical Section für Netzwerk-Kopplung
        Info(UINT): Status von RtkCreateCriticalSection()
 32738: Fehler bei Schreiben in die SDM Motion FIFO
 32739: Fehler bei Erzeugung der SDM Motion FIFO (siehe Logger)
@@ -1450,6 +1464,8 @@
 36002: Lageregler Gesamtverzögerungszeit begrenzt auf Vorausschauzeit
 36003: Bremsweg überschreitet positive SW-Endlage - Verzögerungs-Parameter erhöht
 36004: Bremsweg überschreitet negative SW-Endlage - Verzögerungs-Parameter erhöht
+36005: Warnung durch Kommando ausgelöst
+       Info(UINT): Kommando-Parameter
 37101: Berechneter Ausgleichsweg der Slave Achse begrenzt auf Maximum
 37102: Berechneter Ausgleichsweg der Slave Achse begrenzt auf Minimum
 37103: Slave Trigger außerhalb Fenster
@@ -1565,6 +1581,8 @@
        Info(USINT): Slot
 39045: EnDat-Geber: Betriebszustandsfehlerquellen: M Batterie
        Info(USINT): Slot
+39047: Geber: Position nicht synchron mit Absolutwert
+       Info(USINT): Slot
 39301: Digital IO: 24V-Spannungsversorgung fehlerhaft
        Info(UINT): Slot
 39302: Digital IO 1-4: Diagnosebit aktiv (Strom, 24V Versorgung)
@@ -1607,6 +1625,7 @@
        Info(REAL): Temperatur
 41089: Motorgeber-Temperatursensor: Übertemperatur
        Info(REAL): Temperatur
+41090: Leistungsteil: Hauptrelais: Übertemperatur
 64002: Wartezeit vor SW-Reset (Netzwerk mit aufsteigenden Knotennummern ?)
 64003: Wartezeit vor NC-System-Start (Netzwerk mit aufsteigenden Knotennummern ?)
 64004: Der folgende Hochlauf-Fehler könnte hier mit Verzögerung eingetragen sein
@@ -1623,6 +1642,7 @@
 64010: NC Software Testversion (Gültigkeitsperiode im Logger)
 64011: Timeout für Abschluss der Geber-Initialisierung
 64012: acp10sys enthält kein Betriebssystem für diesen ACOPOS Hardware Typ
+64013: Die Basis-Initialisierung wurde wegen eines Fehlers abgebrochen
 64500: Positive Geschwindigkeits-Begrenzung aktiv
 64501: Negative Geschwindigkeits-Begrenzung aktiv
 64502: Beschleunigungsmomenten/Kraft-Begrenzung in positiver Richtung aktiv

@@ -1101,17 +1101,17 @@
  1103: Autotuning: Maximum movement distance
  1104: Autotuning: Maximum lag error
  1105: Autotuning: Step
- 1106: Autotuning: Number of stimulation periods
+ 1106: Autotuning: Number of excitation periods
  1107: Test R4 03
  1108: Test R4 04
  1109: Autotuning: Estimated drive inertia
- 1110: Autotuning: Order of stimulation signal
+ 1110: Autotuning: Order of excitation signal
  1111: Autotuning: Option control bits
  1112: Autotuning: Percentage for proportional amplification
  1113: Autotuning: Factor for detection of a resonance
  1114: Autotuning: Lower frequency for estimation of drive inertia
  1115: Autotuning: Upper frequency for estimation of drive inertia
- 1116: RESERVED1116
+ 1116: Autotuning: Delay time during transients
  1117: RESERVED1117
  1118: RESERVED1118
  1119: RESERVED1119
@@ -1253,13 +1253,11 @@
  1255: FWCTRL Test R4 03
  1256: FWCTRL Test Factor 1
  1257: FWCTRL Test Factor 2
- 1258: RESERVED1258
- 1259: RESERVED1259
+ 1258: MAINSSIM_UCTRL_KP
+ 1259: MAINSSIM_UCTRL_TN
  1260: Motor holding brake: Type
  1261: Motor holding brake: Resistance
  1262: Motor holding brake: Inductance
- 1263: Motor holding brake: Release current
- 1264: Motor holding brake: Hold current
  1265: Motor holding brake: Current ADC value
  1266: Motor holding brake: Test duration
  1267: Holding torque measured at the time the brake engages
@@ -1267,10 +1265,10 @@
  1269: RESERVED1269
  1270: CTRL Torque limiter: Absolute value of positive current limit
  1271: CTRL Torque limiter: Absolute value of negative current limit
- 1272: RESERVED1272
- 1273: RESERVED1273
- 1274: RESERVED1274
- 1275: RESERVED1275
+ 1272: MAINSSIM_MODE
+ 1273: MAINSSIM_VOLTAGE
+ 1274: MAINSSIM_FREQUENCY
+ 1275: MAINSSIM_STATE
  1276: RESERVED1276
  1277: RESERVED1277
  1278: CTRL DC bus: Voltage offset
@@ -1278,7 +1276,7 @@
  1280: Parameter identification: Chain
  1281: Parameter identification: Time constant
  1282: Parameter identification: Inductance in d-direction
- 1283: RESERVED1283
+ 1283: Parameter identification: Tripping time at thermal overload 
  1284: RESERVED1284
  1285: RESERVED1285
  1286: RESERVED1286
@@ -1426,12 +1424,12 @@
  1429: Test: Parameter0 I4
  1430: Test: Parameter1 I4
  1431: Test: Parameter2 I4
- 1432: RESERVED1432
- 1433: RESERVED1433
- 1434: RESERVED1434
- 1435: RESERVED1435
- 1436: RESERVED1436
- 1437: RESERVED1437
+ 1432: MAINSSIM_OBS_CMD
+ 1433: MAINSSIM_OBS_MODE
+ 1434: MAINSSIM_OBS_STATE
+ 1435: MAINSSIM_OBS_PAR_IDX
+ 1436: MAINSSIM_OBS_PAR_VALUE
+ 1437: MAINSSIM_OBS_OUTPUT
  1438: RESERVED1438
  1439: RESERVED1439
  1440: Optional IO: Control command
@@ -1465,6 +1463,12 @@
  1468: Optional IO: Parameter ID output8
  1469: Optional IO: Parameter ID output9
  1470: Optional IO: Parameter ID output10
+ 1471: MAINSSIM_FILTER_TYPE
+ 1472: MAINSSIM_FILTER_A0
+ 1473: MAINSSIM_FILTER_A1
+ 1474: MAINSSIM_FILTER_B0
+ 1475: MAINSSIM_FILTER_B1
+ 1476: MAINSSIM_FILTER_B2
  1480: CTRL Torque limiter: Mode
  1481: CTRL Torque limiter: Status
  1482: CTRL Torque limiter: Output current
@@ -1485,7 +1489,22 @@
  1497: Simulation mode: Torsion of coupling
  1498: Simulation mode: Speed of mass 2
  1499: Simulation mode: Status
- 1500: Motor holding brake: Overcurrent limit
+ 1501: Messages: Command execute error reaction
+ 1502: VAX Messages: Command execute error reaction
+ 1503: Motor: Temperature model: Mode
+ 1504: Motor holding brake: Release voltage
+ 1505: Motor holding brake: Hold voltage
+ 1506: Motor holding brake: Overvoltage limit
+ 1507: Basis movements: Set value generator mode
+ 1508: VAX Basis movements: Set value generator mode
+ 1510: RESERVED1510
+ 1511: RESERVED1511
+ 1512: RESERVED1512
+ 1513: RESERVED1513
+ 1514: RESERVED1514
+ 1515: RESERVED1515
+ 1516: RESERVED1516
+ 1517: RESERVED1517
  3072: FB LOGIC: Mode
  3080: FB LOGIC: Parameter ID of input1
  3088: FB LOGIC: Parameter ID of input2

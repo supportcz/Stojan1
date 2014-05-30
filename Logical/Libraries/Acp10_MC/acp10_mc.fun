@@ -614,6 +614,24 @@ FUNCTION_BLOCK MC_BR_CheckEndlessPosition (*checks the endless position data for
 	END_VAR
 END_FUNCTION_BLOCK
 
+FUNCTION_BLOCK MC_BR_CommandError (*transfers error commands to the drive, where they are entered*)
+	VAR_INPUT
+		Axis  : UDINT; (*axis reference*)
+		Execute : BOOL; (*transfer command at rising edge*)
+		Command : UINT; (*error command*)
+	END_VAR
+	VAR_OUTPUT
+		Done  : BOOL; (*command was successfully transferred *)
+		Busy  : BOOL; (*function block is not finished yet*)
+		Error : BOOL; (*error occured in FB*)
+		ErrorID : UINT; (*error number *)
+	END_VAR
+	VAR
+		C_Axis : UDINT; (*internal variable*)
+		IS : MC_0140_IS_TYP; (*internal variable*)
+	END_VAR
+END_FUNCTION_BLOCK
+
 FUNCTION_BLOCK MC_BR_ConfigPowerStageCheck (*configurates the power stage checks of the ACOPOS*)
 	VAR_INPUT
 		Axis : UDINT; (*axis reference*)
@@ -887,8 +905,8 @@ FUNCTION_BLOCK MC_BR_EventMoveAbsolute (*starts an absolute positioning on the d
 		VarIndex : UINT; (*internal variable*)
 		EvMoveStatusOffset : UINT; (*internal variable*)
 		EvMoveStatusRecIndex : USINT; (*internal variable*)
-		Reserve : USINT; (*internal variable*)
-		StatusBitDisabled : BOOL; (*internal variable*)
+		SavedFrDrvCnt : USINT; (*internal variable*)
+		WaitEvMoveStatusValid : BOOL; (*internal variable*)
 		C_MoveActive : BOOL; (*internal variable*)
 		state : USINT; (*internal variable*)
 		LockID : USINT; (*internal variable*)
@@ -939,8 +957,8 @@ FUNCTION_BLOCK MC_BR_EventMoveAdditive (*starts a movement on the drive by a set
 		VarIndex : UINT; (*internal variable*)
 		EvMoveStatusOffset : UINT; (*internal variable*)
 		EvMoveStatusRecIndex : USINT; (*internal variable*)
-		Reserve : USINT; (*internal variable*)
-		StatusBitDisabled : BOOL; (*internal variable*)
+		SavedFrDrvCnt : USINT; (*internal variable*)
+		WaitEvMoveStatusValid : BOOL; (*internal variable*)
 		C_MoveActive : BOOL; (*internal variable*)
 		state : USINT; (*internal variable*)
 		LockID : USINT; (*internal variable*)
@@ -994,8 +1012,8 @@ FUNCTION_BLOCK MC_BR_EventMoveVelocity (*starts a controlled movement with a spe
 		Reserve1 : USINT; (*internal variable*)
 		VelocityOffset : UINT; (*internal variable*)
 		VelocityRecIndex : USINT; (*internal variable*)
-		Reserve2 : USINT; (*internal variable*)
-		StatusBitDisabled : BOOL; (*internal variable*)
+		SavedFrDrvCnt : USINT; (*internal variable*)
+		WaitEvMoveStatusValid : BOOL; (*internal variable*)
 		C_MoveActive : BOOL; (*internal variable*)
 		state : USINT; (*internal variable*)
 		MoveID : USINT; (*internal variable*)
@@ -1466,6 +1484,25 @@ FUNCTION_BLOCK MC_BR_InitEndlessPosition (*initialize memory for endless positio
 		C_ErrorID : UINT; (*internal variable*)
 		C_Error : BOOL; (*internal variable*)
 		state : USINT; (*internal variable*)
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MC_BR_InitEndlessPosAcpEnc (*initialize memory for endless position storage for external encoder*)
+	VAR_INPUT
+		AcpEncoder : MC_ACP_ENCOD_REF; (*ACOPOS encoder*)
+		Execute : BOOL; (*initialize memory storage at rising edge*)
+		DataAddress : UDINT; (*data address of memory storage for endless position*)
+	END_VAR
+	VAR_OUTPUT
+		Done : BOOL; (*memory storage for endless position was initialized*)
+		Busy : BOOL; (*function block is not finished*)
+		Error : BOOL; (*error occurred in FB*)
+		ErrorID : UINT; (*error number*)
+		DataValid : BOOL; (*axis position can be restored from the endless position data*)
+	END_VAR
+	VAR
+		C_Axis : UDINT; (*internal variable*)
+		IS : MC_0138_IS_TYP; (*internal variable*)
 	END_VAR
 END_FUNCTION_BLOCK
 
@@ -2056,6 +2093,24 @@ FUNCTION_BLOCK MC_BR_NetTrace (*controls the network command trace*)
 	END_VAR
 	VAR
 		IS : MC_0078_IS_TYP; (*internal variable*)
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MC_BR_NetworkInit (*controls the network initilization*)
+	VAR_INPUT
+	    Axis : UDINT; (*axis reference*)
+		Execute : BOOL; (*execute command at rising edge*)
+		Command : UINT; (*select the command for the network initialization*)
+	END_VAR
+	VAR_OUTPUT
+		Done : BOOL; (*command executed*)
+		Busy : BOOL; (*function block is not finished*)
+		Error : BOOL; (*error occurred in FB*)
+		ErrorID : UINT; (*error number*)
+	END_VAR
+	VAR
+		C_Object : UDINT; (*internal variable*)
+		IS : MC_0139_IS_TYP; (*internal variable*)
 	END_VAR
 END_FUNCTION_BLOCK
 
@@ -5107,8 +5162,8 @@ FUNCTION_BLOCK MC_034BR_EventMoveAbsolute (*starts an absolute positioning movem
 		VarIndex : UINT; (*internal variable*)
 		EvMoveStatusOffset : UINT; (*internal variable*)
 		EvMoveStatusRecIndex : USINT; (*internal variable*)
-		Reserve : USINT; (*internal variable*)
-		StatusBitDisabled : BOOL; (*internal variable*)
+		SavedFrDrvCnt : USINT; (*internal variable*)
+		WaitEvMoveStatusValid : BOOL; (*internal variable*)
 		C_MoveActive : BOOL; (*internal variable*)
 		state : USINT; (*internal variable*)
 		LockID : USINT; (*internal variable*)
@@ -5159,8 +5214,8 @@ FUNCTION_BLOCK MC_035BR_EventMoveAdditive (*starts a movement on the drive by a 
 		VarIndex : UINT; (*internal variable*)
 		EvMoveStatusOffset : UINT; (*internal variable*)
 		EvMoveStatusRecIndex : USINT; (*internal variable*)
-		Reserve : USINT; (*internal variable*)
-		StatusBitDisabled : BOOL; (*internal variable*)
+		SavedFrDrvCnt : USINT; (*internal variable*)
+		WaitEvMoveStatusValid : BOOL; (*internal variable*)
 		C_MoveActive : BOOL; (*internal variable*)
 		state : USINT; (*internal variable*)
 		LockID : USINT; (*internal variable*)
@@ -5214,8 +5269,8 @@ FUNCTION_BLOCK MC_036BR_EventMoveVelocity (*starts a controlled movement with a 
 		Reserve1 : USINT; (*internal variable*)
 		VelocityOffset : UINT; (*internal variable*)
 		VelocityRecIndex : USINT; (*internal variable*)
-		Reserve2 : USINT; (*internal variable*)
-		StatusBitDisabled : BOOL; (*internal variable*)
+		SavedFrDrvCnt : USINT; (*internal variable*)
+		WaitEvMoveStatusValid : BOOL; (*internal variable*)
 		C_MoveActive : BOOL; (*internal variable*)
 		state : USINT; (*internal variable*)
 		MoveID : USINT; (*internal variable*)
@@ -6569,3 +6624,57 @@ FUNCTION_BLOCK MC_094BR_ResetAutPar (*initializes the general parameters of the 
 	END_VAR
 END_FUNCTION_BLOCK
 
+FUNCTION_BLOCK MC_096BR_InitEndlessPosAcpEnc (*initialize memory for endless position storage for external encoder*)
+	VAR_INPUT
+		AcpEncoder : MC_ACP_ENCOD_REF; (*ACOPOS encoder*)
+		Execute : BOOL; (*initialize memory storage at rising edge*)
+		DataAddress : UDINT; (*data address of memory storage for endless position*)
+	END_VAR
+	VAR_OUTPUT
+		Done : BOOL; (*memory storage for endless position was initialized*)
+		Busy : BOOL; (*function block is not finished*)
+		Error : BOOL; (*error occurred in FB*)
+		ErrorID : UINT; (*error number*)
+		DataValid : BOOL; (*axis position can be restored from the endless position data*)
+	END_VAR
+	VAR
+		C_Axis : UDINT; (*internal variable*)
+		IS : MC_0138_IS_TYP; (*internal variable*)
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MC_097BR_NetworkInit (*controls the network initilization*)
+	VAR_INPUT
+        Axis : UDINT; (*axis reference*)
+        Execute : BOOL; (*execute command at rising edge*)
+        Command : UINT; (*select the command for the network initialization*)
+	END_VAR
+	VAR_OUTPUT
+		Done : BOOL; (*command executed*)
+		Busy : BOOL; (*function block is not finished*)
+		Error : BOOL; (*error occurred in FB*)
+		ErrorID : UINT; (*error number*)
+	END_VAR
+	VAR
+		C_Object : UDINT; (*internal variable*)
+		IS : MC_0139_IS_TYP; (*internal variable*)
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MC_098BR_CommandError (*transfers error commands to the drive, where they are entered*)
+	VAR_INPUT
+		Axis  : UDINT; (*axis reference*)
+		Execute : BOOL; (*transfer command at rising edge*)
+		Command : UINT; (*error command*)
+	END_VAR
+	VAR_OUTPUT
+		Done  : BOOL; (*command was successfully transferred *)
+		Busy  : BOOL; (*function block is not finished yet*)
+		Error : BOOL; (*error occured in FB*)
+		ErrorID : UINT; (*error number *)
+	END_VAR
+	VAR
+		C_Axis : UDINT; (*internal variable*)
+		IS : MC_0140_IS_TYP; (*internal variable*)
+	END_VAR
+END_FUNCTION_BLOCK

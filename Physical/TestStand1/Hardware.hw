@@ -7,9 +7,6 @@
   <Module Name="4PP420_1043_B5" Type="4PP420.1043-B5" Version="1.0.0.0">
     <Connector Name="IF5">
       <Parameter ID="ActivateDevice" Value="1" />
-      <Parameter ID="Mode" Value="Manual" />
-      <Parameter ID="InternetAddress" Value="10.42.10.246" />
-      <Parameter ID="SubnetMask" Value="255.255.255.0" />
     </Connector>
     <Parameter ID="TimerDeviceType" Value="EPLX2X" />
     <Parameter ID="TimerDevice" Value="3IF789.9-1.IF2" />
@@ -71,12 +68,15 @@
     <Parameter ID="LFA" Value="4842" />
   </Module>
   <Module Name="8MSA3M.E0-I6" Type="8MSA3M.E0-I6" Version="1.0.0.0">
+    <Connection Connector="EC" TargetModule="8AC120.60-1a" TargetConnector="EC" />
     <Connection Connector="MT" TargetModule="8V1045.001-2" TargetConnector="MT1" />
   </Module>
   <Module Name="8MSA4M.E1-30" Type="8MSA4M.E1-30" Version="1.0.0.0">
+    <Connection Connector="EC" TargetModule="8AC120.60-1" TargetConnector="EC" />
     <Connection Connector="MT" TargetModule="8V1045.00-2a" TargetConnector="MT1" />
   </Module>
   <Module Name="8MSA4S.R0-42" Type="8MSA4S.R0-42" Version="1.0.0.0">
+    <Connection Connector="EC" TargetModule="8AC122.60-3" TargetConnector="EC" />
     <Connection Connector="MT" TargetModule="8V1045.00-2" TargetConnector="MT1" />
   </Module>
   <Module Name="8V1045.001-2" Type="8V1045.001-2" Version="1.0.0.0">

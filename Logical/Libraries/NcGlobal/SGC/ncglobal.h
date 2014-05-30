@@ -2,7 +2,7 @@
 *                    B & R   P O S I T I O N I N G                          *
 *****************************************************************************
 *                                                                           *
-*            Header File for Library NCGLOBAL (Version 2421)                * 
+*            Header File for Library NCGLOBAL (Version 2431)                * 
 *                                                                           *
 **************************** COPYRIGHT (C) **********************************
 *     THIS SOFTWARE IS THE PROPERTY OF B&R AUSTRIA: ALL RIGHTS RESERVED.    *
@@ -41,6 +41,7 @@
  #define FB_MC_BR_CamTransition 94U
  #define FB_MC_BR_CheckAutCompensation 103U
  #define FB_MC_BR_CheckEndlessPosition 130U
+ #define FB_MC_BR_CommandError 140U
  #define FB_MC_BR_ConfigPowerStageCheck 137U
  #define FB_MC_BR_CreateCamProfileObj 74U
  #define FB_MC_BR_CrossCutterControl 114U
@@ -61,9 +62,6 @@
  #define FB_MC_BR_GetHardwareInfo 109U
  #define FB_MC_BR_GetParIDInfo 107U
  #define FB_MC_BR_GetParIDTransferInfo 121U
- #define FB_MC_BR_GroupAxisJog 1513U
- #define FB_MC_BR_GroupHome 1507U
- #define FB_MC_BR_GroupPower 1506U
  #define FB_MC_BR_HomeAcpEncoder 68U
  #define FB_MC_BR_InitAutData 76U
  #define FB_MC_BR_InitAutEvent 8U
@@ -91,14 +89,13 @@
  #define FB_MC_BR_LoadAxisPar 56U
  #define FB_MC_BR_MoveAbsoluteTriggStop 18U
  #define FB_MC_BR_MoveAdditiveTriggStop 19U
- #define FB_MC_BR_MoveBlock 1512U
  #define FB_MC_BR_MoveCyclicPosition 84U
  #define FB_MC_BR_MoveCyclicPositionExt 124U
  #define FB_MC_BR_MoveCyclicVelocity 92U
  #define FB_MC_BR_MoveCyclicVelocityExt 125U
- #define FB_MC_BR_MoveProgram 1511U
  #define FB_MC_BR_MoveVelocityTriggStop 20U
  #define FB_MC_BR_NetTrace 78U
+ #define FB_MC_BR_NetworkInit 139U
  #define FB_MC_BR_Offset 58U
  #define FB_MC_BR_OffsetVelocity 127U
  #define FB_MC_BR_OffsetZone 128U
@@ -106,7 +103,6 @@
  #define FB_MC_BR_ParTraceConfig 102U
  #define FB_MC_BR_Phasing 59U
  #define FB_MC_BR_PowerMeter 89U
- #define FB_MC_BR_ProgramInfo 1503U
  #define FB_MC_BR_ReadAutPosition 75U
  #define FB_MC_BR_ReadAxisError 105U
  #define FB_MC_BR_ReadCyclicPosition 83U
@@ -143,14 +139,6 @@
  #define FB_MC_GearIn 27U
  #define FB_MC_GearInPos 28U
  #define FB_MC_GearOut 29U
- #define FB_MC_GroupContinue 1510U
- #define FB_MC_GroupInterrupt 1509U
- #define FB_MC_GroupReadActualPosition 1501U
- #define FB_MC_GroupReadError 1504U
- #define FB_MC_GroupReadStatus 1502U
- #define FB_MC_GroupReset 1505U
- #define FB_MC_GroupSetOverride 1514U
- #define FB_MC_GroupStop 1508U
  #define FB_MC_Halt 30U
  #define FB_MC_Home 31U
  #define FB_MC_LimitLoad 133U
@@ -267,6 +255,12 @@
  #define ncCAMPRPOL_ACOPOS 27U
  #define ncCAN_IF 0U
  #define ncCLOSED 1U
+ #define ncCMD_ERROR 281U
+ #define ncCMD_ERROR_ONLY 1U
+ #define ncCMD_ERROR_STOP 2U
+ #define ncCMD_ERROR_STOP_CTRL_OFF 3U
+ #define ncCMD_ERROR_V_STOP_CTRL_OFF 4U
+ #define ncCMD_WARNING_ONLY 0U
  #define ncCNC 0U
  #define ncCNC_C_AX 199U
  #define ncCNC_PLC 212U
@@ -729,6 +723,8 @@
  #define ncTRIGGPOS 112U
  #define ncTRQ_LIMIT 30U
  #define ncTRUE 1U
+ #define ncTUNE_STANDSTILL 0U
+ #define ncTUNE_V_CONSTANT 1U
  #define ncU_LIMIT 40U
  #define ncU_SET 13U
  #define ncUF 7U
@@ -791,6 +787,7 @@
  _IEC_CONST unsigned short FB_MC_BR_CamTransition = 94U;
  _IEC_CONST unsigned short FB_MC_BR_CheckAutCompensation = 103U;
  _IEC_CONST unsigned short FB_MC_BR_CheckEndlessPosition = 130U;
+ _IEC_CONST unsigned short FB_MC_BR_CommandError = 140U;
  _IEC_CONST unsigned short FB_MC_BR_ConfigPowerStageCheck = 137U;
  _IEC_CONST unsigned short FB_MC_BR_CreateCamProfileObj = 74U;
  _IEC_CONST unsigned short FB_MC_BR_CrossCutterControl = 114U;
@@ -811,9 +808,6 @@
  _IEC_CONST unsigned short FB_MC_BR_GetHardwareInfo = 109U;
  _IEC_CONST unsigned short FB_MC_BR_GetParIDInfo = 107U;
  _IEC_CONST unsigned short FB_MC_BR_GetParIDTransferInfo = 121U;
- _IEC_CONST unsigned short FB_MC_BR_GroupAxisJog = 1513U;
- _IEC_CONST unsigned short FB_MC_BR_GroupHome = 1507U;
- _IEC_CONST unsigned short FB_MC_BR_GroupPower = 1506U;
  _IEC_CONST unsigned short FB_MC_BR_HomeAcpEncoder = 68U;
  _IEC_CONST unsigned short FB_MC_BR_InitAutData = 76U;
  _IEC_CONST unsigned short FB_MC_BR_InitAutEvent = 8U;
@@ -841,14 +835,13 @@
  _IEC_CONST unsigned short FB_MC_BR_LoadAxisPar = 56U;
  _IEC_CONST unsigned short FB_MC_BR_MoveAbsoluteTriggStop = 18U;
  _IEC_CONST unsigned short FB_MC_BR_MoveAdditiveTriggStop = 19U;
- _IEC_CONST unsigned short FB_MC_BR_MoveBlock = 1512U;
  _IEC_CONST unsigned short FB_MC_BR_MoveCyclicPosition = 84U;
  _IEC_CONST unsigned short FB_MC_BR_MoveCyclicPositionExt = 124U;
  _IEC_CONST unsigned short FB_MC_BR_MoveCyclicVelocity = 92U;
  _IEC_CONST unsigned short FB_MC_BR_MoveCyclicVelocityExt = 125U;
- _IEC_CONST unsigned short FB_MC_BR_MoveProgram = 1511U;
  _IEC_CONST unsigned short FB_MC_BR_MoveVelocityTriggStop = 20U;
  _IEC_CONST unsigned short FB_MC_BR_NetTrace = 78U;
+ _IEC_CONST unsigned short FB_MC_BR_NetworkInit = 139U;
  _IEC_CONST unsigned short FB_MC_BR_Offset = 58U;
  _IEC_CONST unsigned short FB_MC_BR_OffsetVelocity = 127U;
  _IEC_CONST unsigned short FB_MC_BR_OffsetZone = 128U;
@@ -856,7 +849,6 @@
  _IEC_CONST unsigned short FB_MC_BR_ParTraceConfig = 102U;
  _IEC_CONST unsigned short FB_MC_BR_Phasing = 59U;
  _IEC_CONST unsigned short FB_MC_BR_PowerMeter = 89U;
- _IEC_CONST unsigned short FB_MC_BR_ProgramInfo = 1503U;
  _IEC_CONST unsigned short FB_MC_BR_ReadAutPosition = 75U;
  _IEC_CONST unsigned short FB_MC_BR_ReadAxisError = 105U;
  _IEC_CONST unsigned short FB_MC_BR_ReadCyclicPosition = 83U;
@@ -893,14 +885,6 @@
  _IEC_CONST unsigned short FB_MC_GearIn = 27U;
  _IEC_CONST unsigned short FB_MC_GearInPos = 28U;
  _IEC_CONST unsigned short FB_MC_GearOut = 29U;
- _IEC_CONST unsigned short FB_MC_GroupContinue = 1510U;
- _IEC_CONST unsigned short FB_MC_GroupInterrupt = 1509U;
- _IEC_CONST unsigned short FB_MC_GroupReadActualPosition = 1501U;
- _IEC_CONST unsigned short FB_MC_GroupReadError = 1504U;
- _IEC_CONST unsigned short FB_MC_GroupReadStatus = 1502U;
- _IEC_CONST unsigned short FB_MC_GroupReset = 1505U;
- _IEC_CONST unsigned short FB_MC_GroupSetOverride = 1514U;
- _IEC_CONST unsigned short FB_MC_GroupStop = 1508U;
  _IEC_CONST unsigned short FB_MC_Halt = 30U;
  _IEC_CONST unsigned short FB_MC_Home = 31U;
  _IEC_CONST unsigned short FB_MC_LimitLoad = 133U;
@@ -1017,6 +1001,12 @@
  _IEC_CONST unsigned char ncCAMPRPOL_ACOPOS = 27U;
  _IEC_CONST unsigned short ncCAN_IF = 0U;
  _IEC_CONST unsigned char ncCLOSED = 1U;
+ _IEC_CONST unsigned short ncCMD_ERROR = 281U;
+ _IEC_CONST unsigned short ncCMD_ERROR_ONLY = 1U;
+ _IEC_CONST unsigned short ncCMD_ERROR_STOP = 2U;
+ _IEC_CONST unsigned short ncCMD_ERROR_STOP_CTRL_OFF = 3U;
+ _IEC_CONST unsigned short ncCMD_ERROR_V_STOP_CTRL_OFF = 4U;
+ _IEC_CONST unsigned short ncCMD_WARNING_ONLY = 0U;
  _IEC_CONST unsigned char ncCNC = 0U;
  _IEC_CONST unsigned short ncCNC_C_AX = 199U;
  _IEC_CONST unsigned short ncCNC_PLC = 212U;
@@ -1479,6 +1469,8 @@
  _IEC_CONST unsigned short ncTRIGGPOS = 112U;
  _IEC_CONST unsigned char ncTRQ_LIMIT = 30U;
  _IEC_CONST unsigned char ncTRUE = 1U;
+ _IEC_CONST unsigned char ncTUNE_STANDSTILL = 0U;
+ _IEC_CONST unsigned char ncTUNE_V_CONSTANT = 1U;
  _IEC_CONST unsigned char ncU_LIMIT = 40U;
  _IEC_CONST unsigned char ncU_SET = 13U;
  _IEC_CONST unsigned char ncUF = 7U;

@@ -1111,7 +1111,7 @@
  1113: Autotuning: Faktor zur Erkennung einer Resonanz
  1114: Autotuning: Untere Frequenz zur Schätzung des Massenträgheitsmoment des Antriebs
  1115: Autotuning: Obere Frequenz zur Schätzung des Massenträgheitsmoment des Antriebs
- 1116: RESERVED1116
+ 1116: Autotuning: Verzögerungszeit bei transienten Vorgängen
  1117: RESERVED1117
  1118: RESERVED1118
  1119: RESERVED1119
@@ -1253,13 +1253,11 @@
  1255: FWCTRL Test R4 03
  1256: FWCTRL Test Faktor 1
  1257: FWCTRL Test Faktor 2
- 1258: RESERVED1258
- 1259: RESERVED1259
+ 1258: MAINSSIM_UCTRL_KP
+ 1259: MAINSSIM_UCTRL_TN
  1260: Motor-Haltebremse: Typ
  1261: Motor-Haltebremse: Widerstand
  1262: Motor-Haltebremse: Induktivität
- 1263: Motor-Haltebremse: Lüftstrom
- 1264: Motor-Haltebremse: Haltestrom
  1265: Motor-Haltebremse: Strom ADC-Wandlerwert
  1266: Motor-Haltebremse: Prüfdauer
  1267: Haltemoment zum Zeitpunkt wenn die Bremse einfällt
@@ -1267,10 +1265,10 @@
  1269: RESERVED1269
  1270: CTRL Momentbegrenzer: Betrag positiver Stromgrenzwert
  1271: CTRL Momentbegrenzer: Betrag negativer Stromgrenzwert
- 1272: RESERVED1272
- 1273: RESERVED1273
- 1274: RESERVED1274
- 1275: RESERVED1275
+ 1272: MAINSSIM_MODE
+ 1273: MAINSSIM_VOLTAGE
+ 1274: MAINSSIM_FREQUENCY
+ 1275: MAINSSIM_STATE
  1276: RESERVED1276
  1277: RESERVED1277
  1278: CTRL Zwischenkreis: Spannungsoffset
@@ -1278,7 +1276,7 @@
  1280: Parameteridentifiaktion: Ablauf
  1281: Parameter Identifikation: Zeitkonstante
  1282: Parameter Identifiaktion: Induktivität in D-Richtung
- 1283: RESERVED1283
+ 1283: Parameter Identifiaktion: Auslösezeit bei thermischer Überlast
  1284: RESERVED1284
  1285: RESERVED1285
  1286: RESERVED1286
@@ -1426,12 +1424,12 @@
  1429: Test: Parameter0 I4
  1430: Test: Parameter1 I4
  1431: Test: Parameter2 I4
- 1432: RESERVED1432
- 1433: RESERVED1433
- 1434: RESERVED1434
- 1435: RESERVED1435
- 1436: RESERVED1436
- 1437: RESERVED1437
+ 1432: MAINSSIM_OBS_CMD
+ 1433: MAINSSIM_OBS_MODE
+ 1434: MAINSSIM_OBS_STATE
+ 1435: MAINSSIM_OBS_PAR_IDX
+ 1436: MAINSSIM_OBS_PAR_VALUE
+ 1437: MAINSSIM_OBS_OUTPUT
  1438: RESERVED1438
  1439: RESERVED1439
  1440: Optionales IO: Steuerkommando
@@ -1465,6 +1463,12 @@
  1468: Optionales IO: Parameter-ID Ausgang8
  1469: Optionales IO: Parameter-ID Ausgang9
  1470: Optionales IO: Parameter-ID Ausgang10
+ 1471: MAINSSIM_FILTER_TYPE
+ 1472: MAINSSIM_FILTER_A0
+ 1473: MAINSSIM_FILTER_A1
+ 1474: MAINSSIM_FILTER_B0
+ 1475: MAINSSIM_FILTER_B1
+ 1476: MAINSSIM_FILTER_B2
  1480: CTRL Momentbegrenzer: Modus
  1481: CTRL Momentbegrenzer: Status
  1482: CTRL Momentbegrenzer: Ausgangsstrom
@@ -1485,7 +1489,22 @@
  1497: Simulationsmodus: Torsion der Kopplung
  1498: Simulationsmodus: Drehzahl von Masse 2
  1499: Simulationsmodus: Status
- 1500: Motor-Haltebremse: Überstromgrenzwert
+ 1501: Meldungen: Kommando Fehler-Reaktion ausführen
+ 1502: VAX Meldungen: Kommando Fehler-Reaktion ausführen
+ 1503: Motor: Temperaturmodell: Modus
+ 1504: Motor-Haltebremse: Lüftspannung
+ 1505: Motor-Haltebremse: Haltespannung
+ 1506: Motor-Haltebremse: Überspannungsgrenzwert
+ 1507: Basis-Bewegungen: Sollwertgenerator Modus
+ 1508: VAX Basis-Bewegungen: Sollwertgenerator Modus
+ 1510: RESERVED1510
+ 1511: RESERVED1511
+ 1512: RESERVED1512
+ 1513: RESERVED1513
+ 1514: RESERVED1514
+ 1515: RESERVED1515
+ 1516: RESERVED1516
+ 1517: RESERVED1517
  3072: FB LOGIC: Modus
  3080: FB LOGIC: Parameter-ID Eingang1
  3088: FB LOGIC: Parameter-ID Eingang2

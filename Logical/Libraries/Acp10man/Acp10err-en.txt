@@ -73,6 +73,7 @@
  1027: Function is not available for this hardware
  1028: Maximum number of network couplings exceeded
  1029: Parameter cannot be written: Stop ramp active
+ 1030: Function is available with ACP10SIM only in simulation mode 'Complete'
  2001: Upload of trace data not allowed: Recording active
  2003: Trace start not allowed: Recording active
  2006: Initialization of trace parameters not allowed: Recording active
@@ -87,6 +88,8 @@
        Info('PARID'): Parameter ID
  4014: Two encoder control: Stop limit of positions difference exceeded
        Info(REAL): Current positions difference
+ 4015: Error triggered by command
+       Info(UINT): Command parameter
  5001: Target position exceeds positive SW limit
  5002: Target position exceeds negative SW limit
  5003: Positive SW limit reached
@@ -166,7 +169,7 @@
  6016: CAN controller: CAN bus disturbance (transmit error counter greater 96)
        Info(USINT): Slot
  6017: Software: Watchdog active
- 6018: Hardware: 15V power supply fail
+ 6018: Hardware: Internal power supply failure
  6019: ACOPOS: Overcurrent
  6020: Hardware: 24V power supply fail
  6021: Low level at controller enable input
@@ -194,7 +197,7 @@
  6043: PHASING_MODE is not valid
        Info(UINT): PHASING_MODE
  6044: Phasing: Rotational direction or position not valid
-       Info(REAL): Calculated number of polepairs
+       Info(INT): Calculated number of polepairs
  6045: Power stage: Connection X5: No current flow
        Info(USINT): Phase
  6046: Phasing: No rotor movement
@@ -230,6 +233,10 @@
  6068: Parameter cannot be written while a brake test is active
        Info(UINT): Error code
  6069: Holding brake: Overcurrent
+ 6070: Parameter cannot be written: Phasing procedure active
+ 6071: Phasing: Number of polepairs MOTOR_POLEPAIRS not valid
+       Info(INT): Calculated number of polepairs
+ 6072: Holding brake: High voltage
  7012: Encoder: Hiperface error bit
        Info(USINT): Slot
  7013: Encoder: Status message
@@ -433,6 +440,7 @@
  9089: Motor encoder temperature sensor: Overtemperature
        Info(REAL): Temperature
  9090: Motor encoder temperature sensor: Temperature value not valid
+ 9091: Power stage: Main relais: Overtemperature
  9300: Current controller: Overcurrent
        Info(REAL): Limit
 10000: Identification parameter(s) missing
@@ -484,9 +492,9 @@
        Info(UINT): PLCopen_FB
 29226: Drive error. Call MC_(BR_)ReadAxisError for details
        Info(UINT): PLCopen_FB
-29227: No further master position can be sent on the network from this drive
+29227: This drive cannot send any more master positions on the network
        Info(UINT): PLCopen_FB
-29228: No further master position can be read from the network by this drive
+29228: This drive cannot read any more master positions from the network
        Info(UINT): PLCopen_FB
 29229: Synchronized movement not possible
        Info(UINT): PLCopen_FB
@@ -500,7 +508,7 @@
        Info(UINT): PLCopen_FB
 29234: Internal error: Number of requested SPT resources is not available
        Info(UINT): PLCopen_FB
-29235: Functionality is not available for the current axis type
+29235: Functionality not available for the current axis type
        Info(UINT): PLCopen_FB
 29237: Error in TriggerInput parameters
        Info(UINT): PLCopen_FB
@@ -612,13 +620,13 @@
        Info(UINT): PLCopen_FB
 29299: Error occurred during the setup operation
        Info(UINT): PLCopen_FB
-29300: Invalid number of polynomials in the cam
+29300: Invalid number of polynomials in cam profile
        Info(UINT): PLCopen_FB
 29301: Unable to calculate cam profile value
        Info(UINT): PLCopen_FB
 29302: One instance of the function block is already active
        Info(UINT): PLCopen_FB
-29303: Specified IntervalTime too small
+29303: The specified IntervalTime is too small
        Info(UINT): PLCopen_FB
 29305: ParID cannot be read with the specified mode
        Info(UINT): PLCopen_FB
@@ -1053,13 +1061,16 @@
 32284: Ext. coupling data: With this AR/NC version only for TC1 with synchr. output
        Info(USINT): Number of NC Manager task class
 32285: INIT broadcast data point: Incompatible cycle times (POWERLINK, NC manager)
-       Info(USINT): Extended coupling data für ACP10_MC_BROADCAST (0/1: No/Yes)
+       Info(USINT): Extended coupling data for ACP10_MC_BROADCAST (0/1: No/Yes)
 32286: Network coupling: Incompatible cycle times (network interfaces, NC task class)
-       Info(USINT): Extended coupling data für ACP10_MC_BROADCAST (0/1: No/Yes)
+       Info(USINT): Extended coupling data for ACP10_MC_BROADCAST (0/1: No/Yes)
 32287: Extended coupling data not possible (OutTime difference too large)
        Info(UDINT): Difference between maxOutTime and minOutTime
 32288: Extended coupling data not possible (task class tolerance is not zero)
        Info(USINT): Number of NC Manager task class
+32289: Network coupling: SDC/SIM master and slave in different task classes
+32290: INIT broadcast data point: Call of NC action only allowed in SDC task class
+       Info(USINT): Task class number of the corresponding SDC interface
 32302: Start setup not possible: A setup operation is already active
 32322: Data block upload/download: The data object name is zero
 32323: Data block upload/download: The data block parameter ID is invalid
@@ -1140,6 +1151,9 @@
        Info(UINT): Status of RtkCreateCriticalSection()
 32513: The Critical Section for global variables already exists
 32514: Error creating Critical Section for global variables
+       Info(UINT): Status of RtkCreateCriticalSection()
+32515: The Critical Section for network coupling already exists
+32516: Error creating Critical Section for network coupling
        Info(UINT): Status of RtkCreateCriticalSection()
 32738: Error writing into SDM Motion FIFO
 32739: Error creating SDM Motion FIFO (see Logger)
@@ -1450,6 +1464,8 @@
 36002: Total time for the position loop controller limited to prediction time
 36003: Braking distance exceeds positive SW limit - Deceleration parameter increased
 36004: Braking distance exceeds negative SW limit - Deceleration parameter increased
+36005: Warning triggered by command
+       Info(UINT): Command parameter
 37101: Calculated compensation distance on slave axis limited to maximum
 37102: Calculated compensation distance on slave axis limited to minimum
 37103: Slave trigger outside of window
@@ -1565,6 +1581,8 @@
        Info(USINT): Slot
 39045: EnDat encoder: Operating status error sources: M battery
        Info(USINT): Slot
+39047: Encoder: Position value not synchronous with absolute value
+       Info(USINT): Slot
 39301: Digital IO: 24V power supply fail
        Info(UINT): Slot
 39302: Digital IO 1-4: Diagnose bit active (current, 24V supply)
@@ -1607,6 +1625,7 @@
        Info(REAL): Temperature
 41089: Motor encoder temperature sensor: Overtemperature
        Info(REAL): Temperature
+41090: Power stage: Main relais: Overtemperature
 64002: Delay before SW Reset (network with ascending node numbers ?)
 64003: Delay before NC System Start (network with ascending node numbers ?)
 64004: The following boot error could be entered here with a delay
@@ -1623,6 +1642,7 @@
 64010: NC software test version (validity period in Logger)
 64011: Timeout for completion of encoder initialization
 64012: acp10sys does not contain an operating system for this ACOPOS hardware type
+64013: The basis initialization was aborted due to an error
 64500: Positive speed limiter active
 64501: Negative speed limiter active
 64502: Positive direction acceleration torque limiter active
