@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version=4.0.17.85 SP?>
+<?AutomationStudio Version=4.0.19.69 SP?>
 <Package xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="Library" Language="Binary" Description="This library contains function interfaces for IEC1131-3 operator functions. For the most part, these are mathematical and logical functions.">Operator</Object>
@@ -14,5 +14,6 @@
     <Object Type="Library" Language="Binary" Description="Global NC functions">NcGlobal</Object>
     <Object Type="Library" Language="Binary" Description="PLCopen Motion Control function blocks">Acp10_MC</Object>
     <Object Type="Library" Language="Binary" Description="Smart Device Controller">Acp10sdc</Object>
+    <Object Type="Library" Language="Binary" Description="ACOPOS Simulation">Acp10sim</Object>
   </Objects>
 </Package>
