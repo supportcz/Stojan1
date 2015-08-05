@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version=4.0.19.69 SP?>
+<?AutomationStudio Version=4.0.23.58 SP?>
 <Package xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="File" Description="Global data types">Global.typ</Object>
@@ -12,5 +12,6 @@
     <Object Type="Package" Description="gAxis04obj">gAxis04obj</Object>
     <Object Type="Program" Language="IEC">ncsdcctrl</Object>
     <Object Type="Package" Description="Package">Samples</Object>
+    <Object Type="Program" Language="ANSIC" Description="cteni dat z X20AP karty">RdBlock_0</Object>
   </Objects>
 </Package>
