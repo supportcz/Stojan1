@@ -25,7 +25,6 @@
    25: Power limiter: Mode
    26: Minimum valid ACOPOS-operationsystem version
    27: Maximum valid ACOPOS-operationsystem version
-   28: Command: Enable for emergency stop due to overcurrent
    29: Drive synchronisation: Manipulated variable limit
    30: Motor: Type
    31: Motor: Software compatibility
@@ -56,7 +55,7 @@
    56: Motor: Stall current
    57: Motor: Rated current
    58: Motor: Peak current
-   59: Motor: Line cross section
+   59: Motor: Phase cross section
    60: Motor: Stator resistance
    61: Motor: Stator inductance
    62: Motor: Moment of inertia
@@ -142,11 +141,11 @@
   142: Trace: Sampling time
   143: Trace: Delay time relative to trigger event
   144: Trace: Maximum length of data
-  145: Trace data: Number of sampled data records
-  146: Trace data: Corrected sampling time
-  147: Trace data: Corrected delay time
-  148: Trace data: Offset of the trigger event
-  149: Trace data: Time of the first data record
+  145: CTRL Controller: Mode of controller cascade cycle times
+  146: CTRL Position controller: Parameter ID for cyclic set position
+  147: CTRL Position controller: Start movement with cyclic position set values
+  148: RESERVED148
+  149: RESERVED149
   150: Limit values: Waiting time before message 'target position reached'
   151: Homing: Reference pulse distance
   152: Homing: Reference position
@@ -303,14 +302,13 @@
   303: Encoder1: ADC1 value
   304: Error state of vector controller
   305: CTRL Chopper: Manipulated variable
-  306: Register contents of VCO measurement
   307: Maximum motor rotation speed
   308: Maximum stator leakance current component (limitation: IS_MAX)
   309: SafeMC: Actual position
   310: Function block: Constant one
   311: ENABLE: Configuration
   312: CTRL Flux:  Magnetizing current limiter: Upper limit
-  313: Lower flux limitation
+  313: CTRL Speed controller: Monitoring: Speed limit
   314: CTRL Chopper: Minimum pwm duty cycle
   315: Power stage: Junction temperature model: Power loss
   316: Command: Switch on/off speed controller
@@ -688,7 +686,6 @@
   688: CTRL Speed controller: Speed limit negative direction
   689: CTRL Speed controller: Deceleration in positive direction
   690: CTRL Speed controller: Deceleration in negative direction
-  691: CTRL Position controller: Proportional amplification of speed prediction
   692: CTRL Position controller: Manipulated variable of integrator
   693: Encoder3: Actual position per revolution
   694: Encoder3: Load scaling: Units per load revolution
@@ -801,13 +798,13 @@
   801: Position observer 2: Parameter A0
   802: Position observer 2: Parameter A1
   803: Position observer 2: Parameter A2
-  804: Speed Observer: Configuration setting
+  804: RESERVED804
   805: Encoderless control: Transition level
   806: Encoderless control: Transition zone
-  807: Speed Observer: Estimated actual position
-  808: Speed Observer: Estimated stator current in cartesian stator coordinates direction A
-  809: Speed Observer: Estimated stator current in cartesian stator coordinates direction B
-  810: Position observer 1: Estimated electrical angular velocity
+  807: RESERVED807
+  808: RESERVED808
+  809: RESERVED809
+  810: RESERVED810
   811: Signal generator: Mode
   812: Signal generator: Signal amplitude
   813: Signal generator: Signal offset
@@ -872,7 +869,6 @@
   872: Motor: Rotational direction of current
   873: CTRL DC bus: Integral action time
   874: Motor: Phasing: Time
-  875: Power stage: Junction temperature model: Structure-index
   876: Bleeder: Power loss
   877: ISQ-Ripple compensation: Mode
   878: Parameter identification: Speed
@@ -964,10 +960,10 @@
   964: Parameter identification: Identification step
   965: Parameter identification: Information number
   966: Motor: Actual mutual inductance
-  967: Magnetization curve: Parameter 1
-  968: Magnetization curve: Parameter 2
-  969: Magnetization curve: Parameter 3
-  970: Magnetization curve: Parameter 4
+  967: RESERVED967
+  968: RESERVED968
+  969: RESERVED969
+  970: RESERVED970
   971: Parameter identification: Unsaturated mutual inductance
   972: Parameter identification: Unsaturated magnetizing current
   973: Parameter identification: Switch frequency
@@ -1112,8 +1108,8 @@
  1114: Autotuning: Lower frequency for estimation of drive inertia
  1115: Autotuning: Upper frequency for estimation of drive inertia
  1116: Autotuning: Delay time during transients
- 1117: RESERVED1117
- 1118: RESERVED1118
+ 1117: Signal generator: Start frequency of chirp signal
+ 1118: Signal generator: Stop frequency of chirp signal
  1119: RESERVED1119
  1120: RESERVED1120
  1121: RESERVED1121
@@ -1155,8 +1151,8 @@
  1157: Temperature sensor: Resistance
  1158: Temperature sensor: Parameter-ID Resistance
  1159: CTRL Speed controller: Speed error
- 1160: SafeMC: Trace Object
- 1161: SafeMC: Trace Command
+ 1160: SafeMC: ACP Communication Transmit Data
+ 1161: SafeMC: ACP Communication Transmit Command
  1162: Power stage: Number of power stages
  1163: Limit values: Speed error monitoring: Mode
  1164: Charging resistor: Data pointer
@@ -1247,7 +1243,7 @@
  1249: RESERVED1249
  1250: CTRL Flux weakening: Voltage limit reserve
  1251: CTRL Flux weakening: PI controller P-gain
- 1252: RESERVED1252
+ 1252: MAINSSIM_UCTRL_TD
  1253: FWCTRL Test R4 01
  1254: FWCTRL Test R4 02
  1255: FWCTRL Test R4 03
@@ -1258,11 +1254,10 @@
  1260: Motor holding brake: Type
  1261: Motor holding brake: Resistance
  1262: Motor holding brake: Inductance
- 1265: Motor holding brake: Current ADC value
- 1266: Motor holding brake: Test duration
- 1267: Holding torque measured at the time the brake engages
- 1268: Brake test: Test torque
- 1269: RESERVED1269
+ 1266: Motor holding brake test: Test duration
+ 1267: Motor holding brake test: Torque measured at the time the brake engages
+ 1268: Motor holding brake test: Test torque
+ 1269: Motor holding brake test: Torque slew rate
  1270: CTRL Torque limiter: Absolute value of positive current limit
  1271: CTRL Torque limiter: Absolute value of negative current limit
  1272: MAINSSIM_MODE
@@ -1301,18 +1296,17 @@
  1305: Encoder: ADC1: Gain
  1306: Parameter identification: Move distance
  1307: CTRL vector: Feed forward time
- 1308: RESERVED1308
- 1309: RESERVED1309
- 1310: RESERVED1310
- 1311: RESERVED1311
- 1312: RESERVED1312
- 1313: RESERVED1313
- 1314: RESERVED1314
- 1315: RESERVED1315
- 1316: RESERVED1316
- 1317: RESERVED1317
+ 1308: Virtual Encoder: Range of encoder position low word
+ 1309: Virtual Encoder: Range of encoder position high word
+ 1310: Virtual Encoder: Command start homing procedure
+ 1311: Virtual Encoder: Maximum cycle time
+ 1312: Virtual Encoder: Parameter ID of input value position 1
+ 1313: Virtual Encoder: Parameter ID of input value position 1
+ 1314: Virtual Encoder: Parameter ID of input value time
+ 1315: Virtual Encoder: Time constant for actual position filter
+ 1316: Virtual Encoder: Extrapolation time for actual position filter
+ 1317: Encoder1: Commutation offset
  1318: Encoderless control: Parameter-ID Transition
- 1319: RESERVED1319
  1320: Virtual Encoder: Mode
  1321: Virtual Encoder: Actual position per revolution
  1322: Virtual Encoder: Actual position
@@ -1325,7 +1319,6 @@
  1329: Virtual Encoder: Status
  1330: Virtual Encoder: Encoder scaling: increments per motor revolution
  1331: Virtual Encoder: Lag error
- 1332: RESERVED1332
  1333: Encoderless control: Stop monitoring: Triggering time
  1334: Encoderless control: Transition
  1335: Encoderless control: Transition time  
@@ -1372,7 +1365,7 @@
  1376: Encoder2: Diagnosis 4
  1377: Encoder1: Diagnosis 4
  1378: Encoder3: Diagnosis 4
- 1379: RESERVED1379
+ 1379: Virtual Encoder: Filtered actual position
  1380: CTRL Torque: Command
  1381: CTRL Torque: Parameter ID of set value torque
  1382: CTRL Torque: Set value torque 
@@ -1397,12 +1390,12 @@
  1401: Encoder1: Absolute resolution of an encoder revolution
  1402: Encoder2: Absolute resolution of an encoder revolution
  1403: Encoder3: Absolute resolution of an encoder revolution
- 1404: Encoder1: Signal amplitude upper limmit
- 1405: Encoder1: Signal amplitude lower limmit
- 1406: Encoder2: Signal amplitude upper limmit
- 1407: Encoder2: Signal amplitude lower limmit
- 1408: Encoder3: Signal amplitude upper limmit
- 1409: Encoder3: Signal amplitude lower limmit
+ 1404: Encoder1: Signal amplitude upper limit
+ 1405: Encoder1: Signal amplitude lower limit
+ 1406: Encoder2: Signal amplitude upper limit
+ 1407: Encoder2: Signal amplitude lower limit
+ 1408: Encoder3: Signal amplitude upper limit
+ 1409: Encoder3: Signal amplitude lower limit
  1410: RESERVED1410
  1411: RESERVED1411
  1412: RESERVED1412
@@ -1412,6 +1405,7 @@
  1416: Encoder1: Homing offset
  1417: Basis movements: Absolute target position
  1418: VAX Basis movements: Absolute target position
+ 1419: Axis crosslink: Encoder1: Actual position
  1420: FPGA Trace: Command
  1421: FPGA Trace: Channel selection
  1422: FPGA Trace: Clock selection
@@ -1430,8 +1424,8 @@
  1435: MAINSSIM_OBS_PAR_IDX
  1436: MAINSSIM_OBS_PAR_VALUE
  1437: MAINSSIM_OBS_OUTPUT
- 1438: RESERVED1438
- 1439: RESERVED1439
+ 1438: System administration: ACOPOS identification data
+ 1439: Diagnosis: Recorder Data
  1440: Optional IO: Control command
  1441: Optional IO: Input1
  1442: Optional IO: Input2
@@ -1469,6 +1463,9 @@
  1474: MAINSSIM_FILTER_B0
  1475: MAINSSIM_FILTER_B1
  1476: MAINSSIM_FILTER_B2
+ 1477: SafeMC: ACP Communication Transmit Command (confirmed)
+ 1478: SafeMC: ACP Communication Status
+ 1479: SafeMC: ACP Communication Receive Data
  1480: CTRL Torque limiter: Mode
  1481: CTRL Torque limiter: Status
  1482: CTRL Torque limiter: Output current
@@ -1497,14 +1494,38 @@
  1506: Motor holding brake: Overvoltage limit
  1507: Basis movements: Set value generator mode
  1508: VAX Basis movements: Set value generator mode
- 1510: RESERVED1510
- 1511: RESERVED1511
- 1512: RESERVED1512
- 1513: RESERVED1513
- 1514: RESERVED1514
- 1515: RESERVED1515
- 1516: RESERVED1516
- 1517: RESERVED1517
+ 1509: Axis crosslink: Encoder2: Actual position
+ 1510: Pitch error-backlash compensation: Mode
+ 1511: Pitch error-backlash compensation: Compensation time
+ 1512: Pitch error-backlash compensation: Inertia in backlash
+ 1513: Pitch error-backlash compensation: Noise limit
+ 1514: Pitch error-backlash compensation: Parameter ID for positive arrester
+ 1515: Pitch error-backlash compensation: Parameter ID for negative arrester
+ 1516: Pitch error-backlash compensation: Load position
+ 1517: Pitch error-backlash compensation: Compensation output
+ 1518: CTRL DC bus: Controller: Lower enable threshold
+ 1519: CTRL DC bus: Controller: Upper enable threshold
+ 1520: Virtual Encoder: Actual delay time
+ 1521: Encoder1: Maximum speed vor serial position
+ 1522: Simulation mode: Positive backlash parameter
+ 1523: Simulation mode: Negative backlash parameter
+ 1528: Encoder2: Diagnosis 2
+ 1529: Encoder2: Diagnosis 3
+ 1530: Encoder3: Diagnosis 2
+ 1531: Encoder3: Diagnosis 3
+ 1532: Encoder2: Maximum speed vor serial position
+ 1533: Encoder3: Maximum speed vor serial position
+ 1534: Encoder1: 
+ 1536: Encoder1: external temperature sensor
+ 1537: Encoder1: Revolution counter
+ 1538: Power stage: Temperature sensor 5: Temperature
+ 1539: Power stage: Rectifier: Temperature
+ 1540: Power stage: Main relay: Temperature
+ 1541: Pitch error-backlash compensation: Maximal speed of flange change
+ 1542: Pitch error-backlash compensation: Status
+ 1544: DC bus: Capacitor: Temperature
+ 1545: DC bus: Continuous total power: Load
+ 1546: DC bus: Peak total power: Load
  3072: FB LOGIC: Mode
  3080: FB LOGIC: Parameter ID of input1
  3088: FB LOGIC: Parameter ID of input2

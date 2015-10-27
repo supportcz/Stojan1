@@ -25,7 +25,6 @@
    25: Leistungsbegrenzer: Modus
    26: Minimal erforderliche ACOPOS-Betriebssystem Version
    27: Maximal zulässige ACOPOS-Betriebssystem Version
-   28: Kommando: Freigabe für Notstop bei Überstrom
    29: Antriebs-Synchronisation: Stellgrößenbeschränkung
    30: Motor: Typ
    31: Motor: Softwarekompatibilität
@@ -142,11 +141,11 @@
   142: Trace: Abtastzeit
   143: Trace: Verzögerungszeit relativ zum Trigger-Ereignis
   144: Trace: Maximallänge der Daten
-  145: Trace-Daten: Anzahl der aufgezeichneten Datensätze
-  146: Trace-Daten: Korrigierte Abtastzeit
-  147: Trace-Daten: Korrigierte Verzögerungszeit
-  148: Trace-Daten: Offset des Trigger-Ereignisses
-  149: Trace-Daten: Zeitpunkt für ersten Datensatz
+  145: CTRL Regler: Modus der Reglerkaskaden-Zykluszeiten
+  146: CTRL Lageregler: Parameter-ID für zyklische Sollposition
+  147: CTRL Lageregler: Bewegung mit zyklischer Positionsvorgabe starten
+  148: RESERVED148
+  149: RESERVED149
   150: Grenzwerte: Wartezeit vor Meldung 'Zielposition erreicht'
   151: Referenzieren: Referenzimpuls-Distanz
   152: Referenzieren: Referenzposition
@@ -303,14 +302,13 @@
   303: Geber1: ADC1 Wert
   304: Fehlerstatus des Vektorreglers
   305: CTRL Chopper: Stellgröße
-  306: Registerinhalt von VCO-Messung
   307: Maximale Motordrehzahl
   308: Maximale Statorquerstromkomponente (Begrenzung: IS_MAX)
   309: SafeMC: Istposition
   310: Funktions-Block: Konstante Eins
   311: ENABLE: Konfiguration
   312: CTRL Fluss: Magnetisierungsstrom-Begrenzer: Obergrenze
-  313: Untere Flussbegenzung
+  313: CTRL Drehzahl: Überwachung: Grenzdrehzahl
   314: CTRL Chopper: Minimales PWM-Tastverhältnis
   315: Leistungsteil: Sperrschicht-Temperaturmodell: Verlustleistung
   316: Kommando: Geschwindigkeitsregelung ein-/ausschalten
@@ -688,7 +686,6 @@
   688: CTRL Drehzahl: Geschwindigkeits-Grenzwert in negative Richtung
   689: CTRL Drehzahl: Verzögerung in positive Richtung
   690: CTRL Drehzahl: Verzögerung in negative Richtung
-  691: CTRL Lageregler: Proportionalverstärkung der Geschwindigkeitsvorrausschau
   692: CTRL Lageregler: Stellgröße des Integrators
   693: Geber3: Istposition pro Umdrehung
   694: Geber3: Last-Maßstab: Einheiten pro Lastumdrehung
@@ -801,13 +798,13 @@
   801: Positionsbeobachter 2: Parameter A0
   802: Positionsbeobachter 2: Parameter A1
   803: Positionsbeobachter 2: Parameter A2
-  804: Geschwindigkeitsbeobachter: Konfigurationseinstellung
+  804: RESERVED804
   805: Geberloser Betrieb: Überblendgrenze
   806: Geberloser Betrieb: Überblendbereich
-  807: Geschwindigkeitsbeobachter: Beobachtete Istposition
-  808: Geschwindigkeitsbeobachter: Beobachteter Statorstrom in kartesischen Statorkoordinaten Richtung A
-  809: Geschwindigkeitsbeobachter: Beobachteter Statorstrom in kartesischen Statorkoordinaten Richtung B
-  810: Positionsbeobachter 1: Beobachtete elektrische Winkelgeschwindigkeit 
+  807: RESERVED807
+  808: RESERVED808
+  809: RESERVED809
+  810: RESERVED810
   811: Signalgenerator: Modus
   812: Signalgenerator: Amplitude des Signales
   813: Signal generator: Offset des Signales
@@ -870,9 +867,8 @@
   870: CTRL Fluss: Modus
   871: CTRL Fluss: Magnetisierungsstrom-Begrenzer: Untergrenze
   872: Motor: Bestromungsdrehsinn
-  873: CTRL Zwischenkreis: Integrierzeitkonstante
+  873: CTRL Zwischenkreis: Integrator-Nachstellzeit
   874: Motor: Einphasen: Zeit
-  875: Leistungsteil: Sperrschicht-Temperaturmodell: Struktur-Index
   876: Bremswiderstand: Verlustleistung
   877: ISQ-Ripple Kompensation: Modus
   878: Parameter Identifikation: Geschwindigkeit
@@ -960,17 +956,17 @@
   960: Test R4 01
   961: Test R4 02
   962: CTRL Flussschwächung: Spannungsobergrenze  
-  963: Parameteridentifiaktion: Wert des Gütefunktional
-  964: Parameteridentifiaktion: Identifikationschritt
-  965: Parameteridentifiaktion: Infonummer
+  963: Parameteridentifikation: Wert des Gütefunktional
+  964: Parameteridentifikation: Identifikationschritt
+  965: Parameteridentifikation: Infonummer
   966: Magnetisierungskennlinie: Faktor für aktuelle Hauptinduktivität
-  967: Magnetisierungskennlinie: Parameter 1
-  968: Magnetisierungskennlinie: Parameter 2
-  969: Magnetisierungskennlinie: Parameter 3
-  970: Magnetisierungskennlinie: Parameter 4
-  971: Parameter Identifiaktion: ungesättigte Hauptinduktivität
-  972: Parameter Identifiaktion: ungesättigter Magnetisierungsstrom
-  973: Parameter Identifiaktion: Schaltfrequenz
+  967: RESERVED967
+  968: RESERVED968
+  969: RESERVED969
+  970: RESERVED970
+  971: Parameter Identifikation: ungesättigte Hauptinduktivität
+  972: Parameter Identifikation: ungesättigter Magnetisierungsstrom
+  973: Parameter Identifikation: Schaltfrequenz
   974: Parameter Identifikation: Motor: Strangquerschnitt
   975: Parameter Identifikation: Motor: Type
   976: Parameter Identifikation: Motor: Polpaarzahl
@@ -1112,8 +1108,8 @@
  1114: Autotuning: Untere Frequenz zur Schätzung des Massenträgheitsmoment des Antriebs
  1115: Autotuning: Obere Frequenz zur Schätzung des Massenträgheitsmoment des Antriebs
  1116: Autotuning: Verzögerungszeit bei transienten Vorgängen
- 1117: RESERVED1117
- 1118: RESERVED1118
+ 1117: Signalgenerator: Startfrequenz des Chirp-Signals
+ 1118: Signalgenerator: Stopfrequenz des Chirp-Signals
  1119: RESERVED1119
  1120: RESERVED1120
  1121: RESERVED1121
@@ -1155,8 +1151,8 @@
  1157: Temperatursensor: Widerstand
  1158: Temperatursensor: Parameter-ID Widerstand
  1159: CTRL Drehzahl: Geschwindigkeitsfehler
- 1160: SafeMC: Trace Objekt
- 1161: SafeMC: Trace Kommando
+ 1160: SafeMC: ACP Kommunikations Sendedaten
+ 1161: SafeMC: ACP Kommunikations Sendekommando
  1162: Leistungsteil: Anzahl der Endstufen
  1163: Grenzwerte: Geschwindigkeitsfehlerüberwachung: Modus
  1164: Ladewiderstand: Datenpointer
@@ -1247,7 +1243,7 @@
  1249: RESERVED1249
  1250: CTRL Flussschwächung: Spannungsgrenze Reserve
  1251: CTRL Flussschwächung: PI-Regler P-Verstärkung
- 1252: RESERVED1252
+ 1252: MAINSSIM_UCTRL_TD
  1253: FWCTRL Test R4 01
  1254: FWCTRL Test R4 02
  1255: FWCTRL Test R4 03
@@ -1258,11 +1254,10 @@
  1260: Motor-Haltebremse: Typ
  1261: Motor-Haltebremse: Widerstand
  1262: Motor-Haltebremse: Induktivität
- 1265: Motor-Haltebremse: Strom ADC-Wandlerwert
- 1266: Motor-Haltebremse: Prüfdauer
- 1267: Haltemoment zum Zeitpunkt wenn die Bremse einfällt
- 1268: Haltemomentprüfung: Prüfmoment
- 1269: RESERVED1269
+ 1266: Motorhaltebremstest: Prüfdauer
+ 1267: Motorhaltebremstest: Moment zum Zeitpunkt wenn die Bremse einfällt
+ 1268: Motorhaltebremstest: Prüfmoment
+ 1269: Motorhaltebremstest: Anstiegsrate des Prüfmoments
  1270: CTRL Momentbegrenzer: Betrag positiver Stromgrenzwert
  1271: CTRL Momentbegrenzer: Betrag negativer Stromgrenzwert
  1272: MAINSSIM_MODE
@@ -1273,10 +1268,10 @@
  1277: RESERVED1277
  1278: CTRL Zwischenkreis: Spannungsoffset
  1279: Leistungsteil: Summenstrom: Grenzwert
- 1280: Parameteridentifiaktion: Ablauf
+ 1280: Parameteridentifikation: Ablauf
  1281: Parameter Identifikation: Zeitkonstante
- 1282: Parameter Identifiaktion: Induktivität in D-Richtung
- 1283: Parameter Identifiaktion: Auslösezeit bei thermischer Überlast
+ 1282: Parameter Identifikation: Induktivität in D-Richtung
+ 1283: Parameter Identifikation: Auslösezeit bei thermischer Überlast
  1284: RESERVED1284
  1285: RESERVED1285
  1286: RESERVED1286
@@ -1301,18 +1296,17 @@
  1305: Geber: ADC1: Verstärkung
  1306: Parameter Identifikation: Verfahrdistanz
  1307: CTRL Vektor: Vorsteuerzeit
- 1308: RESERVED1308
- 1309: RESERVED1309
- 1310: RESERVED1310
- 1311: RESERVED1311
- 1312: RESERVED1312
- 1313: RESERVED1313
- 1314: RESERVED1314
- 1315: RESERVED1315
- 1316: RESERVED1316
- 1317: RESERVED1317
+ 1308: Virtueller Geber: Wertebereich der Geberposition low word
+ 1309: Virtueller Geber: Wertebereich der Geberposition high word
+ 1310: Virtueller Geber: Kommando Referenzieren starten
+ 1311: Virtueller Geber: Maximale Zykluszeit
+ 1312: Virtueller Geber: Parameter-ID des Eingangswertes Position 1
+ 1313: Virtueller Geber: Parameter-ID des Eingangswertes Position 2
+ 1314: Virtueller Geber: Parameter-ID des Eingangswertes Zeit
+ 1315: Virtueller Geber: Zeitkonstante für Istpositions-Filter
+ 1316: Virtueller Geber: Extrapolations-Zeit für Istpositions-Filter
+ 1317: Geber1: Kommutierungsoffset
  1318: Geberloser Betrieb: Parameter-ID Überblendung
- 1319: RESERVED1319
  1320: Virtueller Geber: Modus
  1321: Virtueller Geber: Istposition pro Umdrehung
  1322: Virtueller Geber: Istposition
@@ -1325,7 +1319,6 @@
  1329: Virtueller Geber: Status
  1330: Virtueller Geber: Geber-Maßstab: Inkremente pro Motorumdrehung
  1331: Virtueller Geber: Schleppfehler
- 1332: RESERVED1332
  1333: Geberloser Betrieb: Stillstandsüberwachung: Auslösezeit
  1334: Geberloser Betrieb: Überblendung
  1335: Geberloser Betrieb: Überblendzeit
@@ -1372,7 +1365,7 @@
  1376: Geber2: Diagnosewert 4
  1377: Geber1: Diagnosewert 4
  1378: Geber3: Diagnosewert 4
- 1379: RESERVED1379
+ 1379: Virtueller Geber: Gefilterte Istposition
  1380: CTRL Moment: Kommando
  1381: CTRL Moment: Parameter-ID Sollmoment
  1382: CTRL Moment: Sollmoment
@@ -1412,6 +1405,7 @@
  1416: Geber1: Referenzoffset
  1417: Basis-Bewegungen: Absolute Zielposition
  1418: VAX Basis-Bewegungen: Absolute Zielposition
+ 1419: Achsen Querverbindung: Geber1: Istposition
  1420: FPGA Trace: Kommando
  1421: FPGA Trace: Kanalauswahl
  1422: FPGA Trace: Taktauswahl
@@ -1430,8 +1424,8 @@
  1435: MAINSSIM_OBS_PAR_IDX
  1436: MAINSSIM_OBS_PAR_VALUE
  1437: MAINSSIM_OBS_OUTPUT
- 1438: RESERVED1438
- 1439: RESERVED1439
+ 1438: Systemverwaltung: ACOPOS Identifikationsdaten
+ 1439: Diagnose: Aufzeichnungsdaten
  1440: Optionales IO: Steuerkommando
  1441: Optionales IO: Eingang1
  1442: Optionales IO: Eingang2
@@ -1469,6 +1463,9 @@
  1474: MAINSSIM_FILTER_B0
  1475: MAINSSIM_FILTER_B1
  1476: MAINSSIM_FILTER_B2
+ 1477: SafeMC: ACP Kommunikations Sendekommando (bestätigt)
+ 1478: SafeMC: ACP Kommunikations Status
+ 1479: SafeMC: ACP Kommunikations Empfangsdaten
  1480: CTRL Momentbegrenzer: Modus
  1481: CTRL Momentbegrenzer: Status
  1482: CTRL Momentbegrenzer: Ausgangsstrom
@@ -1497,14 +1494,38 @@
  1506: Motor-Haltebremse: Überspannungsgrenzwert
  1507: Basis-Bewegungen: Sollwertgenerator Modus
  1508: VAX Basis-Bewegungen: Sollwertgenerator Modus
- 1510: RESERVED1510
- 1511: RESERVED1511
- 1512: RESERVED1512
- 1513: RESERVED1513
- 1514: RESERVED1514
- 1515: RESERVED1515
- 1516: RESERVED1516
- 1517: RESERVED1517
+ 1509: Achsen Querverbindung: Geber2: Istposition
+ 1510: Spindelsteigungsfehler-Losekompensation: Modus
+ 1511: Spindelsteigungsfehler-Losekompensation: Kompensationszeit
+ 1512: Spindelsteigungsfehler-Losekompensation: Trägheitsmoment in Lose
+ 1513: Spindelsteigungsfehler-Losekompensation: Rauschgrenze
+ 1514: Spindelsteigungsfehler-Losekompensation: Parameter-ID für positiven Anschlag
+ 1515: Spindelsteigungsfehler-Losekompensation: Parameter-ID für negativen Anschlag
+ 1516: Spindelsteigungsfehler-Losekompensation: Lastposition
+ 1517: Spindelsteigungsfehler-Losekompensation: Kompensationsausgang
+ 1518: CTRL Zwischenkreis: Regler: Untere Freigabeschwelle
+ 1519: CTRL Zwischenkreis: Regler: Obere Freigabeschwelle
+ 1520: Virtueller Geber: Aktuelle Verzögerungszeit
+ 1521: Geber1: Maximale Geschwindikeit für serielle Position
+ 1522: Simulationsmodus: Loseparameter pos. Anschlag
+ 1523: Simulationsmodus: Loseparameter neg. Anschlag
+ 1528: Geber2: Diagnosewert 2
+ 1529: Geber2: Diagnosewert 3
+ 1530: Geber3: Diagnosewert 2
+ 1531: Geber3: Diagnosewert 3
+ 1532: Geber2: Maximale Geschwindikeit für serielle Position
+ 1533: Geber3: Maximale Geschwindikeit für serielle Position
+ 1534: Geber1: Verzögerungszeit für Fehlerreaktion
+ 1536: Geber1: Externer Temperaturfühler
+ 1537: Geber1: Umdrehungszähler
+ 1538: Leistungsteil: Temperatursensor 5: Temperatur
+ 1539: Leistungsteil: Gleichrichter: Temperatur
+ 1540: Leistungsteil: Hauptrelais: Temperatur
+ 1541: Spindelsteigungsfehler-Losekompensation: Maximale Geschwindigkeit beim Losewechsel
+ 1542: Spindelsteigungsfehler-Losekompensation: Status
+ 1544: Zwischenkreis: Kondensator: Temperatur
+ 1545: Zwischenkreis: Dauersummenleistung: Last
+ 1546: Zwischenkreis: Spitzensummenleistung: Last
  3072: FB LOGIC: Modus
  3080: FB LOGIC: Parameter-ID Eingang1
  3088: FB LOGIC: Parameter-ID Eingang2

@@ -64,6 +64,7 @@ extern "C" {
  #define mcSTEPPER 31U
  #define mcSTART_ONLY 3U
  #define mcSTART 260U
+ #define mcSTANDARD 0U
  #define mcSPEED 2U
  #define mcSMALLER 1U
  #define mcSLOW_DOWN 5U
@@ -115,6 +116,7 @@ extern "C" {
  #define mcNO_STATES 253U
  #define mcNO_EVENTS 253U
  #define mcNO_CHANGE_COMP 2U
+ #define mcNETWORK_CYCLE_TIME 1017
  #define mcNET_TRACE_GLOBAL 0U
  #define mcNEGATIVE_DIR 1U
  #define mcN_EDGE 1U
@@ -147,6 +149,7 @@ extern "C" {
  #define mcMAX_ACCELERATION_APPL 13
  #define mcMASTER_POSITION_BASED 2U
  #define mcMASTER_POSITION 256U
+ #define mcMASTER_INTERVAL 0U
  #define mcMASTER_DISTANCE_BASED 3U
  #define mcMANUAL_SEARCH 64U
  #define mcLOAD 276U
@@ -167,8 +170,12 @@ extern "C" {
  #define mcIPL_QUADRATIC 2U
  #define mcIPL_OFF 0U
  #define mcIPL_LINEAR 1U
+ #define mcINVERSE 255U
  #define mcINTERVAL_EVENT 16U
  #define mcINCLINED_SINE_CURVE 5U
+ #define mcINC_REF 3U
+ #define mcINC_ABS 4U
+ #define mcINC 2U
  #define mcIN_WINDOW 20U
  #define mcIMMEDIATE 0U
  #define mcIDENTIFICATION 10U
@@ -246,7 +253,10 @@ extern "C" {
  #define mcBELOW_WINDOW 50U
  #define mcBASIS_PARAMETERS 2
  #define mcAXIS_WARNING 1U
+ #define mcAXIS_PERIOD_MAPPING 1020
  #define mcAXIS_PERIOD 1008
+ #define mcAXIS_NETWORK_CYCLE_TIME 1018
+ #define mcAXIS_FACTOR_MAPPING 1019
  #define mcAXIS_FACTOR 1007
  #define mcAXIS_ERROR 0U
  #define mcAVERAGE_WEIGHTED 4U
@@ -263,6 +273,7 @@ extern "C" {
  #define mcACKNOWLEDGE_ALL 2U
  #define mcABSOLUTE_NO_RESET 2U
  #define mcABSOLUTE 0U
+ #define mcABS 1U
  #define mcABOVE_WINDOW 40U
  #define mc5TH_ORDER_POLYNOMIAL 4U
 #else
@@ -314,6 +325,7 @@ extern "C" {
  _IEC_CONST unsigned char mcSTEPPER = 31U;
  _IEC_CONST unsigned char mcSTART_ONLY = 3U;
  _IEC_CONST unsigned short mcSTART = 260U;
+ _IEC_CONST unsigned char mcSTANDARD = 0U;
  _IEC_CONST unsigned char mcSPEED = 2U;
  _IEC_CONST unsigned short mcSMALLER = 1U;
  _IEC_CONST unsigned char mcSLOW_DOWN = 5U;
@@ -365,6 +377,7 @@ extern "C" {
  _IEC_CONST unsigned char mcNO_STATES = 253U;
  _IEC_CONST unsigned char mcNO_EVENTS = 253U;
  _IEC_CONST unsigned char mcNO_CHANGE_COMP = 2U;
+ _IEC_CONST signed short mcNETWORK_CYCLE_TIME = 1017;
  _IEC_CONST unsigned long mcNET_TRACE_GLOBAL = 0U;
  _IEC_CONST unsigned char mcNEGATIVE_DIR = 1U;
  _IEC_CONST unsigned char mcN_EDGE = 1U;
@@ -397,6 +410,7 @@ extern "C" {
  _IEC_CONST signed short mcMAX_ACCELERATION_APPL = 13;
  _IEC_CONST unsigned short mcMASTER_POSITION_BASED = 2U;
  _IEC_CONST unsigned short mcMASTER_POSITION = 256U;
+ _IEC_CONST unsigned char mcMASTER_INTERVAL = 0U;
  _IEC_CONST unsigned short mcMASTER_DISTANCE_BASED = 3U;
  _IEC_CONST unsigned short mcMANUAL_SEARCH = 64U;
  _IEC_CONST unsigned short mcLOAD = 276U;
@@ -417,8 +431,12 @@ extern "C" {
  _IEC_CONST unsigned char mcIPL_QUADRATIC = 2U;
  _IEC_CONST unsigned char mcIPL_OFF = 0U;
  _IEC_CONST unsigned char mcIPL_LINEAR = 1U;
+ _IEC_CONST unsigned char mcINVERSE = 255U;
  _IEC_CONST unsigned short mcINTERVAL_EVENT = 16U;
  _IEC_CONST unsigned short mcINCLINED_SINE_CURVE = 5U;
+ _IEC_CONST unsigned char mcINC_REF = 3U;
+ _IEC_CONST unsigned char mcINC_ABS = 4U;
+ _IEC_CONST unsigned char mcINC = 2U;
  _IEC_CONST unsigned char mcIN_WINDOW = 20U;
  _IEC_CONST unsigned short mcIMMEDIATE = 0U;
  _IEC_CONST unsigned short mcIDENTIFICATION = 10U;
@@ -496,7 +514,10 @@ extern "C" {
  _IEC_CONST unsigned char mcBELOW_WINDOW = 50U;
  _IEC_CONST float mcBASIS_PARAMETERS = 2;
  _IEC_CONST unsigned char mcAXIS_WARNING = 1U;
+ _IEC_CONST signed short mcAXIS_PERIOD_MAPPING = 1020;
  _IEC_CONST signed short mcAXIS_PERIOD = 1008;
+ _IEC_CONST signed short mcAXIS_NETWORK_CYCLE_TIME = 1018;
+ _IEC_CONST signed short mcAXIS_FACTOR_MAPPING = 1019;
  _IEC_CONST signed short mcAXIS_FACTOR = 1007;
  _IEC_CONST unsigned char mcAXIS_ERROR = 0U;
  _IEC_CONST unsigned short mcAVERAGE_WEIGHTED = 4U;
@@ -513,6 +534,7 @@ extern "C" {
  _IEC_CONST unsigned short mcACKNOWLEDGE_ALL = 2U;
  _IEC_CONST unsigned char mcABSOLUTE_NO_RESET = 2U;
  _IEC_CONST unsigned char mcABSOLUTE = 0U;
+ _IEC_CONST unsigned char mcABS = 1U;
  _IEC_CONST unsigned char mcABOVE_WINDOW = 40U;
  _IEC_CONST unsigned short mc5TH_ORDER_POLYNOMIAL = 4U;
 #endif
@@ -550,6 +572,25 @@ typedef struct MC_ADV_OFFSETVELOCITY_REF
 	unsigned short PosVelocityTriggerParID;
 	unsigned short NegVelocityTriggerParID;
 } MC_ADV_OFFSETVELOCITY_REF;
+
+typedef struct MC_ADVANCED_CAM_PAR_REF
+{
+	unsigned short Mode;
+	float LeadInMasterOffset;
+	float LeadOutMasterOffset;
+	float LeadInMasterDistance;
+	float LeadInSlaveDistance;
+	float LeadOutMasterDistance;
+	float LeadOutSlaveDistance;
+	unsigned char LeadInCamTableID;
+	signed long LeadInMasterScaling;
+	signed long LeadInSlaveScaling;
+	unsigned char LeadOutCamTableID;
+	signed long LeadOutMasterScaling;
+	signed long LeadOutSlaveScaling;
+	unsigned short MasterParID;
+	float MasterMaxVelocity;
+} MC_ADVANCED_CAM_PAR_REF;
 
 typedef struct MC_ADVANCED_CUT_PAR_REF
 {
@@ -813,6 +854,7 @@ typedef struct MC_DRIVESTATUS_TYP
 	plcbit AxisError;
 	plcbit LagWarning;
 	plcbit ResetDone;
+	plcbit HoldingBrakeControlStatus;
 } MC_DRIVESTATUS_TYP;
 
 typedef struct MC_ENDLESS_POSITION_DATA
@@ -937,7 +979,7 @@ typedef struct MC_PARTRACE_REF
 	float Delay;
 	float NetTriggerDelay;
 	struct MC_TRACETRIGGER_REF Trigger;
-	struct MC_TRACEPARAM_REF Parameter[30];
+	struct MC_TRACEPARAM_REF Parameter[100];
 } MC_PARTRACE_REF;
 
 typedef struct MC_PARTRACECONFIG_REF
@@ -1178,7 +1220,7 @@ typedef struct MC_HARDWARE_INFO_REF
 {
 	struct MC_HW_INFO_DRIVE_REF Drive;
 	struct MC_HW_INFO_CARD_REF Card[4];
-	struct MC_HW_INFO_MOTOR_REF Motor[2];
+	struct MC_HW_INFO_MOTOR_REF Motor[3];
 } MC_HARDWARE_INFO_REF;
 
 typedef struct MC_SEND_INFO_REF
@@ -1209,6 +1251,37 @@ typedef struct MC_TRANSFER_INFO_REF
 	struct MC_SEND_INFO_REF SendChannel[4];
 	struct MC_RECEIVE_INFO_REF ReceiveChannel[6];
 } MC_TRANSFER_INFO_REF;
+
+typedef struct MC_NET_ENC_INFO_REF
+{
+	unsigned char Type;
+	unsigned long AdrDeviceString;
+	unsigned long AdrPosition;
+	unsigned long AdrPositionHW;
+	unsigned long AdrReferencePosition;
+	unsigned long AdrReferenceCount;
+	unsigned long AdrPositionTime;
+	unsigned long AdrEncoderStatus;
+} MC_NET_ENC_INFO_REF;
+
+typedef struct MC_NET_ENC_PARAM_REF
+{
+	unsigned long ScaleIncrements;
+	unsigned long IncValueRangeHW;
+	unsigned long IncValueRangeLW;
+	unsigned long ScaleUnits;
+	unsigned long ScaleRevolutions;
+	unsigned char CountDirection;
+} MC_NET_ENC_PARAM_REF;
+
+typedef struct MC_NET_ENC_CONFIG_REF
+{
+	float Timeout;
+	plcbit Interpolation;
+	plcbit Extrapolation;
+	float FilterTime;
+	float NetworkCompensation;
+} MC_NET_ENC_CONFIG_REF;
 
 typedef struct MC_0068_IS_TYP
 {
@@ -1374,7 +1447,8 @@ typedef struct MC_0081_IS_TYP
 	unsigned short C_ErrorID;
 	unsigned short C_ReceiveParID;
 	unsigned short readSlot;
-	unsigned short Reserve1;
+	unsigned char ConfigTimeoutCnt;
+	unsigned char Reserve1;
 	unsigned char LockIDSend;
 	unsigned char LockIDReceive;
 	unsigned char LockIDPar;
@@ -1546,7 +1620,8 @@ typedef struct MC_0092_IS_TYP
 	unsigned short VarIndex;
 	unsigned char SptID;
 	unsigned short readSlot;
-	unsigned short Reserve1;
+	unsigned char ConfigTimeoutCnt;
+	unsigned char Reserve1;
 	unsigned char LockIDSend;
 	unsigned char LockIDReceive;
 	unsigned short ArithIndex;
@@ -1612,7 +1687,6 @@ typedef struct MC_0095_IS_TYP
 	unsigned short C_ErrorID;
 	unsigned char Reserve9;
 	unsigned char Reserve10;
-	float AxisScaleFactor;
 } MC_0095_IS_TYP;
 
 typedef struct MC_0096_IS_TYP
@@ -2315,7 +2389,8 @@ typedef struct MC_0124_IS_TYP
 	unsigned short ArithIndex;
 	unsigned char LockIDPar;
 	unsigned char state;
-	unsigned short Reserve;
+	unsigned char ConfigTimeoutCnt;
+	unsigned char Reserve1;
 } MC_0124_IS_TYP;
 
 typedef struct MC_0125_IS_TYP
@@ -2337,7 +2412,7 @@ typedef struct MC_0125_IS_TYP
 	unsigned char LockIDReceive;
 	unsigned short ArithIndex;
 	unsigned char state;
-	unsigned char Reserve1;
+	unsigned char ConfigTimeoutCnt;
 } MC_0125_IS_TYP;
 
 typedef struct MC_0126_IS_TYP
@@ -2370,6 +2445,8 @@ typedef struct MC_0126_IS_TYP
 	plcbit gearRatioChanged;
 	plcbit maxMasterVelChanged;
 	float usedAccel;
+	unsigned char SavedFrDrvCnt;
+	plcbit WaitForTelegrams;
 } MC_0126_IS_TYP;
 
 typedef struct MC_0127_IS_TYP
@@ -2402,8 +2479,10 @@ typedef struct MC_0127_IS_TYP
 	unsigned short MpgenStatusOffset;
 	unsigned short MpgenValueOffset;
 	unsigned char MpgenValueRecIndex;
-	unsigned char Reserve1;
+	unsigned char SavedToDrvCnt;
 	unsigned short VarParIndex;
+	plcbit WaitForTelegrams;
+	float OldCyclicVelocity;
 } MC_0127_IS_TYP;
 
 typedef struct MC_0128_IS_TYP
@@ -2609,6 +2688,119 @@ typedef struct MC_0140_IS_TYP
 	unsigned short Command;
 	unsigned char state;
 } MC_0140_IS_TYP;
+
+typedef struct MC_NET_ENC_INTERN_TYP
+{
+	unsigned long AdrChannelName;
+	unsigned short DataType;
+	unsigned short BitOffset;
+	unsigned char readSlot;
+	unsigned char Reserve1;
+	unsigned short Reserve2;
+} MC_NET_ENC_INTERN_TYP;
+
+typedef struct MC_0141_IS_TYP
+{
+	plcbit Execute;
+	struct MC_NET_ENC_INFO_REF EncoderInformation;
+	struct MC_NET_ENC_PARAM_REF EncoderParameters;
+	struct MC_NET_ENC_CONFIG_REF ReceiveConfiguration;
+	plcbit Done;
+	plcbit Busy;
+	plcbit Error;
+	unsigned char state;
+	unsigned short ErrorID;
+	unsigned short PositionParID;
+	unsigned char LockIDPar;
+	unsigned char LockIDReceive;
+	unsigned char EncoderNodeNumber;
+	unsigned char Reserve1;
+	struct MC_NET_ENC_INTERN_TYP EncoderInternal[6];
+} MC_0141_IS_TYP;
+
+typedef struct MC_0145_IS_TYP
+{
+	plcbit Execute;
+	plcbit Done;
+	unsigned short Command;
+	struct MC_SETUP_OUTPUT_REF SetupOutput;
+	plcbit Busy;
+	plcbit CommandAborted;
+	plcbit Error;
+	unsigned short ErrorID;
+	unsigned char LockIDPar;
+	unsigned char state;
+	plcstring DataObjectName[13];
+} MC_0145_IS_TYP;
+
+typedef struct MC_0146_IS_TYP
+{
+	plcbit Active;
+	plcbit Busy;
+	plcbit CommandAborted;
+	plcbit Error;
+	unsigned short ErrorID;
+	plcbit DataInitialized;
+	plcbit InitData;
+	plcbit Running;
+	plcbit StandBy;
+	plcbit InLeadIn;
+	plcbit InCam;
+	plcbit InLeadOut;
+	plcbit EndOfProfile;
+	unsigned short CamTableID;
+	signed long MasterStartPosition;
+	signed long MasterScaling;
+	signed long SlaveScaling;
+	plcbit EnterCam;
+	plcbit ExitCam;
+	plcbit Restart;
+	unsigned char LockID;
+	struct MC_ADVANCED_CAM_PAR_REF AdvancedParameters;
+	unsigned short C_ErrorID;
+	unsigned char LockIDPar;
+	unsigned char LockIDMa;
+	unsigned char LockIDSend;
+	unsigned char LockIDReceive;
+	unsigned short MasterParID;
+	unsigned char readSlot;
+	unsigned char sendSlot;
+	unsigned char state;
+	unsigned char MoveID;
+	unsigned char AutMaCamOffsetRecIndex;
+	unsigned char BitRecIndex;
+	unsigned short AutMaCamOffsetOffset;
+	unsigned short BitOffset;
+	unsigned char CamType;
+	unsigned char AutStatus;
+	float MaxMasterVelocity;
+	signed long OldMaCamOffset;
+	unsigned char AutActStIdx;
+	plcbit cmdEnterCam;
+	plcbit cmdExitCam;
+	plcbit cmdRestart;
+	plcbit cmdInitData;
+	plcbit cmdExecuteEnterCam;
+	plcbit cmdExecuteExitCam;
+	plcbit cmdExecuteRestart;
+	signed long MasterCamPeriod;
+	signed long StartMaRelPos;
+	unsigned short ArithIndex;
+	unsigned short CmpIndex;
+	unsigned short MuxIndex;
+	unsigned short EvWrIndex;
+	unsigned short VarIndex;
+	unsigned short LogicIndex;
+	unsigned short BitIndex;
+	unsigned short DataTyp;
+	signed long MasterPosition;
+	unsigned short AutActualCamIndexOffset;
+	unsigned short OldAutCamIndex;
+	unsigned char AutActualCamIndexRecIndex;
+	unsigned char OldCamType;
+	plcbit prevRunning;
+	plcbit MaCamOffsetInitialized;
+} MC_0146_IS_TYP;
 
 typedef struct MC_AbortTrigger
 {
@@ -2975,6 +3167,42 @@ typedef struct MC_BR_CalcSectionsFromCam
 	plcbit Error;
 } MC_BR_CalcSectionsFromCam_typ;
 
+typedef struct MC_BR_CamIn
+{
+	/* VAR_INPUT (analog) */
+	unsigned long Master;
+	unsigned long Slave;
+	unsigned char CamTableID;
+	float MasterStartPosition;
+	signed long MasterScaling;
+	signed long SlaveScaling;
+	struct MC_ADVANCED_CAM_PAR_REF AdvancedParameters;
+	/* VAR_OUTPUT (analog) */
+	unsigned short ErrorID;
+	/* VAR (analog) */
+	unsigned long C_Master;
+	unsigned long C_Slave;
+	struct MC_0146_IS_TYP IS;
+	/* VAR_INPUT (digital) */
+	plcbit Enable;
+	plcbit InitData;
+	plcbit EnterCam;
+	plcbit ExitCam;
+	plcbit Restart;
+	/* VAR_OUTPUT (digital) */
+	plcbit Active;
+	plcbit Busy;
+	plcbit CommandAborted;
+	plcbit Error;
+	plcbit DataInitialized;
+	plcbit Running;
+	plcbit StandBy;
+	plcbit InLeadIn;
+	plcbit InCam;
+	plcbit InLeadOut;
+	plcbit EndOfProfile;
+} MC_BR_CamIn_typ;
+
 typedef struct MC_BR_CamDwell
 {
 	/* VAR_INPUT (analog) */
@@ -3186,7 +3414,7 @@ typedef struct MC_BR_CamTransition
 	plcbit C_InLeadOut;
 	plcbit AutStatusValid;
 	plcbit InitDataUsed;
-	plcbit MasterVelChangePending;
+	plcbit ChangePending;
 	plcbit Reserve6;
 } MC_BR_CamTransition_typ;
 
@@ -3504,10 +3732,10 @@ typedef struct MC_BR_EventMoveAbsolute
 	float C_Velocity;
 	float C_Acceleration;
 	float C_Deceleration;
-	unsigned char C_Direction;
 	unsigned short C_Mode;
 	unsigned short C_PositionParID;
 	unsigned short C_ErrorID;
+	unsigned char C_Direction;
 	signed long C_CommandedOffset;
 	unsigned short CmpIndex;
 	unsigned short VarIndex;
@@ -3518,6 +3746,7 @@ typedef struct MC_BR_EventMoveAbsolute
 	unsigned char LockID;
 	unsigned char LockIDPar;
 	unsigned char MoveID;
+	unsigned char oldMoveID;
 	/* VAR_INPUT (digital) */
 	plcbit Execute;
 	/* VAR_OUTPUT (digital) */
@@ -3535,6 +3764,7 @@ typedef struct MC_BR_EventMoveAbsolute
 	plcbit C_Error;
 	plcbit WaitEvMoveStatusValid;
 	plcbit C_MoveActive;
+	plcbit WaitForTelegrams;
 } MC_BR_EventMoveAbsolute_typ;
 
 typedef struct MC_BR_EventMoveAdditive
@@ -3560,6 +3790,7 @@ typedef struct MC_BR_EventMoveAdditive
 	unsigned short C_Mode;
 	unsigned short C_DistanceParID;
 	unsigned short C_ErrorID;
+	unsigned char Reserve;
 	signed long C_CommandedOffset;
 	signed long C_CommandedPosition;
 	unsigned short CmpIndex;
@@ -3571,6 +3802,7 @@ typedef struct MC_BR_EventMoveAdditive
 	unsigned char LockID;
 	unsigned char LockIDPar;
 	unsigned char MoveID;
+	unsigned char oldMoveID;
 	/* VAR_INPUT (digital) */
 	plcbit Execute;
 	/* VAR_OUTPUT (digital) */
@@ -3588,6 +3820,7 @@ typedef struct MC_BR_EventMoveAdditive
 	plcbit C_Error;
 	plcbit WaitEvMoveStatusValid;
 	plcbit C_MoveActive;
+	plcbit WaitForTelegrams;
 } MC_BR_EventMoveAdditive_typ;
 
 typedef struct MC_BR_EventMoveVelocity
@@ -3642,6 +3875,7 @@ typedef struct MC_BR_EventMoveVelocity
 	plcbit C_Error;
 	plcbit WaitEvMoveStatusValid;
 	plcbit C_MoveActive;
+	plcbit WaitForTelegrams;
 } MC_BR_EventMoveVelocity_typ;
 
 typedef struct MC_BR_GearIn
@@ -4301,6 +4535,27 @@ typedef struct MC_BR_InitReceiveNetworkData
 	plcbit Error;
 } MC_BR_InitReceiveNetworkData_typ;
 
+typedef struct MC_BR_InitReceiveNetworkEnc
+{
+	/* VAR_INPUT (analog) */
+	unsigned long Axis;
+	struct MC_NET_ENC_INFO_REF EncoderInformation;
+	struct MC_NET_ENC_PARAM_REF EncoderParameters;
+	struct MC_NET_ENC_CONFIG_REF ReceiveConfiguration;
+	/* VAR_OUTPUT (analog) */
+	unsigned short ErrorID;
+	unsigned short PositionParID;
+	/* VAR (analog) */
+	unsigned long C_Axis;
+	struct MC_0141_IS_TYP IS;
+	/* VAR_INPUT (digital) */
+	plcbit Execute;
+	/* VAR_OUTPUT (digital) */
+	plcbit Done;
+	plcbit Busy;
+	plcbit Error;
+} MC_BR_InitReceiveNetworkEnc_typ;
+
 typedef struct MC_BR_InitReceiveParID
 {
 	/* VAR_INPUT (analog) */
@@ -4521,14 +4776,15 @@ typedef struct MC_BR_MoveAbsoluteTriggStop
 	float C_Velocity;
 	float C_Acceleration;
 	float C_Deceleration;
-	unsigned char C_Direction;
 	signed long C_TriggerDistance;
 	struct MC_TRIGGER_REF C_TriggerInput;
+	unsigned char C_Direction;
 	unsigned short C_ErrorID;
 	signed long C_CommandedOffset;
 	unsigned char state;
 	unsigned char LockIDPar;
 	unsigned char MoveID;
+	unsigned char oldMoveID;
 	/* VAR_INPUT (digital) */
 	plcbit Execute;
 	plcbit ForceTriggerDistance;
@@ -4538,8 +4794,9 @@ typedef struct MC_BR_MoveAbsoluteTriggStop
 	plcbit CommandAborted;
 	plcbit Error;
 	/* VAR (digital) */
-	plcbit C_Execute;
 	plcbit C_ForceTriggerDistance;
+	plcbit C_Execute;
+	plcbit cmdExecute;
 	plcbit C_Done;
 	plcbit C_CommandAborted;
 	plcbit C_Error;
@@ -4566,11 +4823,13 @@ typedef struct MC_BR_MoveAdditiveTriggStop
 	signed long C_TriggerDistance;
 	struct MC_TRIGGER_REF C_TriggerInput;
 	unsigned short C_ErrorID;
+	unsigned char state;
 	signed long C_CommandedOffset;
 	float C_CommandedPosition;
-	unsigned char state;
 	unsigned char LockIDPar;
 	unsigned char MoveID;
+	unsigned char oldMoveID;
+	unsigned char reserve;
 	/* VAR_INPUT (digital) */
 	plcbit Execute;
 	plcbit ForceTriggerDistance;
@@ -4580,8 +4839,9 @@ typedef struct MC_BR_MoveAdditiveTriggStop
 	plcbit CommandAborted;
 	plcbit Error;
 	/* VAR (digital) */
-	plcbit C_Execute;
 	plcbit C_ForceTriggerDistance;
+	plcbit C_Execute;
+	plcbit cmdExecute;
 	plcbit C_Done;
 	plcbit C_CommandAborted;
 	plcbit C_Error;
@@ -4701,10 +4961,12 @@ typedef struct MC_BR_MoveVelocityTriggStop
 	unsigned char C_Direction;
 	unsigned short C_ErrorID;
 	struct MC_TRIGGER_REF C_TriggerInput;
-	signed long C_TriggerDistance;
 	unsigned char state;
+	signed long C_TriggerDistance;
 	unsigned char LockIDPar;
 	unsigned char MoveID;
+	unsigned char oldMoveID;
+	unsigned char reserve;
 	/* VAR_INPUT (digital) */
 	plcbit Execute;
 	/* VAR_OUTPUT (digital) */
@@ -4714,6 +4976,7 @@ typedef struct MC_BR_MoveVelocityTriggStop
 	plcbit Error;
 	/* VAR (digital) */
 	plcbit C_Execute;
+	plcbit cmdExecute;
 	plcbit C_Done;
 	plcbit C_CommandAborted;
 	plcbit C_Error;
@@ -5327,6 +5590,27 @@ typedef struct MC_BR_SetupController
 	plcbit Error;
 } MC_BR_SetupController_typ;
 
+typedef struct MC_BR_SetupFromParTabObj
+{
+	/* VAR_INPUT (analog) */
+	unsigned long Axis;
+	unsigned short Command;
+	plcstring DataObjectName[13];
+	/* VAR_OUTPUT (analog) */
+	unsigned short ErrorID;
+	struct MC_SETUP_OUTPUT_REF SetupOutput;
+	/* VAR (analog) */
+	unsigned long C_Axis;
+	struct MC_0145_IS_TYP IS;
+	/* VAR_INPUT (digital) */
+	plcbit Execute;
+	/* VAR_OUTPUT (digital) */
+	plcbit Done;
+	plcbit Busy;
+	plcbit CommandAborted;
+	plcbit Error;
+} MC_BR_SetupFromParTabObj_typ;
+
 typedef struct MC_BR_SetupInductionMotor
 {
 	/* VAR_INPUT (analog) */
@@ -5592,6 +5876,7 @@ typedef struct MC_CamIn
 	/* VAR_OUTPUT (analog) */
 	unsigned short ErrorID;
 	/* VAR (analog) */
+	unsigned char LockID;
 	unsigned char LockIDPar;
 	unsigned char LockIDInSync;
 	unsigned long C_Master;
@@ -5600,9 +5885,8 @@ typedef struct MC_CamIn
 	signed long C_SlaveOffset;
 	signed long C_MasterScaling;
 	signed long C_SlaveScaling;
-	unsigned char C_StartMode;
-	unsigned char LockID;
 	unsigned short C_CamTableID;
+	unsigned char C_StartMode;
 	unsigned short C_MasterParID;
 	unsigned short C_ErrorID;
 	signed long OldMaCamOffset;
@@ -5623,6 +5907,7 @@ typedef struct MC_CamIn
 	unsigned char state;
 	unsigned char MoveID;
 	unsigned short CC_ErrorID;
+	unsigned char oldMoveID;
 	/* VAR_INPUT (digital) */
 	plcbit Execute;
 	/* VAR_OUTPUT (digital) */
@@ -5783,6 +6068,7 @@ typedef struct MC_GearIn
 	unsigned char MoveID;
 	unsigned char LockIDSend;
 	unsigned char LockIDReceive;
+	unsigned char SavedFrDrvCnt;
 	/* VAR_INPUT (digital) */
 	plcbit Execute;
 	/* VAR_OUTPUT (digital) */
@@ -5795,6 +6081,7 @@ typedef struct MC_GearIn
 	plcbit C_InGear;
 	plcbit C_CommandAborted;
 	plcbit C_Error;
+	plcbit WaitForTelegrams;
 } MC_GearIn_typ;
 
 typedef struct MC_GearInPos
@@ -5906,6 +6193,7 @@ typedef struct MC_Halt
 	unsigned char state;
 	unsigned char MoveID;
 	unsigned char LockIDPar;
+	unsigned short Reserve;
 	/* VAR_INPUT (digital) */
 	plcbit Execute;
 	/* VAR_OUTPUT (digital) */
@@ -5915,6 +6203,7 @@ typedef struct MC_Halt
 	plcbit Error;
 	/* VAR (digital) */
 	plcbit C_Execute;
+	plcbit cmdExecute;
 	plcbit C_Done;
 	plcbit C_CommandAborted;
 	plcbit C_Error;
@@ -5984,16 +6273,17 @@ typedef struct MC_MoveAbsolute
 	unsigned short ErrorID;
 	/* VAR (analog) */
 	unsigned long C_Axis;
+	unsigned char C_Direction;
+	unsigned char LockIDPar;
 	signed long C_Position;
 	float C_Velocity;
 	float C_Acceleration;
 	float C_Deceleration;
-	unsigned char C_Direction;
-	unsigned char LockIDPar;
-	unsigned short C_ErrorID;
-	signed long C_CommandedOffset;
 	unsigned char state;
+	signed long C_CommandedOffset;
+	unsigned short C_ErrorID;
 	unsigned char MoveID;
+	unsigned char oldMoveID;
 	/* VAR_INPUT (digital) */
 	plcbit Execute;
 	/* VAR_OUTPUT (digital) */
@@ -6003,6 +6293,7 @@ typedef struct MC_MoveAbsolute
 	plcbit Error;
 	/* VAR (digital) */
 	plcbit C_Execute;
+	plcbit cmdExecute;
 	plcbit C_Done;
 	plcbit C_CommandAborted;
 	plcbit C_Error;
@@ -6024,12 +6315,14 @@ typedef struct MC_MoveAdditive
 	float C_Velocity;
 	float C_Acceleration;
 	float C_Deceleration;
-	unsigned short C_ErrorID;
 	signed long C_CommandedPosition;
 	signed long C_CommandedOffset;
+	unsigned short C_ErrorID;
 	unsigned char state;
 	unsigned char LockIDPar;
 	unsigned char MoveID;
+	unsigned char oldMoveID;
+	unsigned char Reserve;
 	/* VAR_INPUT (digital) */
 	plcbit Execute;
 	/* VAR_OUTPUT (digital) */
@@ -6039,6 +6332,7 @@ typedef struct MC_MoveAdditive
 	plcbit Error;
 	/* VAR (digital) */
 	plcbit C_Execute;
+	plcbit cmdExecute;
 	plcbit C_Done;
 	plcbit C_CommandAborted;
 	plcbit C_Error;
@@ -6073,6 +6367,7 @@ typedef struct MC_MoveVelocity
 	plcbit Error;
 	/* VAR (digital) */
 	plcbit C_Execute;
+	plcbit cmdExecute;
 	plcbit C_InVelocity;
 	plcbit C_CommandAborted;
 	plcbit C_Error;
@@ -6099,10 +6394,9 @@ typedef struct MC_Phasing
 	unsigned short MpgenStatusOffset;
 	unsigned char MpgenStatusRecIndex;
 	unsigned char LockIDPar;
-	signed char timer;
+	unsigned char SavedFrDrvCnt;
 	unsigned char state;
 	unsigned char FbID;
-	unsigned char Reserve;
 	/* VAR_INPUT (digital) */
 	plcbit Execute;
 	/* VAR_OUTPUT (digital) */
@@ -6115,6 +6409,7 @@ typedef struct MC_Phasing
 	plcbit C_Done;
 	plcbit C_CommandAborted;
 	plcbit C_Error;
+	plcbit WaitForTelegrams;
 } MC_Phasing_typ;
 
 typedef struct MC_Power
@@ -6450,10 +6745,10 @@ typedef struct MC_TouchProbe
 	/* VAR (analog) */
 	unsigned long C_Axis;
 	struct MC_TRIGGER_REF C_TriggerInput;
-	float C_FirstPosition;
-	float C_LastPosition;
+	signed long C_FirstPosition;
+	signed long C_LastPosition;
 	unsigned short C_ErrorID;
-	float C_RecordedPosition;
+	signed long C_RecordedPosition;
 	unsigned char SavedToDrvCnt;
 	unsigned char Reserve2;
 	unsigned char state;
@@ -6633,6 +6928,7 @@ void MC_BR_CalcCamFromPoints(struct MC_BR_CalcCamFromPoints* inst);
 void MC_BR_CalcCamFromSections(struct MC_BR_CalcCamFromSections* inst);
 void MC_BR_CalcPointsFromCam(struct MC_BR_CalcPointsFromCam* inst);
 void MC_BR_CalcSectionsFromCam(struct MC_BR_CalcSectionsFromCam* inst);
+void MC_BR_CamIn(struct MC_BR_CamIn* inst);
 void MC_BR_CamDwell(struct MC_BR_CamDwell* inst);
 void MC_BR_CamTransition(struct MC_BR_CamTransition* inst);
 void MC_BR_CheckAutCompensation(struct MC_BR_CheckAutCompensation* inst);
@@ -6673,6 +6969,7 @@ void MC_BR_InitParList(struct MC_BR_InitParList* inst);
 void MC_BR_InitParSequ(struct MC_BR_InitParSequ* inst);
 void MC_BR_InitParTabObj(struct MC_BR_InitParTabObj* inst);
 void MC_BR_InitReceiveNetworkData(struct MC_BR_InitReceiveNetworkData* inst);
+void MC_BR_InitReceiveNetworkEnc(struct MC_BR_InitReceiveNetworkEnc* inst);
 void MC_BR_InitReceiveParID(struct MC_BR_InitReceiveParID* inst);
 void MC_BR_InitSendParID(struct MC_BR_InitSendParID* inst);
 void MC_BR_JogVelocity(struct MC_BR_JogVelocity* inst);
@@ -6712,6 +7009,7 @@ void MC_BR_SaveAxisPar(struct MC_BR_SaveAxisPar* inst);
 void MC_BR_SaveCamProfileObj(struct MC_BR_SaveCamProfileObj* inst);
 void MC_BR_SetHardwareInputs(struct MC_BR_SetHardwareInputs* inst);
 void MC_BR_SetupController(struct MC_BR_SetupController* inst);
+void MC_BR_SetupFromParTabObj(struct MC_BR_SetupFromParTabObj* inst);
 void MC_BR_SetupInductionMotor(struct MC_BR_SetupInductionMotor* inst);
 void MC_BR_SetupIsqRipple(struct MC_BR_SetupIsqRipple* inst);
 void MC_BR_SetupMotorPhasing(struct MC_BR_SetupMotorPhasing* inst);
