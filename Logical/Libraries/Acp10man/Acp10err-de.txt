@@ -184,7 +184,7 @@
  6017: Software: Watchdog aktiv
  6018: Hardware: Ausfall der internen Spannungsversorgung
  6019: ACOPOS: Überstrom
- 6020: Hardware: Fehler in der 24V-Spannungsversorgung
+ 6020: 24 VDC Versorgung: Unterspannung
  6021: Low-Pegel am Reglerfreigabe-Eingang
  6023: Spannungseinbruch am Reglerfreigabe-Eingang
  6024: Ströme wurden vor dem Wandeln gelatcht (BSYS-Fehler in ABLS)
@@ -252,6 +252,8 @@
  6072: Haltebremse: Überspannung
  6073: Reglerzusatzfunktion im Fehlerzustand
        Info(UINT): Fehlerstatus
+ 6074: 24 VDC Versorgung: Überspannung
+       Info(REAL): Grenzwert
  7012: Geber: Hiperface Error Bit
        Info(USINT): Slot
  7013: Geber: Statusmeldung
@@ -348,6 +350,10 @@
        Info(USINT): Slot
  7069: Geber: Geberfehlerfilter aktiv
        Info(USINT): Slot
+ 7070: Geber: Limit Schleppfehler überschritten
+       Info(REAL): Aktueller Schleppfehler
+ 7071: Geber: Limit Geschwindigkeitsfehler überschritten
+       Info(REAL): Geschwindigkeitsfehler
  7100: Parameterfunktion wird nicht unterstützt. (Einsteckkarte ?)
  7200: Zwischenkreis: Überspannung
  7210: Zwischenkreis: Vorladen: Spannung instabil 
@@ -394,6 +400,8 @@
        Info(UINT): EEPROM Parameter-ID
  8011: EPROM: Daten nicht gültig
  8012: EPROM: Controller-ID nicht gültig
+       Info(USINT): CODE
+ 8013: EPROM: CRC Fehler
        Info(USINT): CODE
  8020: Ungültige Schaltfrequenz
  9000: Kühler-Temperatursensor: Abbruchgrenze überschritten
@@ -486,6 +494,10 @@
        Info(REAL): Grenzlast
  9103: Zwischenkreis: Spitzensummenleistung: Ausschaltgrenze überschritten
        Info(REAL): Grenzlast
+ 9104: DC-Anschuss-Temperaturmodell: Abbruchgrenze überschritten
+       Info(REAL): Temperatur
+ 9105: DC-Anschuss-Temperaturmodell: Ausschaltgrenze überschritten
+       Info(REAL): Temperatur
  9300: Stromregler: Überstrom
        Info(REAL): Grenzwert
  9302: Stromregler: Zykluszeit ungültig
@@ -1823,6 +1835,8 @@
        Info(REAL): Grenzlast
 41096: Zwischenkreis: Spitzensummenleistung: Warngrenze überschritten
        Info(REAL): Grenzlast
+41097: DC-Anschuss-Temperaturmodell: Warngrenze überschritten
+       Info(REAL): Temperatur
 64002: Wartezeit vor SW-Reset (Netzwerk mit aufsteigenden Knotennummern ?)
 64003: Wartezeit vor NC-System-Start (Netzwerk mit aufsteigenden Knotennummern ?)
 64004: Der folgende Hochlauf-Fehler könnte hier mit Verzögerung eingetragen sein

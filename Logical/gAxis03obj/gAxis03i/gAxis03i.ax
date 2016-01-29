@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<InitParameter Version="2.42.1" NcSwId="ACP10">
+<InitParameter Version="2.51.2" NcSwId="ACP10">
   <Group ID="ACP10AXIS_typ">
     <Group ID="dig_in">
       <Group ID="level">
@@ -41,9 +41,9 @@
       </Group>
     </Group>
     <Group ID="controller">
-      <Parameter ID="mode" Value="ncPOSITION + ncFF" />
+      <Parameter ID="mode" Value="ncPOSITION" />
       <Group ID="position">
-        <Parameter ID="kv" Value="520.0" />
+        <Parameter ID="kv" Value="238.65" />
         <Parameter ID="tn" Value="0.0" />
         <Parameter ID="t_predict" Value="0.0004" />
         <Parameter ID="t_total" Value="0.0004" />
@@ -51,15 +51,15 @@
         <Parameter ID="i_max" Value="0.0" />
       </Group>
       <Group ID="speed">
-        <Parameter ID="kv" Value="0.2" />
+        <Parameter ID="kv" Value="76.85" />
         <Parameter ID="tn" Value="0.0" />
         <Parameter ID="t_filter" Value="0.0" />
         <Group ID="isq_filter1">
-          <Parameter ID="type" Value="ncOFF" />
-          <Parameter ID="a0" Value="0.0" />
-          <Parameter ID="a1" Value="0.0" />
-          <Parameter ID="b0" Value="0.0" />
-          <Parameter ID="b1" Value="0.0" />
+          <Parameter ID="type" Value="ncBIQUAD" />
+          <Parameter ID="a0" Value="1800.0" />
+          <Parameter ID="a1" Value="0.07" />
+          <Parameter ID="b0" Value="250.0" />
+          <Parameter ID="b1" Value="0.7" />
           <Parameter ID="b2" Value="0.0" />
           <Parameter ID="c0_par_id" Value="0" />
           <Parameter ID="c1_par_id" Value="0" />

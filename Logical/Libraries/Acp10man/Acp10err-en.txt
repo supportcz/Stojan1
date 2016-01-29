@@ -184,7 +184,7 @@
  6017: Software: Watchdog active
  6018: Hardware: Internal power supply failure
  6019: ACOPOS: Overcurrent
- 6020: Hardware: 24V power supply fail
+ 6020: 24 VDC supply: Undervoltage
  6021: Low level at controller enable input
  6023: Voltage sag at controller enable input
  6024: Current was latched before conversion (OpSys error in ABLS)
@@ -252,6 +252,8 @@
  6072: Holding brake: High voltage
  6073: Additional control function in error state
        Info(UINT): Error status
+ 6074: 24 VDC supply: Overvoltage
+       Info(REAL): Limit value
  7012: Encoder: Hiperface error bit
        Info(USINT): Slot
  7013: Encoder: Status message
@@ -348,6 +350,10 @@
        Info(USINT): Slot
  7069: Encoder: encoder error filter activ
        Info(USINT): Slot
+ 7070: Encoder: Lag error stop limit exceeded
+       Info(REAL): Current lag error
+ 7071: Encoder: Limit speed error exceeded
+       Info(REAL): Speed error
  7100: Parameter function not supported. (Module ?)
  7200: DC bus: Overvoltage
  7210: DC bus: Pre-charging: Voltage unstable 
@@ -394,6 +400,8 @@
        Info(UINT): EEPROM Parameter ID
  8011: EPROM: Data not valid
  8012: EPROM: Controller-ID not valid
+       Info(USINT): CODE
+ 8013: EPROM: CRC error
        Info(USINT): CODE
  8020: Invalid switch frequency 
  9000: Heatsink temperature sensor: Stop limit exceeded
@@ -486,6 +494,10 @@
        Info(REAL): Load limit
  9103: DC bus: Peak total power: Switch off limit exceeded
        Info(REAL): Load limit
+ 9104: DC connector temperature model: Stop limit exceeded
+       Info(REAL): Temperature
+ 9105: DC connector temperature model: Switch off limit exceeded
+       Info(REAL): Temperature
  9300: Current controller: Overcurrent
        Info(REAL): Limit
  9302: Current controller: Cycle time invalid
@@ -1823,6 +1835,8 @@
        Info(REAL): Load limit
 41096: DC bus: Peak total power: Warning limit exceeded
        Info(REAL): Load limit
+41097: DC connector temperature model: Warning limit exceeded
+       Info(REAL): Temperature
 64002: Delay before SW Reset (network with ascending node numbers ?)
 64003: Delay before NC System Start (network with ascending node numbers ?)
 64004: The following boot error could be entered here with a delay

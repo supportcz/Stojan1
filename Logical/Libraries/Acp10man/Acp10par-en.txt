@@ -301,7 +301,7 @@
   302: CTRL DC bus: Filtered voltage
   303: Encoder1: ADC1 value
   304: Error state of vector controller
-  305: CTRL Chopper: Manipulated variable
+  305: CTRL Chopper: PWM duty cycle
   307: Maximum motor rotation speed
   308: Maximum stator leakance current component (limitation: IS_MAX)
   309: SafeMC: Actual position
@@ -1523,9 +1523,14 @@
  1540: Power stage: Main relay: Temperature
  1541: Pitch error-backlash compensation: Maximal speed of flange change
  1542: Pitch error-backlash compensation: Status
+ 1543: DC bus connector: Temperature
  1544: DC bus: Capacitor: Temperature
  1545: DC bus: Continuous total power: Load
  1546: DC bus: Peak total power: Load
+ 1548: 24 VDC supply: Filtered Voltage
+ 1551: Virtual Encoder: Limit for position lag error
+ 1552: Virtual Encoder: Limit for speed lag error
+ 1553: Virtual Encoder: Current scale factor
  3072: FB LOGIC: Mode
  3080: FB LOGIC: Parameter ID of input1
  3088: FB LOGIC: Parameter ID of input2

@@ -1,9 +1,9 @@
 (********************************************************************
  COPYRIGHT (C) BERNECKER + RAINER, AUSTRIA, 5142 EGGELSBERG
  ********************************************************************
- * File: ACP10PAR.VAR (2015-07-22 16:22:27)
+ * File: ACP10PAR.VAR (2015-10-23 11:40:00)
  ********************************************************************
- * Constants of library ACP10PAR (V2.50.1)
+ * Constants of library ACP10PAR (V2.51.2)
  ********************************************************************)
 VAR CONSTANT
     ACP10PAR_SAFEMC_STATUS            :UINT  := 4;     (* (UDINT) SafeMC: Status *)

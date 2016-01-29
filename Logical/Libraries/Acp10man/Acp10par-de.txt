@@ -301,7 +301,7 @@
   302: CTRL Zwischenkreis: Gefilterte Spannung
   303: Geber1: ADC1 Wert
   304: Fehlerstatus des Vektorreglers
-  305: CTRL Chopper: Stellgröße
+  305: CTRL Chopper: PWM-Tastverhältnis
   307: Maximale Motordrehzahl
   308: Maximale Statorquerstromkomponente (Begrenzung: IS_MAX)
   309: SafeMC: Istposition
@@ -1523,9 +1523,14 @@
  1540: Leistungsteil: Hauptrelais: Temperatur
  1541: Spindelsteigungsfehler-Losekompensation: Maximale Geschwindigkeit beim Losewechsel
  1542: Spindelsteigungsfehler-Losekompensation: Status
+ 1543: DC-Anschluss: Temperatur
  1544: Zwischenkreis: Kondensator: Temperatur
  1545: Zwischenkreis: Dauersummenleistung: Last
  1546: Zwischenkreis: Spitzensummenleistung: Last
+ 1548: 24 VDC Versorgung: Gefilterte Spannung
+ 1551: Virtueller Geber: Grenzwert für Positions-Schleppfehler
+ 1552: Virtueller Geber: Grenzwert für Geschwindigkeits-Schleppfehler
+ 1553: Virtueller Geber: Skalierfaktor für Strom
  3072: FB LOGIC: Modus
  3080: FB LOGIC: Parameter-ID Eingang1
  3088: FB LOGIC: Parameter-ID Eingang2
