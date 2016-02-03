@@ -1,31 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <BR.AS.HardwareTopology Version="0.0.0.1">
   <Modules>
-    <Module Name="4PP420_1043_B5" Type="4PP420.1043-B5" X="100" Y="-480" />
+    <Module Name="8V1045.00-2" Type="8V1045.00-2" X="339" Y="-91" />
+    <Module Name="8AC122.60-3" Type="8AC122.60-3" X="353" Y="115.5" />
+    <Module Name="8AC114.60-2" Type="8AC114.60-2" X="341.8" Y="115.5" />
+    <Module Name="8V1045.00-2a" Type="8V1045.00-2" X="459" Y="-91" />
+    <Module Name="8AC120.60-1" Type="8AC120.60-1" X="473" Y="115.5" />
+    <Module Name="8AC114.60-2a" Type="8AC114.60-2" X="461.8" Y="115.5" />
+    <Module Name="8V1045.001-2" Type="8V1045.001-2" X="579" Y="-91" />
+    <Module Name="8AC130.60-1" Type="8AC130.60-1" X="604.2" Y="115.5" />
+    <Module Name="8AC120.60-1a" Type="8AC120.60-1" X="593" Y="115.5" />
+    <Module Name="8AC114.60-2b" Type="8AC114.60-2" X="581.8" Y="115.5" />
+    <Module Name="8I74xxxxxxx.01P-1" Type="8I74xxxxxxx.01P-1" X="699" Y="-91" />
+    <Module Name="8MSA4S.R0-42" Type="8MSA4S.R0-42" X="339" Y="221" />
+    <Module Name="8MSA4M.E1-30" Type="8MSA4M.E1-30" X="459" Y="221" />
+    <Module Name="8MSA3M.E0-I6" Type="8MSA3M.E0-I6" X="579" Y="221" />
+    <Module Name="X20BM01" Type="X20BM01" X="339" Y="-240" />
+    <Module Name="X20BR9300" Type="X20BR9300" X="339" Y="-240" />
+    <Module Name="X20TB12" Type="X20TB12" X="339" Y="-213" />
+    <Module Name="X20BM11" Type="X20BM11" X="352" Y="-240" />
+    <Module Name="X20DC2396" Type="X20DC2396" X="352" Y="-240" />
+    <Module Name="X20TB12a" Type="X20TB12" X="352" Y="-213" />
+    <Module Name="X20BM32" Type="X20BM32" X="365" Y="-240" />
+    <Module Name="X20AP3131" Type="X20AP3131" X="365" Y="-240" />
+    <Module Name="X20TB32" Type="X20TB32" X="378" Y="-213" />
+    <Module Name="4PP480_1043_75" Type="4PP480.1043-75" X="100" Y="-480" />
     <Module Name="3IF789.9-1" Type="3IF789.9-1" X="294.099976" Y="-470" />
-    <Module Name="8V1045.00-2" Type="8V1045.00-2" X="339.099976" Y="-91" />
-    <Module Name="8AC122.60-3" Type="8AC122.60-3" X="353.099976" Y="115.5" />
-    <Module Name="8AC114.60-2" Type="8AC114.60-2" X="341.899963" Y="115.5" />
-    <Module Name="8V1045.00-2a" Type="8V1045.00-2" X="459.099976" Y="-91" />
-    <Module Name="8AC120.60-1" Type="8AC120.60-1" X="473.099976" Y="115.5" />
-    <Module Name="8AC114.60-2a" Type="8AC114.60-2" X="461.899963" Y="115.5" />
-    <Module Name="8V1045.001-2" Type="8V1045.001-2" X="579.1" Y="-91" />
-    <Module Name="8AC130.60-1" Type="8AC130.60-1" X="604.3" Y="115.5" />
-    <Module Name="8AC120.60-1a" Type="8AC120.60-1" X="593.1" Y="115.5" />
-    <Module Name="8AC114.60-2b" Type="8AC114.60-2" X="581.899963" Y="115.5" />
-    <Module Name="8I74xxxxxxx.01P-1" Type="8I74xxxxxxx.01P-1" X="699.1" Y="-91" />
-    <Module Name="8MSA4S.R0-42" Type="8MSA4S.R0-42" X="339.099976" Y="221.5" />
-    <Module Name="8MSA4M.E1-30" Type="8MSA4M.E1-30" X="459.099976" Y="221.5" />
-    <Module Name="8MSA3M.E0-I6" Type="8MSA3M.E0-I6" X="579.1" Y="221.5" />
-    <Module Name="X20BM01" Type="X20BM01" X="339.099976" Y="-240" />
-    <Module Name="X20BR9300" Type="X20BR9300" X="339.099976" Y="-240" />
-    <Module Name="X20TB12" Type="X20TB12" X="339.099976" Y="-213" />
-    <Module Name="X20BM11" Type="X20BM11" X="352.099976" Y="-240" />
-    <Module Name="X20DC2396" Type="X20DC2396" X="352.099976" Y="-240" />
-    <Module Name="X20TB12a" Type="X20TB12" X="352.099976" Y="-213" />
-    <Module Name="X20BM32" Type="X20BM32" X="365.099976" Y="-240" />
-    <Module Name="X20AP3131" Type="X20AP3131" X="365.099976" Y="-240" />
-    <Module Name="X20TB32" Type="X20TB32" X="378.099976" Y="-213" />
   </Modules>
   <Links>
     <Link From="3IF789.9-1" To="X20BR9300" FromPort="IF1" ToPort="X2X1">
