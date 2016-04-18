@@ -15,15 +15,15 @@
     <Module Name="8MSA4S.R0-42" Type="8MSA4S.R0-42" X="339" Y="221" />
     <Module Name="8MSA4M.E1-30" Type="8MSA4M.E1-30" X="459" Y="221" />
     <Module Name="8MSA3M.E0-I6" Type="8MSA3M.E0-I6" X="579" Y="221" />
-    <Module Name="X20BM01" Type="X20BM01" X="339" Y="-240" />
-    <Module Name="X20BR9300" Type="X20BR9300" X="339" Y="-240" />
-    <Module Name="X20TB12" Type="X20TB12" X="339" Y="-213" />
-    <Module Name="X20BM11" Type="X20BM11" X="352" Y="-240" />
-    <Module Name="X20DC2396" Type="X20DC2396" X="352" Y="-240" />
-    <Module Name="X20TB12a" Type="X20TB12" X="352" Y="-213" />
-    <Module Name="X20BM32" Type="X20BM32" X="365" Y="-240" />
-    <Module Name="X20AP3131" Type="X20AP3131" X="365" Y="-240" />
-    <Module Name="X20TB32" Type="X20TB32" X="378" Y="-213" />
+    <Module Name="X20BM01" Type="X20BM01" X="336.7" Y="-237" />
+    <Module Name="X20BR9300" Type="X20BR9300" X="336.7" Y="-237" />
+    <Module Name="X20TB12" Type="X20TB12" X="336.7" Y="-210" />
+    <Module Name="X20BM32" Type="X20BM32" X="349.7" Y="-237" />
+    <Module Name="X20AP3131" Type="X20AP3131" X="349.7" Y="-237" />
+    <Module Name="X20TB32" Type="X20TB32" X="362.7" Y="-210" />
+    <Module Name="X20BM11" Type="X20BM11" X="375.7" Y="-237" />
+    <Module Name="X20DC2396" Type="X20DC2396" X="375.7" Y="-237" />
+    <Module Name="X20TB12a" Type="X20TB12" X="375.7" Y="-210" />
     <Module Name="4PP480_1043_75" Type="4PP480.1043-75" X="100" Y="-480" />
     <Module Name="3IF789.9-1" Type="3IF789.9-1" X="294.099976" Y="-470" />
   </Modules>
@@ -32,22 +32,22 @@
       <Point X="339.099976" Y="-462" />
       <Point X="339.099976" Y="-462" />
       <Point X="344.099976" Y="-462" />
-      <Point X="352" Y="-462" />
-      <Point X="352" Y="-268" />
-      <Point X="332" Y="-268" />
-      <Point X="332" Y="-196" />
-      <Point X="334.099976" Y="-196" />
-      <Point X="341.099976" Y="-196" />
-      <Point X="341.099976" Y="-196" />
+      <Point X="345" Y="-462" />
+      <Point X="345" Y="-275" />
+      <Point X="325" Y="-275" />
+      <Point X="325" Y="-193" />
+      <Point X="331.7" Y="-193" />
+      <Point X="338.7" Y="-193" />
+      <Point X="338.7" Y="-193" />
     </Link>
     <Link From="3IF789.9-1" To="8AC114.60-2" FromPort="IF2" ToPort="PLK1">
       <Point X="339.099976" Y="-450" />
       <Point X="339.099976" Y="-450" />
       <Point X="344.099976" Y="-450" />
-      <Point X="345" Y="-450" />
-      <Point X="345" Y="-275" />
-      <Point X="325" Y="-275" />
-      <Point X="325" Y="143.299988" />
+      <Point X="352" Y="-450" />
+      <Point X="352" Y="-282" />
+      <Point X="318" Y="-282" />
+      <Point X="318" Y="143.299988" />
       <Point X="334.999969" Y="143.299988" />
       <Point X="343.999969" Y="143.299988" />
       <Point X="343.999969" Y="143.299988" />
