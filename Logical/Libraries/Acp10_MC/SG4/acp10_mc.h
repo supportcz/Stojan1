@@ -1,21 +1,21 @@
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
 #ifndef _ACP10_MC_
 #define _ACP10_MC_
+#ifdef __cplusplus
+extern "C" 
+{
+#endif
 
 #include <bur/plctypes.h>
 
-#ifndef _IEC_CONST
-#define _IEC_CONST _WEAK const
+#ifndef _BUR_PUBLIC
+#define _BUR_PUBLIC
 #endif
-
 /* Constants */
 #ifdef _REPLACE_CONST
+ #define mcWRITE_DIRECT 256U
  #define mcWRAP 2U
  #define mcWITHOUT_FF 1U
  #define mcWITH_FF 0U
@@ -54,15 +54,17 @@ extern "C" {
  #define mcSWITCH_OFF 259U
  #define mcSW_LIMIT_POS 2
  #define mcSW_LIMIT_NEG 3
- #define mcSW_END_SPF 2
+ #define mcSW_END_SPF 2.0f
  #define mcSW_END_MONITORING 1014
- #define mcSW_END_IGNORE 1
- #define mcSW_END_ACTIVE 0
+ #define mcSW_END_IGNORE 1.0f
+ #define mcSW_END_ACTIVE 0.0f
  #define mcSTRAIGHT_LINE 1U
  #define mcSTOP_INDEX 1013
  #define mcSTOP 261U
  #define mcSTEPPER 31U
+ #define mcSTART_P_FLANK 0U
  #define mcSTART_ONLY 3U
+ #define mcSTART_N_FLANK 128U
  #define mcSTART 260U
  #define mcSTANDARD 0U
  #define mcSPEED 2U
@@ -72,12 +74,15 @@ extern "C" {
  #define mcSIMULATION_READ 265U
  #define mcSIMULATION_ON 258U
  #define mcSIMULATION_OFF 259U
- #define mcSIMULATION_INIT_ON 256U
  #define mcSIMULATION_INIT 512U
  #define mcSIMPLE_SINE_CURVE 3U
+ #define mcSIGNAL_PRBS 0U
+ #define mcSIGNAL_CHIRP_TRAPEZOID 2U
+ #define mcSIGNAL_CHIRP 1U
  #define mcSHORTEST_WAY 3U
  #define mcSHIFT_FROM_RESULT 49U
  #define mcSHIFT_FROM_EXPECTED 50U
+ #define mcSET_POSITION 0U
  #define mcSET_OFFSET 34U
  #define mcSE 3U
  #define mcSAVE_RING_STARTIDX 4437U
@@ -156,7 +161,7 @@ extern "C" {
  #define mcLINEAR_CAM_PERIODIC 255U
  #define mcLINEAR_CAM_NON_PERIODIC 254U
  #define mcLINEAR_CAM 253U
- #define mcLIMIT_PARAMETERS 1
+ #define mcLIMIT_PARAMETERS 1.0f
  #define mcLIMIT 40U
  #define mcLENGTH_ONLY 32U
  #define mcLEAD_OUT 4U
@@ -210,11 +215,12 @@ extern "C" {
  #define mcFF_POS_MOVE 33U
  #define mcFF_NEG_MOVE 34U
  #define mcFF 32U
- #define mcFB_INPUTS 255
+ #define mcFB_INPUTS 255.0f
  #define mcFB_ERROR 2U
  #define mcEXCEED_PERIOD 8U
  #define mcEVERY_RECORD 1U
  #define mcEQUAL 2U
+ #define mcENCODER_POSITION 2U
  #define mcENCODER 0U
  #define mcENABLE_POS_LAG_MONITORING 6
  #define mcENABLE_LIMIT_POS 4
@@ -223,6 +229,10 @@ extern "C" {
  #define mcEDGE_SENSITIVE 4U
  #define mcDITHER 32U
  #define mcDISTANCE_BASED 0U
+ #define mcDIR_INDEPENDENT_SPEED 4U
+ #define mcDIR_INDEPENDENT 3U
+ #define mcDIR_DEPENDENT_BACKLASH 2U
+ #define mcDIR_DEPENDENT 1U
  #define mcDIRECT 7U
  #define mcDEFAULT_MOVE_PARAMETERS 1012
  #define mcDATOBJ 0U
@@ -238,6 +248,8 @@ extern "C" {
  #define mcCMD_ERROR_V_STOP_CTRL_OFF 4U
  #define mcCMD_ERROR_STOP_CTRL_OFF 3U
  #define mcCMD_ERROR_STOP 2U
+ #define mcCMD_ERROR_INDUCTION_HALT 6U
+ #define mcCMD_ERROR_COAST_TO_STANDSTILL 5U
  #define mcCMD_ERROR 1U
  #define mcCLOSE 0U
  #define mcCHECK_HOMING_OFF 1U
@@ -251,7 +263,7 @@ extern "C" {
  #define mcBESTFIT_6TH_ORDER 1280U
  #define mcBESTFIT_5TH_ORDER 1024U
  #define mcBELOW_WINDOW 50U
- #define mcBASIS_PARAMETERS 2
+ #define mcBASIS_PARAMETERS 2.0f
  #define mcAXIS_WARNING 1U
  #define mcAXIS_PERIOD_MAPPING 1020
  #define mcAXIS_PERIOD 1008
@@ -269,6 +281,7 @@ extern "C" {
  #define mcALL_AXES 4294967295U
  #define mcADD_DATE_TIME 1U
  #define mcACTUAL_VELOCITY 10
+ #define mcACTUAL_POSITION 1U
  #define mcACT_CFG 1U
  #define mcACKNOWLEDGE_ALL 2U
  #define mcABSOLUTE_NO_RESET 2U
@@ -277,305 +290,324 @@ extern "C" {
  #define mcABOVE_WINDOW 40U
  #define mc5TH_ORDER_POLYNOMIAL 4U
 #else
- _IEC_CONST unsigned short mcWRAP = 2U;
- _IEC_CONST unsigned char mcWITHOUT_FF = 1U;
- _IEC_CONST unsigned char mcWITH_FF = 0U;
- _IEC_CONST unsigned short mcWITHOUT_PERIOD = 4U;
- _IEC_CONST unsigned char mcWITHIN_PERIOD = 6U;
- _IEC_CONST unsigned char mcWITH_PARAM = 2U;
- _IEC_CONST unsigned char mcVERTICAL = 1U;
- _IEC_CONST unsigned short mcVELOCITY_CONTROL = 4U;
- _IEC_CONST unsigned char mcV_LIMIT_OFF = 2U;
- _IEC_CONST unsigned char mcV_LIMIT_CALC = 4U;
- _IEC_CONST unsigned short mcUSE_TN = 8U;
- _IEC_CONST unsigned char mcUSE_STOP_COMP = 4U;
- _IEC_CONST unsigned short mcUSE_FIRST_TRIGGER_POS = 64U;
- _IEC_CONST unsigned short mcUSE_FILTER_PAR = 4U;
- _IEC_CONST unsigned short mcUSE_AXIS_PERIOD = 16384U;
- _IEC_CONST unsigned short mcUPDATE_PERIOD = 32768U;
- _IEC_CONST unsigned short mcUNEQUAL = 5U;
- _IEC_CONST unsigned char mcTUNE_V_CONSTANT = 1U;
- _IEC_CONST unsigned char mcTUNE_STANDSTILL = 0U;
- _IEC_CONST unsigned short mcTRANSITION_ON = 1U;
- _IEC_CONST unsigned short mcTRANSITION_OFF = 0U;
- _IEC_CONST unsigned char mcTRACE_TRIGGER = 3U;
- _IEC_CONST unsigned char mcTRACE_TIME = 2U;
- _IEC_CONST unsigned char mcTRACE_STARTED = 20U;
- _IEC_CONST unsigned char mcTRACE_RING = 4U;
- _IEC_CONST unsigned char mcTRACE_REST = 5U;
- _IEC_CONST unsigned char mcTRACE_FINISHED = 1U;
- _IEC_CONST unsigned char mcTRACE_DELAY = 6U;
- _IEC_CONST unsigned char mcTIME_LIMIT = 8U;
- _IEC_CONST unsigned short mcTIME_BASED = 1U;
- _IEC_CONST unsigned short mcTEXT = 1U;
- _IEC_CONST unsigned short mcTEST = 31U;
- _IEC_CONST unsigned short mcT_FILTER_2 = 65U;
- _IEC_CONST unsigned short mcT_FILTER = 64U;
- _IEC_CONST unsigned short mcSWITCH_ON = 258U;
- _IEC_CONST unsigned short mcSWITCH_OFF = 259U;
- _IEC_CONST signed short mcSW_LIMIT_POS = 2;
- _IEC_CONST signed short mcSW_LIMIT_NEG = 3;
- _IEC_CONST float mcSW_END_SPF = 2;
- _IEC_CONST signed short mcSW_END_MONITORING = 1014;
- _IEC_CONST float mcSW_END_IGNORE = 1;
- _IEC_CONST float mcSW_END_ACTIVE = 0;
- _IEC_CONST unsigned short mcSTRAIGHT_LINE = 1U;
- _IEC_CONST signed short mcSTOP_INDEX = 1013;
- _IEC_CONST unsigned short mcSTOP = 261U;
- _IEC_CONST unsigned char mcSTEPPER = 31U;
- _IEC_CONST unsigned char mcSTART_ONLY = 3U;
- _IEC_CONST unsigned short mcSTART = 260U;
- _IEC_CONST unsigned char mcSTANDARD = 0U;
- _IEC_CONST unsigned char mcSPEED = 2U;
- _IEC_CONST unsigned short mcSMALLER = 1U;
- _IEC_CONST unsigned char mcSLOW_DOWN = 5U;
- _IEC_CONST unsigned short mcSLAVE_POSITION = 0U;
- _IEC_CONST unsigned short mcSIMULATION_READ = 265U;
- _IEC_CONST unsigned short mcSIMULATION_ON = 258U;
- _IEC_CONST unsigned short mcSIMULATION_OFF = 259U;
- _IEC_CONST unsigned short mcSIMULATION_INIT_ON = 256U;
- _IEC_CONST unsigned short mcSIMULATION_INIT = 512U;
- _IEC_CONST unsigned short mcSIMPLE_SINE_CURVE = 3U;
- _IEC_CONST unsigned char mcSHORTEST_WAY = 3U;
- _IEC_CONST unsigned short mcSHIFT_FROM_RESULT = 49U;
- _IEC_CONST unsigned short mcSHIFT_FROM_EXPECTED = 50U;
- _IEC_CONST unsigned char mcSET_OFFSET = 34U;
- _IEC_CONST unsigned short mcSE = 3U;
- _IEC_CONST unsigned short mcSAVE_RING_STARTIDX = 4437U;
- _IEC_CONST unsigned short mcSAVE = 341U;
- _IEC_CONST unsigned char mcSATURATION = 30U;
- _IEC_CONST unsigned short mcREVERSE = 8U;
- _IEC_CONST unsigned short mcRESTART = 273U;
- _IEC_CONST unsigned short mcRESET_RING_STARTIDX = 4416U;
- _IEC_CONST unsigned short mcRESET = 320U;
- _IEC_CONST unsigned char mcRELATIVE_NO_RESET = 3U;
- _IEC_CONST unsigned char mcRELATIVE = 1U;
- _IEC_CONST unsigned short mcQUEUED = 1U;
- _IEC_CONST unsigned short mcQUADRATIC_PARABOLA = 2U;
- _IEC_CONST unsigned char mcPOSITIVE_DIR = 0U;
- _IEC_CONST unsigned char mcPOSITION = 1U;
- _IEC_CONST plcbit mcPERIODIC = 1;
- _IEC_CONST unsigned char mcP_EDGE = 0U;
- _IEC_CONST signed short mcOVERRIDE = 1000;
- _IEC_CONST unsigned char mcOUT_WINDOW = 30U;
- _IEC_CONST unsigned short mcOPTIMIZED_VELOCITY = 512U;
- _IEC_CONST unsigned short mcOPTIMIZED_ACCELERATION = 768U;
- _IEC_CONST unsigned char mcOPEN = 1U;
- _IEC_CONST unsigned char mcONLY_PSM = 1U;
- _IEC_CONST unsigned char mcONLY_EVENTS = 254U;
- _IEC_CONST unsigned short mcONE_RECORD = 0U;
- _IEC_CONST unsigned short mcONCE = 1U;
- _IEC_CONST plcbit mcON = 1;
- _IEC_CONST plcbit mcOFF = 0;
- _IEC_CONST unsigned short mcNULL = 1U;
- _IEC_CONST unsigned long mcNOT_AXIS_RELATED = 4294967295U;
- _IEC_CONST plcbit mcNON_PERIODIC = 0;
- _IEC_CONST unsigned short mcNO_TEXT = 0U;
- _IEC_CONST unsigned char mcNO_START_COMP = 1U;
- _IEC_CONST unsigned char mcNO_POSITION = 0U;
- _IEC_CONST unsigned char mcNO_PARAMS = 253U;
- _IEC_CONST unsigned char mcNO_STATES = 253U;
- _IEC_CONST unsigned char mcNO_EVENTS = 253U;
- _IEC_CONST unsigned char mcNO_CHANGE_COMP = 2U;
- _IEC_CONST signed short mcNETWORK_CYCLE_TIME = 1017;
- _IEC_CONST unsigned long mcNET_TRACE_GLOBAL = 0U;
- _IEC_CONST unsigned char mcNEGATIVE_DIR = 1U;
- _IEC_CONST unsigned char mcN_EDGE = 1U;
- _IEC_CONST unsigned long mcMULTI_AXIS_TRACE = 0U;
- _IEC_CONST signed short mcMOVE_VELOCITY_POS = 1001;
- _IEC_CONST signed short mcMOVE_VELOCITY_NEG = 1002;
- _IEC_CONST signed short mcMOVE_DECELERATION_POS = 1004;
- _IEC_CONST signed short mcMOVE_DECELERATION_NEG = 1006;
- _IEC_CONST signed short mcMOVE_CYCL_VEL_IPL_MODE = 1011;
- _IEC_CONST signed short mcMOVE_CYCL_POS_IPL_MODE = 1010;
- _IEC_CONST signed short mcMOVE_ACCELERATION_POS = 1003;
- _IEC_CONST signed short mcMOVE_ACCELERATION_NEG = 1005;
- _IEC_CONST unsigned short mcMOTOR = 258U;
- _IEC_CONST unsigned short mcMODIFIED_SINE_CURVE = 7U;
- _IEC_CONST unsigned short mcMODIFIED_ACCEL_TRAPEZOID = 6U;
- _IEC_CONST unsigned short mcMIN_MASTER_COMP_DISTANCE = 2U;
- _IEC_CONST unsigned char mcMIDDLE = 5U;
- _IEC_CONST signed short mcMAX_VELOCITY_SYSTEM = 8;
- _IEC_CONST signed short mcMAX_VELOCITY_APPL = 9;
- _IEC_CONST unsigned short mcMAX_SLAVE_COMP_DISTANCE_POS = 3U;
- _IEC_CONST unsigned short mcMAX_SLAVE_COMP_DISTANCE_NEG = 4U;
- _IEC_CONST signed short mcMAX_POSITION_LAG = 7;
- _IEC_CONST signed short mcMAX_POSITION_CHANGE = 1016;
- _IEC_CONST signed short mcMAX_LOAD_SYSTEM = 1015;
- _IEC_CONST signed short mcMAX_JERK = 16;
- _IEC_CONST unsigned char mcMAX_IV_TIME = 8U;
- _IEC_CONST signed short mcMAX_DECELERATION_SYSTEM = 14;
- _IEC_CONST signed short mcMAX_DECELERATION_APPL = 15;
- _IEC_CONST signed short mcMAX_ACCELERATION_SYSTEM = 12;
- _IEC_CONST signed short mcMAX_ACCELERATION_APPL = 13;
- _IEC_CONST unsigned short mcMASTER_POSITION_BASED = 2U;
- _IEC_CONST unsigned short mcMASTER_POSITION = 256U;
- _IEC_CONST unsigned char mcMASTER_INTERVAL = 0U;
- _IEC_CONST unsigned short mcMASTER_DISTANCE_BASED = 3U;
- _IEC_CONST unsigned short mcMANUAL_SEARCH = 64U;
- _IEC_CONST unsigned short mcLOAD = 276U;
- _IEC_CONST unsigned char mcLINEAR_CAM_PERIODIC = 255U;
- _IEC_CONST unsigned char mcLINEAR_CAM_NON_PERIODIC = 254U;
- _IEC_CONST unsigned char mcLINEAR_CAM = 253U;
- _IEC_CONST float mcLIMIT_PARAMETERS = 1;
- _IEC_CONST unsigned char mcLIMIT = 40U;
- _IEC_CONST unsigned short mcLENGTH_ONLY = 32U;
- _IEC_CONST unsigned short mcLEAD_OUT = 4U;
- _IEC_CONST unsigned short mcLEAD_IN = 2U;
- _IEC_CONST unsigned short mcLAST_POINT = 0U;
- _IEC_CONST unsigned short mcISQ_RIPPLE = 20U;
- _IEC_CONST unsigned short mcISQ_F3_NOTCH = 512U;
- _IEC_CONST unsigned short mcISQ_F2_NOTCH = 256U;
- _IEC_CONST unsigned short mcISQ_F1_NOTCH = 128U;
- _IEC_CONST unsigned char mcIPL_QUADRATIC_NO_OVERSHOOT = 4U;
- _IEC_CONST unsigned char mcIPL_QUADRATIC = 2U;
- _IEC_CONST unsigned char mcIPL_OFF = 0U;
- _IEC_CONST unsigned char mcIPL_LINEAR = 1U;
- _IEC_CONST unsigned char mcINVERSE = 255U;
- _IEC_CONST unsigned short mcINTERVAL_EVENT = 16U;
- _IEC_CONST unsigned short mcINCLINED_SINE_CURVE = 5U;
- _IEC_CONST unsigned char mcINC_REF = 3U;
- _IEC_CONST unsigned char mcINC_ABS = 4U;
- _IEC_CONST unsigned char mcINC = 2U;
- _IEC_CONST unsigned char mcIN_WINDOW = 20U;
- _IEC_CONST unsigned short mcIMMEDIATE = 0U;
- _IEC_CONST unsigned short mcIDENTIFICATION = 10U;
- _IEC_CONST unsigned char mcHORIZONTAL = 0U;
- _IEC_CONST unsigned char mcHOME_SWITCH_GATE = 8U;
- _IEC_CONST unsigned char mcHOME_SET_PHASE = 7U;
- _IEC_CONST unsigned char mcHOME_RESTORE_POS = 11U;
- _IEC_CONST unsigned char mcHOME_REF_PULSE = 5U;
- _IEC_CONST unsigned char mcHOME_LIMIT_SWITCH = 3U;
- _IEC_CONST unsigned char mcHOME_DIRECT = 1U;
- _IEC_CONST unsigned char mcHOME_DEFAULT = 0U;
- _IEC_CONST unsigned char mcHOME_DCM_CORR = 10U;
- _IEC_CONST unsigned char mcHOME_DCM = 9U;
- _IEC_CONST unsigned char mcHOME_BLOCK_TORQUE = 13U;
- _IEC_CONST unsigned char mcHOME_BLOCK_DS = 14U;
- _IEC_CONST unsigned char mcHOME_AXIS_REF = 12U;
- _IEC_CONST unsigned char mcHOME_ABSOLUTE_CORR = 6U;
- _IEC_CONST unsigned char mcHOME_ABSOLUTE = 4U;
- _IEC_CONST unsigned char mcHOME_ABS_SWITCH = 2U;
- _IEC_CONST unsigned short mcHOLDOFF_DISTANCE = 16384U;
- _IEC_CONST unsigned short mcHARMONIC_COMBINATION = 8U;
- _IEC_CONST unsigned short mcGREATER = 4U;
- _IEC_CONST unsigned char mcGET_BRAKE_STATUS = 16U;
- _IEC_CONST unsigned short mcGE = 6U;
- _IEC_CONST unsigned char mcFLUX = 1U;
- _IEC_CONST unsigned short mcFIRST_TRIGGER = 2U;
- _IEC_CONST unsigned short mcFIRST_RM = 0U;
- _IEC_CONST unsigned short mcFILE_TXT = 2U;
- _IEC_CONST unsigned short mcFILE_CSV = 1U;
- _IEC_CONST unsigned short mcFILE_BIN = 0U;
- _IEC_CONST unsigned short mcFILE = 1U;
- _IEC_CONST unsigned short mcFF_POS_MOVE = 33U;
- _IEC_CONST unsigned short mcFF_NEG_MOVE = 34U;
- _IEC_CONST unsigned char mcFF = 32U;
- _IEC_CONST float mcFB_INPUTS = 255;
- _IEC_CONST unsigned char mcFB_ERROR = 2U;
- _IEC_CONST unsigned char mcEXCEED_PERIOD = 8U;
- _IEC_CONST unsigned short mcEVERY_RECORD = 1U;
- _IEC_CONST unsigned short mcEQUAL = 2U;
- _IEC_CONST unsigned char mcENCODER = 0U;
- _IEC_CONST signed short mcENABLE_POS_LAG_MONITORING = 6;
- _IEC_CONST signed short mcENABLE_LIMIT_POS = 4;
- _IEC_CONST signed short mcENABLE_LIMIT_NEG = 5;
- _IEC_CONST unsigned short mcENABLE = 2U;
- _IEC_CONST unsigned char mcEDGE_SENSITIVE = 4U;
- _IEC_CONST unsigned char mcDITHER = 32U;
- _IEC_CONST unsigned short mcDISTANCE_BASED = 0U;
- _IEC_CONST unsigned char mcDIRECT = 7U;
- _IEC_CONST signed short mcDEFAULT_MOVE_PARAMETERS = 1012;
- _IEC_CONST unsigned short mcDATOBJ = 0U;
- _IEC_CONST unsigned short mcCYCLIC_ALL_EVENTS = 3U;
- _IEC_CONST unsigned short mcCYCLIC = 2U;
- _IEC_CONST unsigned char mcCURRENT_DIR = 2U;
- _IEC_CONST unsigned short mcCUBIC_SPLINE = 256U;
- _IEC_CONST unsigned short mcCORRECT_CURRENT_CYCLE = 32768U;
- _IEC_CONST unsigned short mcCONTINUE_CONTROLLER_OFF = 128U;
- _IEC_CONST signed short mcCOMMANDED_VELOCITY = 11;
- _IEC_CONST signed short mcCOMMANDED_POSITION = 1;
- _IEC_CONST unsigned short mcCMD_WARNING = 0U;
- _IEC_CONST unsigned short mcCMD_ERROR_V_STOP_CTRL_OFF = 4U;
- _IEC_CONST unsigned short mcCMD_ERROR_STOP_CTRL_OFF = 3U;
- _IEC_CONST unsigned short mcCMD_ERROR_STOP = 2U;
- _IEC_CONST unsigned short mcCMD_ERROR = 1U;
- _IEC_CONST unsigned char mcCLOSE = 0U;
- _IEC_CONST unsigned char mcCHECK_HOMING_OFF = 1U;
- _IEC_CONST unsigned short mcCHECK = 1U;
- _IEC_CONST unsigned char mcCATCH_UP = 4U;
- _IEC_CONST unsigned short mcCALCULATION = 11U;
- _IEC_CONST unsigned char mcBRAKE_TEST_START = 4U;
- _IEC_CONST unsigned char mcBRAKE_TEST_INIT = 2U;
- _IEC_CONST unsigned char mcBRAKE_CONTROL_INIT = 8U;
- _IEC_CONST unsigned short mcBLANK = 0U;
- _IEC_CONST unsigned short mcBESTFIT_6TH_ORDER = 1280U;
- _IEC_CONST unsigned short mcBESTFIT_5TH_ORDER = 1024U;
- _IEC_CONST unsigned char mcBELOW_WINDOW = 50U;
- _IEC_CONST float mcBASIS_PARAMETERS = 2;
- _IEC_CONST unsigned char mcAXIS_WARNING = 1U;
- _IEC_CONST signed short mcAXIS_PERIOD_MAPPING = 1020;
- _IEC_CONST signed short mcAXIS_PERIOD = 1008;
- _IEC_CONST signed short mcAXIS_NETWORK_CYCLE_TIME = 1018;
- _IEC_CONST signed short mcAXIS_FACTOR_MAPPING = 1019;
- _IEC_CONST signed short mcAXIS_FACTOR = 1007;
- _IEC_CONST unsigned char mcAXIS_ERROR = 0U;
- _IEC_CONST unsigned short mcAVERAGE_WEIGHTED = 4U;
- _IEC_CONST unsigned short mcAVERAGE = 2U;
- _IEC_CONST unsigned char mcAUTOMAT_POS = 100U;
- _IEC_CONST signed short mcAUT_POS_TOLERANCE = 1009;
- _IEC_CONST unsigned char mcALL_STATES = 255U;
- _IEC_CONST unsigned char mcALL_PARAMS = 0U;
- _IEC_CONST unsigned char mcALL_EVENTS = 255U;
- _IEC_CONST unsigned long mcALL_AXES = 4294967295U;
- _IEC_CONST unsigned short mcADD_DATE_TIME = 1U;
- _IEC_CONST signed short mcACTUAL_VELOCITY = 10;
- _IEC_CONST unsigned short mcACT_CFG = 1U;
- _IEC_CONST unsigned short mcACKNOWLEDGE_ALL = 2U;
- _IEC_CONST unsigned char mcABSOLUTE_NO_RESET = 2U;
- _IEC_CONST unsigned char mcABSOLUTE = 0U;
- _IEC_CONST unsigned char mcABS = 1U;
- _IEC_CONST unsigned char mcABOVE_WINDOW = 40U;
- _IEC_CONST unsigned short mc5TH_ORDER_POLYNOMIAL = 4U;
+ #ifndef _GLOBAL_CONST
+   #define _GLOBAL_CONST _WEAK const
+ #endif
+ _GLOBAL_CONST unsigned short mcWRITE_DIRECT;
+ _GLOBAL_CONST unsigned short mcWRAP;
+ _GLOBAL_CONST unsigned char mcWITHOUT_FF;
+ _GLOBAL_CONST unsigned char mcWITH_FF;
+ _GLOBAL_CONST unsigned short mcWITHOUT_PERIOD;
+ _GLOBAL_CONST unsigned char mcWITHIN_PERIOD;
+ _GLOBAL_CONST unsigned char mcWITH_PARAM;
+ _GLOBAL_CONST unsigned char mcVERTICAL;
+ _GLOBAL_CONST unsigned short mcVELOCITY_CONTROL;
+ _GLOBAL_CONST unsigned char mcV_LIMIT_OFF;
+ _GLOBAL_CONST unsigned char mcV_LIMIT_CALC;
+ _GLOBAL_CONST unsigned short mcUSE_TN;
+ _GLOBAL_CONST unsigned char mcUSE_STOP_COMP;
+ _GLOBAL_CONST unsigned short mcUSE_FIRST_TRIGGER_POS;
+ _GLOBAL_CONST unsigned short mcUSE_FILTER_PAR;
+ _GLOBAL_CONST unsigned short mcUSE_AXIS_PERIOD;
+ _GLOBAL_CONST unsigned short mcUPDATE_PERIOD;
+ _GLOBAL_CONST unsigned short mcUNEQUAL;
+ _GLOBAL_CONST unsigned char mcTUNE_V_CONSTANT;
+ _GLOBAL_CONST unsigned char mcTUNE_STANDSTILL;
+ _GLOBAL_CONST unsigned short mcTRANSITION_ON;
+ _GLOBAL_CONST unsigned short mcTRANSITION_OFF;
+ _GLOBAL_CONST unsigned char mcTRACE_TRIGGER;
+ _GLOBAL_CONST unsigned char mcTRACE_TIME;
+ _GLOBAL_CONST unsigned char mcTRACE_STARTED;
+ _GLOBAL_CONST unsigned char mcTRACE_RING;
+ _GLOBAL_CONST unsigned char mcTRACE_REST;
+ _GLOBAL_CONST unsigned char mcTRACE_FINISHED;
+ _GLOBAL_CONST unsigned char mcTRACE_DELAY;
+ _GLOBAL_CONST unsigned char mcTIME_LIMIT;
+ _GLOBAL_CONST unsigned short mcTIME_BASED;
+ _GLOBAL_CONST unsigned short mcTEXT;
+ _GLOBAL_CONST unsigned short mcTEST;
+ _GLOBAL_CONST unsigned short mcT_FILTER_2;
+ _GLOBAL_CONST unsigned short mcT_FILTER;
+ _GLOBAL_CONST unsigned short mcSWITCH_ON;
+ _GLOBAL_CONST unsigned short mcSWITCH_OFF;
+ _GLOBAL_CONST signed short mcSW_LIMIT_POS;
+ _GLOBAL_CONST signed short mcSW_LIMIT_NEG;
+ _GLOBAL_CONST float mcSW_END_SPF;
+ _GLOBAL_CONST signed short mcSW_END_MONITORING;
+ _GLOBAL_CONST float mcSW_END_IGNORE;
+ _GLOBAL_CONST float mcSW_END_ACTIVE;
+ _GLOBAL_CONST unsigned short mcSTRAIGHT_LINE;
+ _GLOBAL_CONST signed short mcSTOP_INDEX;
+ _GLOBAL_CONST unsigned short mcSTOP;
+ _GLOBAL_CONST unsigned char mcSTEPPER;
+ _GLOBAL_CONST unsigned short mcSTART_P_FLANK;
+ _GLOBAL_CONST unsigned char mcSTART_ONLY;
+ _GLOBAL_CONST unsigned short mcSTART_N_FLANK;
+ _GLOBAL_CONST unsigned short mcSTART;
+ _GLOBAL_CONST unsigned char mcSTANDARD;
+ _GLOBAL_CONST unsigned char mcSPEED;
+ _GLOBAL_CONST unsigned short mcSMALLER;
+ _GLOBAL_CONST unsigned char mcSLOW_DOWN;
+ _GLOBAL_CONST unsigned short mcSLAVE_POSITION;
+ _GLOBAL_CONST unsigned short mcSIMULATION_READ;
+ _GLOBAL_CONST unsigned short mcSIMULATION_ON;
+ _GLOBAL_CONST unsigned short mcSIMULATION_OFF;
+ _GLOBAL_CONST unsigned short mcSIMULATION_INIT;
+ _GLOBAL_CONST unsigned short mcSIMPLE_SINE_CURVE;
+ _GLOBAL_CONST unsigned short mcSIGNAL_PRBS;
+ _GLOBAL_CONST unsigned short mcSIGNAL_CHIRP_TRAPEZOID;
+ _GLOBAL_CONST unsigned short mcSIGNAL_CHIRP;
+ _GLOBAL_CONST unsigned char mcSHORTEST_WAY;
+ _GLOBAL_CONST unsigned short mcSHIFT_FROM_RESULT;
+ _GLOBAL_CONST unsigned short mcSHIFT_FROM_EXPECTED;
+ _GLOBAL_CONST unsigned short mcSET_POSITION;
+ _GLOBAL_CONST unsigned char mcSET_OFFSET;
+ _GLOBAL_CONST unsigned short mcSE;
+ _GLOBAL_CONST unsigned short mcSAVE_RING_STARTIDX;
+ _GLOBAL_CONST unsigned short mcSAVE;
+ _GLOBAL_CONST unsigned char mcSATURATION;
+ _GLOBAL_CONST unsigned short mcREVERSE;
+ _GLOBAL_CONST unsigned short mcRESTART;
+ _GLOBAL_CONST unsigned short mcRESET_RING_STARTIDX;
+ _GLOBAL_CONST unsigned short mcRESET;
+ _GLOBAL_CONST unsigned char mcRELATIVE_NO_RESET;
+ _GLOBAL_CONST unsigned char mcRELATIVE;
+ _GLOBAL_CONST unsigned short mcQUEUED;
+ _GLOBAL_CONST unsigned short mcQUADRATIC_PARABOLA;
+ _GLOBAL_CONST unsigned char mcPOSITIVE_DIR;
+ _GLOBAL_CONST unsigned char mcPOSITION;
+ _GLOBAL_CONST plcbit mcPERIODIC;
+ _GLOBAL_CONST unsigned char mcP_EDGE;
+ _GLOBAL_CONST signed short mcOVERRIDE;
+ _GLOBAL_CONST unsigned char mcOUT_WINDOW;
+ _GLOBAL_CONST unsigned short mcOPTIMIZED_VELOCITY;
+ _GLOBAL_CONST unsigned short mcOPTIMIZED_ACCELERATION;
+ _GLOBAL_CONST unsigned char mcOPEN;
+ _GLOBAL_CONST unsigned char mcONLY_PSM;
+ _GLOBAL_CONST unsigned char mcONLY_EVENTS;
+ _GLOBAL_CONST unsigned short mcONE_RECORD;
+ _GLOBAL_CONST unsigned short mcONCE;
+ _GLOBAL_CONST plcbit mcON;
+ _GLOBAL_CONST plcbit mcOFF;
+ _GLOBAL_CONST unsigned short mcNULL;
+ _GLOBAL_CONST unsigned long mcNOT_AXIS_RELATED;
+ _GLOBAL_CONST plcbit mcNON_PERIODIC;
+ _GLOBAL_CONST unsigned short mcNO_TEXT;
+ _GLOBAL_CONST unsigned char mcNO_START_COMP;
+ _GLOBAL_CONST unsigned char mcNO_POSITION;
+ _GLOBAL_CONST unsigned char mcNO_PARAMS;
+ _GLOBAL_CONST unsigned char mcNO_STATES;
+ _GLOBAL_CONST unsigned char mcNO_EVENTS;
+ _GLOBAL_CONST unsigned char mcNO_CHANGE_COMP;
+ _GLOBAL_CONST signed short mcNETWORK_CYCLE_TIME;
+ _GLOBAL_CONST unsigned long mcNET_TRACE_GLOBAL;
+ _GLOBAL_CONST unsigned char mcNEGATIVE_DIR;
+ _GLOBAL_CONST unsigned char mcN_EDGE;
+ _GLOBAL_CONST unsigned long mcMULTI_AXIS_TRACE;
+ _GLOBAL_CONST signed short mcMOVE_VELOCITY_POS;
+ _GLOBAL_CONST signed short mcMOVE_VELOCITY_NEG;
+ _GLOBAL_CONST signed short mcMOVE_DECELERATION_POS;
+ _GLOBAL_CONST signed short mcMOVE_DECELERATION_NEG;
+ _GLOBAL_CONST signed short mcMOVE_CYCL_VEL_IPL_MODE;
+ _GLOBAL_CONST signed short mcMOVE_CYCL_POS_IPL_MODE;
+ _GLOBAL_CONST signed short mcMOVE_ACCELERATION_POS;
+ _GLOBAL_CONST signed short mcMOVE_ACCELERATION_NEG;
+ _GLOBAL_CONST unsigned short mcMOTOR;
+ _GLOBAL_CONST unsigned short mcMODIFIED_SINE_CURVE;
+ _GLOBAL_CONST unsigned short mcMODIFIED_ACCEL_TRAPEZOID;
+ _GLOBAL_CONST unsigned short mcMIN_MASTER_COMP_DISTANCE;
+ _GLOBAL_CONST unsigned char mcMIDDLE;
+ _GLOBAL_CONST signed short mcMAX_VELOCITY_SYSTEM;
+ _GLOBAL_CONST signed short mcMAX_VELOCITY_APPL;
+ _GLOBAL_CONST unsigned short mcMAX_SLAVE_COMP_DISTANCE_POS;
+ _GLOBAL_CONST unsigned short mcMAX_SLAVE_COMP_DISTANCE_NEG;
+ _GLOBAL_CONST signed short mcMAX_POSITION_LAG;
+ _GLOBAL_CONST signed short mcMAX_POSITION_CHANGE;
+ _GLOBAL_CONST signed short mcMAX_LOAD_SYSTEM;
+ _GLOBAL_CONST signed short mcMAX_JERK;
+ _GLOBAL_CONST unsigned char mcMAX_IV_TIME;
+ _GLOBAL_CONST signed short mcMAX_DECELERATION_SYSTEM;
+ _GLOBAL_CONST signed short mcMAX_DECELERATION_APPL;
+ _GLOBAL_CONST signed short mcMAX_ACCELERATION_SYSTEM;
+ _GLOBAL_CONST signed short mcMAX_ACCELERATION_APPL;
+ _GLOBAL_CONST unsigned short mcMASTER_POSITION_BASED;
+ _GLOBAL_CONST unsigned short mcMASTER_POSITION;
+ _GLOBAL_CONST unsigned char mcMASTER_INTERVAL;
+ _GLOBAL_CONST unsigned short mcMASTER_DISTANCE_BASED;
+ _GLOBAL_CONST unsigned short mcMANUAL_SEARCH;
+ _GLOBAL_CONST unsigned short mcLOAD;
+ _GLOBAL_CONST unsigned char mcLINEAR_CAM_PERIODIC;
+ _GLOBAL_CONST unsigned char mcLINEAR_CAM_NON_PERIODIC;
+ _GLOBAL_CONST unsigned char mcLINEAR_CAM;
+ _GLOBAL_CONST float mcLIMIT_PARAMETERS;
+ _GLOBAL_CONST unsigned char mcLIMIT;
+ _GLOBAL_CONST unsigned short mcLENGTH_ONLY;
+ _GLOBAL_CONST unsigned short mcLEAD_OUT;
+ _GLOBAL_CONST unsigned short mcLEAD_IN;
+ _GLOBAL_CONST unsigned short mcLAST_POINT;
+ _GLOBAL_CONST unsigned short mcISQ_RIPPLE;
+ _GLOBAL_CONST unsigned short mcISQ_F3_NOTCH;
+ _GLOBAL_CONST unsigned short mcISQ_F2_NOTCH;
+ _GLOBAL_CONST unsigned short mcISQ_F1_NOTCH;
+ _GLOBAL_CONST unsigned char mcIPL_QUADRATIC_NO_OVERSHOOT;
+ _GLOBAL_CONST unsigned char mcIPL_QUADRATIC;
+ _GLOBAL_CONST unsigned char mcIPL_OFF;
+ _GLOBAL_CONST unsigned char mcIPL_LINEAR;
+ _GLOBAL_CONST unsigned char mcINVERSE;
+ _GLOBAL_CONST unsigned short mcINTERVAL_EVENT;
+ _GLOBAL_CONST unsigned short mcINCLINED_SINE_CURVE;
+ _GLOBAL_CONST unsigned char mcINC_REF;
+ _GLOBAL_CONST unsigned char mcINC_ABS;
+ _GLOBAL_CONST unsigned char mcINC;
+ _GLOBAL_CONST unsigned char mcIN_WINDOW;
+ _GLOBAL_CONST unsigned short mcIMMEDIATE;
+ _GLOBAL_CONST unsigned short mcIDENTIFICATION;
+ _GLOBAL_CONST unsigned char mcHORIZONTAL;
+ _GLOBAL_CONST unsigned char mcHOME_SWITCH_GATE;
+ _GLOBAL_CONST unsigned char mcHOME_SET_PHASE;
+ _GLOBAL_CONST unsigned char mcHOME_RESTORE_POS;
+ _GLOBAL_CONST unsigned char mcHOME_REF_PULSE;
+ _GLOBAL_CONST unsigned char mcHOME_LIMIT_SWITCH;
+ _GLOBAL_CONST unsigned char mcHOME_DIRECT;
+ _GLOBAL_CONST unsigned char mcHOME_DEFAULT;
+ _GLOBAL_CONST unsigned char mcHOME_DCM_CORR;
+ _GLOBAL_CONST unsigned char mcHOME_DCM;
+ _GLOBAL_CONST unsigned char mcHOME_BLOCK_TORQUE;
+ _GLOBAL_CONST unsigned char mcHOME_BLOCK_DS;
+ _GLOBAL_CONST unsigned char mcHOME_AXIS_REF;
+ _GLOBAL_CONST unsigned char mcHOME_ABSOLUTE_CORR;
+ _GLOBAL_CONST unsigned char mcHOME_ABSOLUTE;
+ _GLOBAL_CONST unsigned char mcHOME_ABS_SWITCH;
+ _GLOBAL_CONST unsigned short mcHOLDOFF_DISTANCE;
+ _GLOBAL_CONST unsigned short mcHARMONIC_COMBINATION;
+ _GLOBAL_CONST unsigned short mcGREATER;
+ _GLOBAL_CONST unsigned char mcGET_BRAKE_STATUS;
+ _GLOBAL_CONST unsigned short mcGE;
+ _GLOBAL_CONST unsigned char mcFLUX;
+ _GLOBAL_CONST unsigned short mcFIRST_TRIGGER;
+ _GLOBAL_CONST unsigned short mcFIRST_RM;
+ _GLOBAL_CONST unsigned short mcFILE_TXT;
+ _GLOBAL_CONST unsigned short mcFILE_CSV;
+ _GLOBAL_CONST unsigned short mcFILE_BIN;
+ _GLOBAL_CONST unsigned short mcFILE;
+ _GLOBAL_CONST unsigned short mcFF_POS_MOVE;
+ _GLOBAL_CONST unsigned short mcFF_NEG_MOVE;
+ _GLOBAL_CONST unsigned char mcFF;
+ _GLOBAL_CONST float mcFB_INPUTS;
+ _GLOBAL_CONST unsigned char mcFB_ERROR;
+ _GLOBAL_CONST unsigned char mcEXCEED_PERIOD;
+ _GLOBAL_CONST unsigned short mcEVERY_RECORD;
+ _GLOBAL_CONST unsigned short mcEQUAL;
+ _GLOBAL_CONST unsigned short mcENCODER_POSITION;
+ _GLOBAL_CONST unsigned char mcENCODER;
+ _GLOBAL_CONST signed short mcENABLE_POS_LAG_MONITORING;
+ _GLOBAL_CONST signed short mcENABLE_LIMIT_POS;
+ _GLOBAL_CONST signed short mcENABLE_LIMIT_NEG;
+ _GLOBAL_CONST unsigned short mcENABLE;
+ _GLOBAL_CONST unsigned char mcEDGE_SENSITIVE;
+ _GLOBAL_CONST unsigned char mcDITHER;
+ _GLOBAL_CONST unsigned short mcDISTANCE_BASED;
+ _GLOBAL_CONST unsigned short mcDIR_INDEPENDENT_SPEED;
+ _GLOBAL_CONST unsigned short mcDIR_INDEPENDENT;
+ _GLOBAL_CONST unsigned short mcDIR_DEPENDENT_BACKLASH;
+ _GLOBAL_CONST unsigned short mcDIR_DEPENDENT;
+ _GLOBAL_CONST unsigned char mcDIRECT;
+ _GLOBAL_CONST signed short mcDEFAULT_MOVE_PARAMETERS;
+ _GLOBAL_CONST unsigned short mcDATOBJ;
+ _GLOBAL_CONST unsigned short mcCYCLIC_ALL_EVENTS;
+ _GLOBAL_CONST unsigned short mcCYCLIC;
+ _GLOBAL_CONST unsigned char mcCURRENT_DIR;
+ _GLOBAL_CONST unsigned short mcCUBIC_SPLINE;
+ _GLOBAL_CONST unsigned short mcCORRECT_CURRENT_CYCLE;
+ _GLOBAL_CONST unsigned short mcCONTINUE_CONTROLLER_OFF;
+ _GLOBAL_CONST signed short mcCOMMANDED_VELOCITY;
+ _GLOBAL_CONST signed short mcCOMMANDED_POSITION;
+ _GLOBAL_CONST unsigned short mcCMD_WARNING;
+ _GLOBAL_CONST unsigned short mcCMD_ERROR_V_STOP_CTRL_OFF;
+ _GLOBAL_CONST unsigned short mcCMD_ERROR_STOP_CTRL_OFF;
+ _GLOBAL_CONST unsigned short mcCMD_ERROR_STOP;
+ _GLOBAL_CONST unsigned short mcCMD_ERROR_INDUCTION_HALT;
+ _GLOBAL_CONST unsigned short mcCMD_ERROR_COAST_TO_STANDSTILL;
+ _GLOBAL_CONST unsigned short mcCMD_ERROR;
+ _GLOBAL_CONST unsigned char mcCLOSE;
+ _GLOBAL_CONST unsigned char mcCHECK_HOMING_OFF;
+ _GLOBAL_CONST unsigned short mcCHECK;
+ _GLOBAL_CONST unsigned char mcCATCH_UP;
+ _GLOBAL_CONST unsigned short mcCALCULATION;
+ _GLOBAL_CONST unsigned char mcBRAKE_TEST_START;
+ _GLOBAL_CONST unsigned char mcBRAKE_TEST_INIT;
+ _GLOBAL_CONST unsigned char mcBRAKE_CONTROL_INIT;
+ _GLOBAL_CONST unsigned short mcBLANK;
+ _GLOBAL_CONST unsigned short mcBESTFIT_6TH_ORDER;
+ _GLOBAL_CONST unsigned short mcBESTFIT_5TH_ORDER;
+ _GLOBAL_CONST unsigned char mcBELOW_WINDOW;
+ _GLOBAL_CONST float mcBASIS_PARAMETERS;
+ _GLOBAL_CONST unsigned char mcAXIS_WARNING;
+ _GLOBAL_CONST signed short mcAXIS_PERIOD_MAPPING;
+ _GLOBAL_CONST signed short mcAXIS_PERIOD;
+ _GLOBAL_CONST signed short mcAXIS_NETWORK_CYCLE_TIME;
+ _GLOBAL_CONST signed short mcAXIS_FACTOR_MAPPING;
+ _GLOBAL_CONST signed short mcAXIS_FACTOR;
+ _GLOBAL_CONST unsigned char mcAXIS_ERROR;
+ _GLOBAL_CONST unsigned short mcAVERAGE_WEIGHTED;
+ _GLOBAL_CONST unsigned short mcAVERAGE;
+ _GLOBAL_CONST unsigned char mcAUTOMAT_POS;
+ _GLOBAL_CONST signed short mcAUT_POS_TOLERANCE;
+ _GLOBAL_CONST unsigned char mcALL_STATES;
+ _GLOBAL_CONST unsigned char mcALL_PARAMS;
+ _GLOBAL_CONST unsigned char mcALL_EVENTS;
+ _GLOBAL_CONST unsigned long mcALL_AXES;
+ _GLOBAL_CONST unsigned short mcADD_DATE_TIME;
+ _GLOBAL_CONST signed short mcACTUAL_VELOCITY;
+ _GLOBAL_CONST unsigned short mcACTUAL_POSITION;
+ _GLOBAL_CONST unsigned short mcACT_CFG;
+ _GLOBAL_CONST unsigned short mcACKNOWLEDGE_ALL;
+ _GLOBAL_CONST unsigned char mcABSOLUTE_NO_RESET;
+ _GLOBAL_CONST unsigned char mcABSOLUTE;
+ _GLOBAL_CONST unsigned char mcABS;
+ _GLOBAL_CONST unsigned char mcABOVE_WINDOW;
+ _GLOBAL_CONST unsigned short mc5TH_ORDER_POLYNOMIAL;
 #endif
 
 
-/* Variables */
 
 
 /* Datatypes and datatypes of function blocks */
 typedef struct MC_ACP_ENCOD_REF
-{
-	unsigned long Axis;
+{	unsigned long Axis;
 	unsigned char Slot;
 } MC_ACP_ENCOD_REF;
 
 typedef struct MC_ACP_ENCOD_PARAM_REF
-{
-	unsigned char HomingMode;
+{	unsigned char HomingMode;
 	plcbit ReadOffset;
 	float Position;
 	signed long Offset;
 } MC_ACP_ENCOD_PARAM_REF;
 
+typedef struct MC_ADV_INFO_MPDC_REF
+{	unsigned short DataObjectIdentPos;
+	unsigned short DataObjectIdentNeg;
+	float CamStartPosition;
+	plcbit CalcDone;
+	float Period;
+} MC_ADV_INFO_MPDC_REF;
+
 typedef struct MC_ADV_LIMITLOAD_REF
-{
-	unsigned short LoadPosAccelParID;
+{	unsigned short LoadPosAccelParID;
 	unsigned short LoadPosDecelParID;
 	unsigned short LoadNegAccelParID;
 	unsigned short LoadNegDecelParID;
 } MC_ADV_LIMITLOAD_REF;
 
 typedef struct MC_ADV_OFFSETVELOCITY_REF
-{
-	unsigned short VelocityParID;
+{	unsigned short VelocityParID;
 	unsigned short PosVelocityTriggerParID;
 	unsigned short NegVelocityTriggerParID;
 } MC_ADV_OFFSETVELOCITY_REF;
 
 typedef struct MC_ADVANCED_CAM_PAR_REF
-{
-	unsigned short Mode;
+{	unsigned short Mode;
 	float LeadInMasterOffset;
 	float LeadOutMasterOffset;
 	float LeadInMasterDistance;
@@ -593,8 +625,7 @@ typedef struct MC_ADVANCED_CAM_PAR_REF
 } MC_ADVANCED_CAM_PAR_REF;
 
 typedef struct MC_ADVANCED_CUT_PAR_REF
-{
-	signed short CutOverspeed;
+{	signed short CutOverspeed;
 	float CutterRadius;
 	unsigned char NumberOfKnives;
 	unsigned short StartMode;
@@ -608,8 +639,7 @@ typedef struct MC_ADVANCED_CUT_PAR_REF
 } MC_ADVANCED_CUT_PAR_REF;
 
 typedef struct MC_ADVANCED_GEAR_PAR_REF
-{
-	float Acceleration;
+{	float Acceleration;
 	float Deceleration;
 	float JoltTime;
 	unsigned char CompensationSelector;
@@ -618,23 +648,27 @@ typedef struct MC_ADVANCED_GEAR_PAR_REF
 } MC_ADVANCED_GEAR_PAR_REF;
 
 typedef struct MC_ADVANCEDSHIFTPAR_REF
-{
-	unsigned short ShiftParID;
+{	unsigned short ShiftParID;
 	float MasterMaxVelocity;
 } MC_ADVANCEDSHIFTPAR_REF;
 
 typedef struct MC_ADV_OFFSETZONE_REF
-{
-	unsigned short ShiftParID;
+{	unsigned short ShiftParID;
 	float MasterMaxVelocity;
 	float Period;
 	unsigned short ProfileBasis;
 	unsigned short ShiftMode;
 } MC_ADV_OFFSETZONE_REF;
 
+typedef struct MC_ADV_MPDC_REF
+{	plcstring DataObjectNamePos[13];
+	plcstring DataObjectNameNeg[13];
+	float CamStartPosition;
+	plcbit CalcOnly;
+} MC_ADV_MPDC_REF;
+
 typedef struct MC_AUT_COMP_DATA_REF
-{
-	float MaxMasterVelocity;
+{	float MaxMasterVelocity;
 	float MasterCompDistance;
 	float SlaveCompDistance;
 	float StartSlope;
@@ -646,16 +680,14 @@ typedef struct MC_AUT_COMP_DATA_REF
 } MC_AUT_COMP_DATA_REF;
 
 typedef struct MC_AUTDATA_EVENT_TYP
-{
-	unsigned char Type;
+{	unsigned char Type;
 	unsigned char Attribute;
 	unsigned long Action;
 	unsigned char NextState;
 } MC_AUTDATA_EVENT_TYP;
 
 typedef struct MC_AUTDATA_STATE_TYP
-{
-	unsigned char DisableStateInit;
+{	unsigned char DisableStateInit;
 	unsigned short CamProfileIndex;
 	signed long MasterFactor;
 	signed long SlaveFactor;
@@ -679,8 +711,7 @@ typedef struct MC_AUTDATA_STATE_TYP
 } MC_AUTDATA_STATE_TYP;
 
 typedef struct MC_AUTDATA_TYP
-{
-	unsigned long Master;
+{	unsigned long Master;
 	float StartPosition;
 	signed long StartPositionDINT;
 	float StartInterval;
@@ -702,8 +733,7 @@ typedef struct MC_AUTDATA_TYP
 } MC_AUTDATA_TYP;
 
 typedef struct MC_AUTINITOPTIONS_REF
-{
-	unsigned char GlobalParams;
+{	unsigned char GlobalParams;
 	unsigned char StateIndex;
 	unsigned char EventIndex;
 	unsigned char MaxStatesPerCycle;
@@ -712,16 +742,14 @@ typedef struct MC_AUTINITOPTIONS_REF
 } MC_AUTINITOPTIONS_REF;
 
 typedef struct MC_BRAKE_TEST_REF
-{
-	float TestTorque;
+{	float TestTorque;
 	float TestDuration;
 	float PositionLimit;
 	plcbit TestMode;
 } MC_BRAKE_TEST_REF;
 
 typedef struct MC_BRAKE_MODE_REF
-{
-	plcbit AutomaticControl;
+{	plcbit AutomaticControl;
 	plcbit RestrictBrakeControl;
 	plcbit ControlMonitoring;
 	plcbit MovementMonitoring;
@@ -734,20 +762,17 @@ typedef struct MC_BRAKE_MODE_REF
 } MC_BRAKE_MODE_REF;
 
 typedef struct MC_BRAKE_CONFIG_REF
-{
-	struct MC_BRAKE_TEST_REF BrakeTest;
+{	struct MC_BRAKE_TEST_REF BrakeTest;
 	struct MC_BRAKE_MODE_REF BrakeMode;
 } MC_BRAKE_CONFIG_REF;
 
 typedef struct MC_BR_EVINPUT_REF
-{
-	unsigned short EventSourceParID;
+{	unsigned short EventSourceParID;
 	unsigned char Edge;
 } MC_BR_EVINPUT_REF;
 
 typedef struct MC_BR_TRIGGER_REF
-{
-	unsigned short EventSourceParID;
+{	unsigned short EventSourceParID;
 	unsigned short ProbeParID;
 	unsigned char Edge;
 	float MinWidth;
@@ -756,8 +781,7 @@ typedef struct MC_BR_TRIGGER_REF
 } MC_BR_TRIGGER_REF;
 
 typedef struct MC_CALC_CAM_CONFIG_REF
-{
-	unsigned short Mode;
+{	unsigned short Mode;
 	plcbit CamType;
 	unsigned char NumberOfPolynomials;
 	signed long MasterPeriod;
@@ -768,8 +792,7 @@ typedef struct MC_CALC_CAM_CONFIG_REF
 } MC_CALC_CAM_CONFIG_REF;
 
 typedef struct MC_POLYNOMIAL_DATA
-{
-	float a;
+{	float a;
 	float b;
 	float c;
 	float d;
@@ -781,24 +804,21 @@ typedef struct MC_POLYNOMIAL_DATA
 } MC_POLYNOMIAL_DATA;
 
 typedef struct MC_CAMPROFILE_TYP
-{
-	signed long MasterPeriod;
+{	signed long MasterPeriod;
 	signed long SlavePeriod;
 	unsigned long PolynomialNumber;
 	struct MC_POLYNOMIAL_DATA PolynomialData[64];
 } MC_CAMPROFILE_TYP;
 
 typedef struct MC_CAMSWITCH_REF
-{
-	signed short TrackNumber;
+{	signed short TrackNumber;
 	float FirstOnPosition[16];
 	float LastOnPosition[16];
 	float Period;
 } MC_CAMSWITCH_REF;
 
 typedef struct MC_CAM_SECTION_TYP
-{
-	float MasterPosition;
+{	float MasterPosition;
 	float SlavePosition;
 	float FirstDerivative;
 	float SecondDerivative;
@@ -808,39 +828,33 @@ typedef struct MC_CAM_SECTION_TYP
 } MC_CAM_SECTION_TYP;
 
 typedef struct MC_CAM_SECTIONS_TYP
-{
-	struct MC_CAM_SECTION_TYP Section[65];
+{	struct MC_CAM_SECTION_TYP Section[65];
 } MC_CAM_SECTIONS_TYP;
 
 typedef struct MC_CYCLIC_POSITION
-{
-	signed long Integer;
+{	signed long Integer;
 	float Real;
 } MC_CYCLIC_POSITION;
 
 typedef struct MC_CYCLIC_POSITION_REF
-{
-	signed long Integer;
+{	signed long Integer;
 	float Real;
 } MC_CYCLIC_POSITION_REF;
 
 typedef struct MC_CYCLIC_VALUE_REF
-{
-	signed long Integer;
+{	signed long Integer;
 	float Real;
 } MC_CYCLIC_VALUE_REF;
 
 typedef struct MC_DATOBJ_REF
-{
-	plcstring Name[33];
+{	plcstring Name[33];
 	unsigned short Type;
 	unsigned short Format;
 	plcstring Device[33];
 } MC_DATOBJ_REF;
 
 typedef struct MC_DRIVESTATUS_TYP
-{
-	plcbit Simulation;
+{	plcbit Simulation;
 	plcbit NetworkInit;
 	plcbit HomeSwitch;
 	plcbit PosHWSwitch;
@@ -858,8 +872,7 @@ typedef struct MC_DRIVESTATUS_TYP
 } MC_DRIVESTATUS_TYP;
 
 typedef struct MC_ENDLESS_POSITION_DATA
-{
-	signed long MTPhase;
+{	signed long MTPhase;
 	signed long MTDiffInteger;
 	signed long MTDiffFract;
 	signed long RefOffset;
@@ -867,26 +880,22 @@ typedef struct MC_ENDLESS_POSITION_DATA
 } MC_ENDLESS_POSITION_DATA;
 
 typedef struct MC_ENDLESS_POSITION
-{
-	struct MC_ENDLESS_POSITION_DATA EndlessPositionData[2];
+{	struct MC_ENDLESS_POSITION_DATA EndlessPositionData[2];
 } MC_ENDLESS_POSITION;
 
 typedef struct MC_ENDLESS_POSITION_ACP_ENC_TYP
-{
-	signed long EndlessPositionDataAcpEnc[16];
+{	signed long EndlessPositionDataAcpEnc[16];
 } MC_ENDLESS_POSITION_ACP_ENC_TYP;
 
 typedef struct MC_ERRORRECORD_REF
-{
-	unsigned short ParID;
+{	unsigned short ParID;
 	unsigned short Number;
 	unsigned long Info;
 	unsigned char Type;
 } MC_ERRORRECORD_REF;
 
 typedef struct MC_ERRORTEXTCONFIG_REF
-{
-	unsigned short Format;
+{	unsigned short Format;
 	unsigned short LineLength;
 	unsigned short DataLength;
 	unsigned long DataAddress;
@@ -894,21 +903,18 @@ typedef struct MC_ERRORTEXTCONFIG_REF
 } MC_ERRORTEXTCONFIG_REF;
 
 typedef struct MC_INPUT_REF
-{
-	unsigned long Axis;
+{	unsigned long Axis;
 	unsigned char Slot;
 	unsigned char Channel;
 } MC_INPUT_REF;
 
 typedef struct MC_SWITCHES_REF
-{
-	float FirstOnPosition[64];
+{	float FirstOnPosition[64];
 	float LastOnPosition[64];
 } MC_SWITCHES_REF;
 
 typedef struct MC_MASTER_SWITCHES_REF
-{
-	unsigned long Master;
+{	unsigned long Master;
 	float Period;
 	float MasterStartPosition;
 	struct MC_SWITCHES_REF Switches[5];
@@ -916,8 +922,7 @@ typedef struct MC_MASTER_SWITCHES_REF
 } MC_MASTER_SWITCHES_REF;
 
 typedef struct MC_ADVANCED_MOVE_CYC_REF
-{
-	float Velocity;
+{	float Velocity;
 	float Acceleration;
 	float Deceleration;
 	unsigned short SetValueParID;
@@ -927,35 +932,30 @@ typedef struct MC_ADVANCED_MOVE_CYC_REF
 } MC_ADVANCED_MOVE_CYC_REF;
 
 typedef struct MC_NETTRACE_REF
-{
-	unsigned long Type;
+{	unsigned long Type;
 	unsigned long Reserve;
 } MC_NETTRACE_REF;
 
 typedef struct MC_NETTRACECONFIG_REF
-{
-	struct MC_DATOBJ_REF DatObj;
+{	struct MC_DATOBJ_REF DatObj;
 	struct MC_NETTRACE_REF NetTrace;
 } MC_NETTRACECONFIG_REF;
 
 typedef struct MC_OUTPUT_REF
-{
-	unsigned long Axis;
+{	unsigned long Axis;
 	unsigned char Slot;
 	unsigned char Channel;
 } MC_OUTPUT_REF;
 
 typedef struct MC_OUTPUT_OPTIONS_REF
-{
-	unsigned long Axis;
+{	unsigned long Axis;
 	unsigned short DestinationParID;
 	unsigned char Slot;
 	unsigned char Channel;
 } MC_OUTPUT_OPTIONS_REF;
 
 typedef struct MC_TRACETRIGGER_REF
-{
-	unsigned long Axis;
+{	unsigned long Axis;
 	unsigned short ParID;
 	unsigned char Event;
 	unsigned char Reserve;
@@ -964,15 +964,13 @@ typedef struct MC_TRACETRIGGER_REF
 } MC_TRACETRIGGER_REF;
 
 typedef struct MC_TRACEPARAM_REF
-{
-	unsigned long Axis;
+{	unsigned long Axis;
 	unsigned short ParID;
 	unsigned short Reserve;
 } MC_TRACEPARAM_REF;
 
 typedef struct MC_PARTRACE_REF
-{
-	unsigned long Type;
+{	unsigned long Type;
 	unsigned long Reserve;
 	float TracingTime;
 	float SamplingTime;
@@ -983,14 +981,42 @@ typedef struct MC_PARTRACE_REF
 } MC_PARTRACE_REF;
 
 typedef struct MC_PARTRACECONFIG_REF
-{
-	struct MC_DATOBJ_REF DatObj;
+{	struct MC_DATOBJ_REF DatObj;
 	struct MC_PARTRACE_REF ParTrace;
 } MC_PARTRACECONFIG_REF;
 
+typedef struct MC_MPDC_COMP_DATA_REF
+{	unsigned long AdrPositions;
+	unsigned long AdrDeviations;
+	unsigned short NumberOfPoints;
+} MC_MPDC_COMP_DATA_REF;
+
+typedef struct MC_MPDC_DIR_DEPENDENT_REF
+{	struct MC_MPDC_COMP_DATA_REF CompDataPos;
+	struct MC_MPDC_COMP_DATA_REF CompDataNeg;
+	unsigned short StartFlank;
+	float MaxVelocity;
+	float TimeConstant;
+	float NoiseLimit;
+	float Inertia;
+	float ConstantBacklash;
+} MC_MPDC_DIR_DEPENDENT_REF;
+
+typedef struct MC_MPDC_DIR_INDEPENDENT_REF
+{	struct MC_MPDC_COMP_DATA_REF CompData;
+	float FilterTime;
+} MC_MPDC_DIR_INDEPENDENT_REF;
+
+typedef struct MC_MPDC_PARAM_REF
+{	unsigned short Mode;
+	unsigned short PositionSource;
+	struct MC_MPDC_DIR_INDEPENDENT_REF DirectionIndependent;
+	struct MC_MPDC_DIR_DEPENDENT_REF DirectionDependent;
+	plcbit Periodic;
+} MC_MPDC_PARAM_REF;
+
 typedef struct MC_POWERDATA_REF
-{
-	unsigned long IntervalNumber;
+{	unsigned long IntervalNumber;
 	signed long IntervalDuration;
 	float AverageActivePower;
 	float AverageReactivePower;
@@ -1007,8 +1033,7 @@ typedef struct MC_POWERDATA_REF
 } MC_POWERDATA_REF;
 
 typedef struct MC_POWER_STAGE_CHECK_REF
-{
-	plcbit CurrentFlowTestPhase1Off;
+{	plcbit CurrentFlowTestPhase1Off;
 	plcbit CurrentFlowTestPhase2Off;
 	plcbit CurrentFlowTestPhase3Off;
 	plcbit OffsetCurrentWarningOff;
@@ -1021,8 +1046,7 @@ typedef struct MC_POWER_STAGE_CHECK_REF
 } MC_POWER_STAGE_CHECK_REF;
 
 typedef struct MC_RECORD_REF
-{
-	unsigned short Size;
+{	unsigned short Size;
 	unsigned short Reserve1;
 	unsigned char OneByteCount;
 	unsigned char TwoByteCount;
@@ -1033,13 +1057,11 @@ typedef struct MC_RECORD_REF
 } MC_RECORD_REF;
 
 typedef struct MC_RECORD_INFO_REF
-{
-	struct MC_RECORD_REF Record[8];
+{	struct MC_RECORD_REF Record[8];
 } MC_RECORD_INFO_REF;
 
 typedef struct MC_SETUP_CONTROLLER_PAR_REF
-{
-	unsigned short Mode;
+{	unsigned short Mode;
 	unsigned char Orientation;
 	unsigned char OperatingPoint;
 	float MaxCurrentPercent;
@@ -1048,17 +1070,21 @@ typedef struct MC_SETUP_CONTROLLER_PAR_REF
 	float MaxLagError;
 	float PropAmplificationPercent;
 	unsigned long SignalOrder;
+	float MaxPropAmplification;
+	float Acceleration;
+	unsigned short SignalType;
+	float SignalStartFrequency;
+	float SignalStopFrequency;
+	float SignalTime;
 } MC_SETUP_CONTROLLER_PAR_REF;
 
 typedef struct MC_SETUP_CONTROLLER_CFG_REF
-{
-	struct MC_DATOBJ_REF DatObj;
+{	struct MC_DATOBJ_REF DatObj;
 	struct MC_SETUP_CONTROLLER_PAR_REF SetupControllerPar;
 } MC_SETUP_CONTROLLER_CFG_REF;
 
 typedef struct MC_SETUP_IND_MOTOR_PAR_OPT_REF
-{
-	unsigned char Phase;
+{	unsigned char Phase;
 	unsigned char PolePairs;
 	float VoltageConstant;
 	float MaxSpeed;
@@ -1075,8 +1101,7 @@ typedef struct MC_SETUP_IND_MOTOR_PAR_OPT_REF
 } MC_SETUP_IND_MOTOR_PAR_OPT_REF;
 
 typedef struct MC_SETUP_IND_MOTOR_PAR_REF
-{
-	unsigned short Mode;
+{	unsigned short Mode;
 	float RatedVoltage;
 	float RatedCurrent;
 	float RatedSpeed;
@@ -1087,53 +1112,45 @@ typedef struct MC_SETUP_IND_MOTOR_PAR_REF
 } MC_SETUP_IND_MOTOR_PAR_REF;
 
 typedef struct MC_SETUP_IND_MOTOR_CFG_REF
-{
-	struct MC_DATOBJ_REF DatObj;
+{	struct MC_DATOBJ_REF DatObj;
 	struct MC_SETUP_IND_MOTOR_PAR_REF SetupInductionMotorPar;
 } MC_SETUP_IND_MOTOR_CFG_REF;
 
 typedef struct MC_SETUP_ISQ_RIPPLE_PAR_REF
-{
-	unsigned short Mode;
+{	unsigned short Mode;
 	unsigned short RefSystem;
 	float PositionOffset;
 	float Velocity;
 } MC_SETUP_ISQ_RIPPLE_PAR_REF;
 
 typedef struct MC_SETUP_ISQ_RIPPLE_CFG_REF
-{
-	struct MC_DATOBJ_REF DatObj;
+{	struct MC_DATOBJ_REF DatObj;
 	struct MC_SETUP_ISQ_RIPPLE_PAR_REF SetupIsqRipplePar;
 } MC_SETUP_ISQ_RIPPLE_CFG_REF;
 
 typedef struct MC_SETUP_MOTOR_PHA_PAR_REF
-{
-	unsigned short Mode;
+{	unsigned short Mode;
 	float Current;
 	float Time;
 } MC_SETUP_MOTOR_PHA_PAR_REF;
 
 typedef struct MC_SETUP_MOTOR_PHA_CFG_REF
-{
-	struct MC_DATOBJ_REF DatObj;
+{	struct MC_DATOBJ_REF DatObj;
 	struct MC_SETUP_MOTOR_PHA_PAR_REF SetupMotorPhasingPar;
 } MC_SETUP_MOTOR_PHA_CFG_REF;
 
 typedef struct MC_SETUP_OUTPUT_REF
-{
-	float Quality;
+{	float Quality;
 	unsigned long DataObjectIdent;
 } MC_SETUP_OUTPUT_REF;
 
 typedef struct MC_SETUP_PHASING_RESULT_REF
-{
-	unsigned char PolePairs;
+{	unsigned char PolePairs;
 	float CommutationOffset;
 } MC_SETUP_PHASING_RESULT_REF;
 
 typedef struct MC_SETUP_SYNC_MOTOR_PAR_OPT_REF
-{
-	unsigned char Phase;
+{	unsigned char Phase;
 	float VoltageConstant;
 	float MaxSpeed;
 	float StallTorque;
@@ -1145,8 +1162,7 @@ typedef struct MC_SETUP_SYNC_MOTOR_PAR_OPT_REF
 } MC_SETUP_SYNC_MOTOR_PAR_OPT_REF;
 
 typedef struct MC_SETUP_SYNC_MOTOR_PAR_REF
-{
-	unsigned short Mode;
+{	unsigned short Mode;
 	float RatedVoltage;
 	float RatedCurrent;
 	float RatedSpeed;
@@ -1159,14 +1175,12 @@ typedef struct MC_SETUP_SYNC_MOTOR_PAR_REF
 } MC_SETUP_SYNC_MOTOR_PAR_REF;
 
 typedef struct MC_SETUP_SYNC_MOTOR_CFG_REF
-{
-	struct MC_DATOBJ_REF DatObj;
+{	struct MC_DATOBJ_REF DatObj;
 	struct MC_SETUP_SYNC_MOTOR_PAR_REF SetupSynchronMotorPar;
 } MC_SETUP_SYNC_MOTOR_CFG_REF;
 
 typedef struct MC_TRACK_OPTIONS_REF
-{
-	float OnCompensation;
+{	float OnCompensation;
 	float OffCompensation;
 	float Filter;
 	float Hysteresis;
@@ -1174,65 +1188,56 @@ typedef struct MC_TRACK_OPTIONS_REF
 } MC_TRACK_OPTIONS_REF;
 
 typedef struct MC_TRACK_REF
-{
-	plctime OnCompensation;
+{	plctime OnCompensation;
 	plctime OffCompensation;
 	float Hysteresis;
 } MC_TRACK_REF;
 
 typedef struct MC_TRIGGER_REF
-{
-	unsigned char InputSource;
+{	unsigned char InputSource;
 	unsigned char Edge;
 	unsigned char PosSource;
 	unsigned char TouchProbeID;
 } MC_TRIGGER_REF;
 
 typedef struct MC_PARID_INFO_REF
-{
-	unsigned short DataType;
+{	unsigned short DataType;
 	unsigned short DataLength;
 } MC_PARID_INFO_REF;
 
 typedef struct MC_HW_INFO_DRIVE_REF
-{
-	plcstring ModelNumber[20];
+{	plcstring ModelNumber[20];
 	plcstring SerialNumber[20];
 	plcstring Revision[4];
 	unsigned long MissionTimeEndDate;
 } MC_HW_INFO_DRIVE_REF;
 
 typedef struct MC_HW_INFO_CARD_REF
-{
-	plcstring ModelNumber[20];
+{	plcstring ModelNumber[20];
 	plcstring SerialNumber[20];
 	plcstring Revision[4];
 } MC_HW_INFO_CARD_REF;
 
 typedef struct MC_HW_INFO_MOTOR_REF
-{
-	plcstring ModelNumber[20];
+{	plcstring ModelNumber[20];
 	plcstring SerialNumber[20];
 	plcstring Revision[4];
 } MC_HW_INFO_MOTOR_REF;
 
 typedef struct MC_HARDWARE_INFO_REF
-{
-	struct MC_HW_INFO_DRIVE_REF Drive;
+{	struct MC_HW_INFO_DRIVE_REF Drive;
 	struct MC_HW_INFO_CARD_REF Card[4];
 	struct MC_HW_INFO_MOTOR_REF Motor[3];
 } MC_HARDWARE_INFO_REF;
 
 typedef struct MC_SEND_INFO_REF
-{
-	plcbit InUse;
+{	plcbit InUse;
 	unsigned short ParID;
 	plcbit ChangeAllowed;
 } MC_SEND_INFO_REF;
 
 typedef struct MC_RECEIVE_INFO_REF
-{
-	plcbit InUse;
+{	plcbit InUse;
 	unsigned short ParID;
 	plcbit ChangeAllowed;
 	unsigned char SendNodeNumber;
@@ -1247,14 +1252,12 @@ typedef struct MC_RECEIVE_INFO_REF
 } MC_RECEIVE_INFO_REF;
 
 typedef struct MC_TRANSFER_INFO_REF
-{
-	struct MC_SEND_INFO_REF SendChannel[4];
+{	struct MC_SEND_INFO_REF SendChannel[4];
 	struct MC_RECEIVE_INFO_REF ReceiveChannel[6];
 } MC_TRANSFER_INFO_REF;
 
 typedef struct MC_NET_ENC_INFO_REF
-{
-	unsigned char Type;
+{	unsigned char Type;
 	unsigned long AdrDeviceString;
 	unsigned long AdrPosition;
 	unsigned long AdrPositionHW;
@@ -1265,8 +1268,7 @@ typedef struct MC_NET_ENC_INFO_REF
 } MC_NET_ENC_INFO_REF;
 
 typedef struct MC_NET_ENC_PARAM_REF
-{
-	unsigned long ScaleIncrements;
+{	unsigned long ScaleIncrements;
 	unsigned long IncValueRangeHW;
 	unsigned long IncValueRangeLW;
 	unsigned long ScaleUnits;
@@ -1275,8 +1277,7 @@ typedef struct MC_NET_ENC_PARAM_REF
 } MC_NET_ENC_PARAM_REF;
 
 typedef struct MC_NET_ENC_CONFIG_REF
-{
-	float Timeout;
+{	float Timeout;
 	plcbit Interpolation;
 	plcbit Extrapolation;
 	float FilterTime;
@@ -1284,8 +1285,7 @@ typedef struct MC_NET_ENC_CONFIG_REF
 } MC_NET_ENC_CONFIG_REF;
 
 typedef struct MC_0068_IS_TYP
-{
-	plcbit C_Execute;
+{	plcbit C_Execute;
 	plcbit C_Done;
 	plcbit C_Busy;
 	plcbit C_CommandAborted;
@@ -1312,8 +1312,7 @@ typedef struct MC_0068_IS_TYP
 } MC_0068_IS_TYP;
 
 typedef struct MC_0069_IS_TYP
-{
-	plcbit C_Valid;
+{	plcbit C_Valid;
 	plcbit C_Busy;
 	plcbit C_Error;
 	unsigned char LockIDPar;
@@ -1330,8 +1329,7 @@ typedef struct MC_0069_IS_TYP
 } MC_0069_IS_TYP;
 
 typedef struct MC_0070_IS_TYP
-{
-	plcbit C_Valid;
+{	plcbit C_Valid;
 	plcbit C_Busy;
 	plcbit C_Error;
 	unsigned char LockIDPar;
@@ -1348,8 +1346,7 @@ typedef struct MC_0070_IS_TYP
 } MC_0070_IS_TYP;
 
 typedef struct MC_0071_IS_TYP
-{
-	plcbit C_Execute;
+{	plcbit C_Execute;
 	plcbit C_Done;
 	plcbit C_Busy;
 	plcbit C_Error;
@@ -1360,8 +1357,7 @@ typedef struct MC_0071_IS_TYP
 } MC_0071_IS_TYP;
 
 typedef struct MC_0076_IS_TYP
-{
-	plcbit C_Execute;
+{	plcbit C_Execute;
 	plcbit C_Done;
 	plcbit C_Busy;
 	plcbit C_Error;
@@ -1394,8 +1390,7 @@ typedef struct MC_0076_IS_TYP
 } MC_0076_IS_TYP;
 
 typedef struct MC_0077_IS_TYP
-{
-	plcbit C_Execute;
+{	plcbit C_Execute;
 	unsigned char LockID;
 	struct MC_ERRORRECORD_REF C_ErrorRecord;
 	struct MC_ERRORTEXTCONFIG_REF C_Configuration;
@@ -1407,8 +1402,7 @@ typedef struct MC_0077_IS_TYP
 } MC_0077_IS_TYP;
 
 typedef struct MC_0078_IS_TYP
-{
-	plcbit C_Execute;
+{	plcbit C_Execute;
 	unsigned short C_Command;
 	struct MC_NETTRACECONFIG_REF C_Configuration;
 	plcbit C_Done;
@@ -1420,8 +1414,7 @@ typedef struct MC_0078_IS_TYP
 } MC_0078_IS_TYP;
 
 typedef struct MC_0080_IS_TYP
-{
-	plcbit C_Execute;
+{	plcbit C_Execute;
 	unsigned short C_Command;
 	struct MC_PARTRACECONFIG_REF C_Configuration;
 	plcbit C_Done;
@@ -1434,8 +1427,7 @@ typedef struct MC_0080_IS_TYP
 } MC_0080_IS_TYP;
 
 typedef struct MC_0081_IS_TYP
-{
-	struct MC_CYCLIC_POSITION C_CyclicPosition;
+{	struct MC_CYCLIC_POSITION C_CyclicPosition;
 	float C_Velocity;
 	float C_Acceleration;
 	float C_Deceleration;
@@ -1457,8 +1449,7 @@ typedef struct MC_0081_IS_TYP
 } MC_0081_IS_TYP;
 
 typedef struct MC_0082_IS_TYP
-{
-	unsigned short C_ParID;
+{	unsigned short C_ParID;
 	plcbit C_Busy;
 	plcbit C_Error;
 	unsigned short C_ErrorID;
@@ -1475,8 +1466,7 @@ typedef struct MC_0082_IS_TYP
 } MC_0082_IS_TYP;
 
 typedef struct MC_0083_IS_TYP
-{
-	plcbit C_Execute;
+{	plcbit C_Execute;
 	unsigned long C_DataAddress;
 	float C_MasterPosition;
 	unsigned long C_MasterFactor;
@@ -1490,8 +1480,7 @@ typedef struct MC_0083_IS_TYP
 } MC_0083_IS_TYP;
 
 typedef struct MC_0084_IS_TYP
-{
-	plcbit C_Execute;
+{	plcbit C_Execute;
 	unsigned long C_DataAddress;
 	float C_MasterStartPosition;
 	float C_SlavePosition;
@@ -1506,8 +1495,7 @@ typedef struct MC_0084_IS_TYP
 } MC_0084_IS_TYP;
 
 typedef struct MC_0088_IS_TYP
-{
-	plcbit C_Execute;
+{	plcbit C_Execute;
 	unsigned short C_Command;
 	struct MC_SETUP_IND_MOTOR_CFG_REF C_Configuration;
 	plcbit C_Done;
@@ -1522,8 +1510,7 @@ typedef struct MC_0088_IS_TYP
 } MC_0088_IS_TYP;
 
 typedef struct MC_0089_IS_TYP
-{
-	unsigned char C_Mode;
+{	unsigned char C_Mode;
 	unsigned short C_IntervalTime;
 	plcbit C_RestartInterval;
 	struct MC_BR_EVINPUT_REF C_EventInput;
@@ -1587,8 +1574,7 @@ typedef struct MC_0089_IS_TYP
 } MC_0089_IS_TYP;
 
 typedef struct MC_0090_IS_TYP
-{
-	plcbit C_Execute;
+{	plcbit C_Execute;
 	unsigned short C_Command;
 	struct MC_SETUP_CONTROLLER_CFG_REF C_Configuration;
 	plcbit C_Done;
@@ -1603,8 +1589,7 @@ typedef struct MC_0090_IS_TYP
 } MC_0090_IS_TYP;
 
 typedef struct MC_0092_IS_TYP
-{
-	float C_CyclicVelocity;
+{	float C_CyclicVelocity;
 	unsigned char C_Direction;
 	float C_Acceleration;
 	float C_Deceleration;
@@ -1629,8 +1614,7 @@ typedef struct MC_0092_IS_TYP
 } MC_0092_IS_TYP;
 
 typedef struct MC_0093_IS_TYP
-{
-	struct MC_CALC_CAM_CONFIG_REF C_Configuration;
+{	struct MC_CALC_CAM_CONFIG_REF C_Configuration;
 	unsigned char state;
 	unsigned char LockID;
 	plcbit C_Done;
@@ -1640,8 +1624,7 @@ typedef struct MC_0093_IS_TYP
 } MC_0093_IS_TYP;
 
 typedef struct MC_0095_IS_TYP
-{
-	plcbit Enable;
+{	plcbit Enable;
 	unsigned char Reserve1;
 	unsigned char Reserve2;
 	unsigned char Reserve3;
@@ -1690,8 +1673,7 @@ typedef struct MC_0095_IS_TYP
 } MC_0095_IS_TYP;
 
 typedef struct MC_0096_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	unsigned char Reserve1;
 	unsigned char Reserve2;
 	unsigned char Reserve3;
@@ -1724,8 +1706,7 @@ typedef struct MC_0096_IS_TYP
 } MC_0096_IS_TYP;
 
 typedef struct MC_0097_IS_TYP
-{
-	plcbit C_Execute;
+{	plcbit C_Execute;
 	unsigned short C_Command;
 	struct MC_SETUP_MOTOR_PHA_CFG_REF C_Configuration;
 	plcbit C_Done;
@@ -1743,8 +1724,7 @@ typedef struct MC_0097_IS_TYP
 } MC_0097_IS_TYP;
 
 typedef struct MC_0098_IS_TYP
-{
-	plcbit Valid;
+{	plcbit Valid;
 	plcbit Busy;
 	plcbit Error;
 	signed char tkNo;
@@ -1757,8 +1737,7 @@ typedef struct MC_0098_IS_TYP
 } MC_0098_IS_TYP;
 
 typedef struct MC_0099_IS_TYP
-{
-	plcbit Enable;
+{	plcbit Enable;
 	plcbit Start;
 	plcbit Stop;
 	plcbit Restart;
@@ -1815,8 +1794,7 @@ typedef struct MC_0099_IS_TYP
 } MC_0099_IS_TYP;
 
 typedef struct MC_0100_IS_TYP
-{
-	plcbit Enable;
+{	plcbit Enable;
 	plcbit InitData;
 	plcbit StartSignal;
 	unsigned char Reserve1;
@@ -1860,8 +1838,7 @@ typedef struct MC_0100_IS_TYP
 } MC_0100_IS_TYP;
 
 typedef struct MC_0101_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	plcbit Done;
 	unsigned short Command;
 	struct MC_SETUP_ISQ_RIPPLE_CFG_REF Configuration;
@@ -1875,8 +1852,7 @@ typedef struct MC_0101_IS_TYP
 } MC_0101_IS_TYP;
 
 typedef struct MC_0102_IS_TYP
-{
-	plcbit C_Execute;
+{	plcbit C_Execute;
 	unsigned short C_Command;
 	unsigned long C_AdrTraceConfig;
 	struct MC_PARTRACE_REF C_TraceConfig;
@@ -1890,8 +1866,7 @@ typedef struct MC_0102_IS_TYP
 } MC_0102_IS_TYP;
 
 typedef struct MC_0103_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	plcbit Done;
 	plcbit Busy;
 	plcbit Error;
@@ -1911,8 +1886,7 @@ typedef struct MC_0103_IS_TYP
 } MC_0103_IS_TYP;
 
 typedef struct MC_0104_IS_TYP
-{
-	plcbit Valid;
+{	plcbit Valid;
 	plcbit Busy;
 	plcbit Error;
 	unsigned char Reserve;
@@ -1921,8 +1895,7 @@ typedef struct MC_0104_IS_TYP
 } MC_0104_IS_TYP;
 
 typedef struct MC_0105_IS_TYP
-{
-	plcbit Valid;
+{	plcbit Valid;
 	plcbit Busy;
 	plcbit Error;
 	plcbit Reserve1;
@@ -1940,8 +1913,7 @@ typedef struct MC_0105_IS_TYP
 } MC_0105_IS_TYP;
 
 typedef struct MC_0106_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	unsigned short ParID;
 	plcbit Done;
 	plcbit Busy;
@@ -1952,8 +1924,7 @@ typedef struct MC_0106_IS_TYP
 } MC_0106_IS_TYP;
 
 typedef struct MC_0107_IS_TYP
-{
-	plcbit Enable;
+{	plcbit Enable;
 	struct MC_MASTER_SWITCHES_REF Switches;
 	unsigned char SwitchSelector;
 	unsigned char Reserve1;
@@ -2014,8 +1985,7 @@ typedef struct MC_0107_IS_TYP
 } MC_0107_IS_TYP;
 
 typedef struct MC_0108_IS_TYP
-{
-	plcbit Enable;
+{	plcbit Enable;
 	plcbit Active;
 	plcbit Error;
 	plcbit Busy;
@@ -2033,8 +2003,7 @@ typedef struct MC_0108_IS_TYP
 } MC_0108_IS_TYP;
 
 typedef struct MC_0109_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	plcbit Done;
 	plcbit Busy;
 	plcbit Error;
@@ -2043,8 +2012,7 @@ typedef struct MC_0109_IS_TYP
 } MC_0109_IS_TYP;
 
 typedef struct MC_0110_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	unsigned char Command;
 	plcbit Done;
 	plcbit Busy;
@@ -2062,8 +2030,7 @@ typedef struct MC_0110_IS_TYP
 } MC_0110_IS_TYP;
 
 typedef struct MC_0111_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	unsigned char SendChannel;
 	unsigned short ParID;
 	plcbit Done;
@@ -2078,8 +2045,7 @@ typedef struct MC_0111_IS_TYP
 } MC_0111_IS_TYP;
 
 typedef struct MC_0112_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	unsigned char InterpolationMode;
 	unsigned short ParID;
 	unsigned char SendChannel;
@@ -2097,8 +2063,7 @@ typedef struct MC_0112_IS_TYP
 } MC_0112_IS_TYP;
 
 typedef struct MC_0113_IS_TYP
-{
-	unsigned short ParID;
+{	unsigned short ParID;
 	unsigned char sendSlot;
 	unsigned char Mode;
 	plcbit Valid;
@@ -2111,8 +2076,7 @@ typedef struct MC_0113_IS_TYP
 } MC_0113_IS_TYP;
 
 typedef struct MC_0114_IS_TYP
-{
-	plcbit InitData;
+{	plcbit InitData;
 	plcbit EnableCut;
 	unsigned char EnableCutStateSet;
 	unsigned char Reserve1;
@@ -2196,8 +2160,7 @@ typedef struct MC_0114_IS_TYP
 } MC_0114_IS_TYP;
 
 typedef struct MC_0115_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	unsigned char NodeNumber;
 	unsigned short BitOffset;
 	unsigned short DataType;
@@ -2215,8 +2178,7 @@ typedef struct MC_0115_IS_TYP
 } MC_0115_IS_TYP;
 
 typedef struct MC_0116_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	plcbit Done;
 	unsigned short DataObjectVersion;
 	plcstring DataObjectName[13];
@@ -2233,8 +2195,7 @@ typedef struct MC_0116_IS_TYP
 } MC_0116_IS_TYP;
 
 typedef struct MC_0118_IS_TYP
-{
-	float Velocity;
+{	float Velocity;
 	float Acceleration;
 	float Deceleration;
 	plcbit Enable;
@@ -2260,8 +2221,7 @@ typedef struct MC_0118_IS_TYP
 } MC_0118_IS_TYP;
 
 typedef struct MC_0119_IS_TYP
-{
-	float Velocity;
+{	float Velocity;
 	float Acceleration;
 	float Deceleration;
 	signed long FirstPosition;
@@ -2293,8 +2253,7 @@ typedef struct MC_0119_IS_TYP
 } MC_0119_IS_TYP;
 
 typedef struct MC_0120_IS_TYP
-{
-	float Velocity;
+{	float Velocity;
 	float Acceleration;
 	float Deceleration;
 	signed long TargetPosition;
@@ -2328,8 +2287,7 @@ typedef struct MC_0120_IS_TYP
 } MC_0120_IS_TYP;
 
 typedef struct MC_0121_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	plcbit Done;
 	plcbit Busy;
 	plcbit Error;
@@ -2340,8 +2298,7 @@ typedef struct MC_0121_IS_TYP
 } MC_0121_IS_TYP;
 
 typedef struct MC_0122_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	plcbit Done;
 	plcbit Busy;
 	plcbit Error;
@@ -2355,8 +2312,7 @@ typedef struct MC_0122_IS_TYP
 } MC_0122_IS_TYP;
 
 typedef struct MC_0123_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	plcbit Done;
 	plcbit Busy;
 	plcbit Error;
@@ -2372,8 +2328,7 @@ typedef struct MC_0123_IS_TYP
 } MC_0123_IS_TYP;
 
 typedef struct MC_0124_IS_TYP
-{
-	struct MC_CYCLIC_POSITION_REF CyclicPosition;
+{	struct MC_CYCLIC_POSITION_REF CyclicPosition;
 	struct MC_ADVANCED_MOVE_CYC_REF AdvancedParameters;
 	unsigned char InterpolationMode;
 	plcbit Valid;
@@ -2394,8 +2349,7 @@ typedef struct MC_0124_IS_TYP
 } MC_0124_IS_TYP;
 
 typedef struct MC_0125_IS_TYP
-{
-	float CyclicVelocity;
+{	float CyclicVelocity;
 	struct MC_ADVANCED_MOVE_CYC_REF AdvancedParameters;
 	unsigned char Direction;
 	unsigned char InterpolationMode;
@@ -2416,8 +2370,7 @@ typedef struct MC_0125_IS_TYP
 } MC_0125_IS_TYP;
 
 typedef struct MC_0126_IS_TYP
-{
-	signed long RatioNumerator;
+{	signed long RatioNumerator;
 	signed long RatioDenominator;
 	struct MC_ADVANCED_GEAR_PAR_REF AdvancedParameters;
 	plcbit InitData;
@@ -2450,8 +2403,7 @@ typedef struct MC_0126_IS_TYP
 } MC_0126_IS_TYP;
 
 typedef struct MC_0127_IS_TYP
-{
-	float CyclicVelocity;
+{	float CyclicVelocity;
 	float Acceleration;
 	struct MC_ADV_OFFSETVELOCITY_REF AdvancedParameters;
 	plcbit Active;
@@ -2486,8 +2438,7 @@ typedef struct MC_0127_IS_TYP
 } MC_0127_IS_TYP;
 
 typedef struct MC_0128_IS_TYP
-{
-	float Shift;
+{	float Shift;
 	float Velocity;
 	float Acceleration;
 	float ZoneStartPosition;
@@ -2527,8 +2478,7 @@ typedef struct MC_0128_IS_TYP
 } MC_0128_IS_TYP;
 
 typedef struct MC_0129_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	unsigned short Command;
 	struct MC_SETUP_SYNC_MOTOR_CFG_REF Configuration;
 	plcbit Done;
@@ -2542,8 +2492,7 @@ typedef struct MC_0129_IS_TYP
 } MC_0129_IS_TYP;
 
 typedef struct MC_0130_IS_TYP
-{
-	plcbit Done;
+{	plcbit Done;
 	plcbit Busy;
 	plcbit Error;
 	plcbit EndlessPositionInitialized;
@@ -2553,8 +2502,7 @@ typedef struct MC_0130_IS_TYP
 } MC_0130_IS_TYP;
 
 typedef struct MC_0133_IS_TYP
-{
-	unsigned char Direction;
+{	unsigned char Direction;
 	plcbit Busy;
 	plcbit Ready;
 	plcbit Active;
@@ -2573,8 +2521,7 @@ typedef struct MC_0133_IS_TYP
 } MC_0133_IS_TYP;
 
 typedef struct MC_0134_IS_TYP
-{
-	unsigned char Mode;
+{	unsigned char Mode;
 	plcbit InitData;
 	plcbit Busy;
 	plcbit Ready;
@@ -2601,8 +2548,7 @@ typedef struct MC_0134_IS_TYP
 } MC_0134_IS_TYP;
 
 typedef struct MC_0135_IS_TYP
-{
-	unsigned char Mode;
+{	unsigned char Mode;
 	plcbit InitData;
 	plcbit DataInitialized;
 	unsigned char state;
@@ -2631,8 +2577,7 @@ typedef struct MC_0135_IS_TYP
 } MC_0135_IS_TYP;
 
 typedef struct MC_0137_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	struct MC_POWER_STAGE_CHECK_REF Configuration;
 	plcbit Done;
 	plcbit Busy;
@@ -2644,8 +2589,7 @@ typedef struct MC_0137_IS_TYP
 } MC_0137_IS_TYP;
 
 typedef struct MC_0136_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	plcbit Done;
 	plcbit Busy;
 	plcbit Error;
@@ -2657,8 +2601,7 @@ typedef struct MC_0136_IS_TYP
 } MC_0136_IS_TYP;
 
 typedef struct MC_0138_IS_TYP
-{
-	unsigned short ErrorID;
+{	unsigned short ErrorID;
 	plcbit Error;
 	unsigned char slot;
 	unsigned char state;
@@ -2668,8 +2611,7 @@ typedef struct MC_0138_IS_TYP
 } MC_0138_IS_TYP;
 
 typedef struct MC_0139_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	plcbit Done;
 	plcbit Busy;
 	plcbit Error;
@@ -2679,8 +2621,7 @@ typedef struct MC_0139_IS_TYP
 } MC_0139_IS_TYP;
 
 typedef struct MC_0140_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	plcbit Done;
 	plcbit Busy;
 	plcbit Error;
@@ -2690,8 +2631,7 @@ typedef struct MC_0140_IS_TYP
 } MC_0140_IS_TYP;
 
 typedef struct MC_NET_ENC_INTERN_TYP
-{
-	unsigned long AdrChannelName;
+{	unsigned long AdrChannelName;
 	unsigned short DataType;
 	unsigned short BitOffset;
 	unsigned char readSlot;
@@ -2700,8 +2640,7 @@ typedef struct MC_NET_ENC_INTERN_TYP
 } MC_NET_ENC_INTERN_TYP;
 
 typedef struct MC_0141_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	struct MC_NET_ENC_INFO_REF EncoderInformation;
 	struct MC_NET_ENC_PARAM_REF EncoderParameters;
 	struct MC_NET_ENC_CONFIG_REF ReceiveConfiguration;
@@ -2719,8 +2658,7 @@ typedef struct MC_0141_IS_TYP
 } MC_0141_IS_TYP;
 
 typedef struct MC_0145_IS_TYP
-{
-	plcbit Execute;
+{	plcbit Execute;
 	plcbit Done;
 	unsigned short Command;
 	struct MC_SETUP_OUTPUT_REF SetupOutput;
@@ -2734,8 +2672,7 @@ typedef struct MC_0145_IS_TYP
 } MC_0145_IS_TYP;
 
 typedef struct MC_0146_IS_TYP
-{
-	plcbit Active;
+{	plcbit Active;
 	plcbit Busy;
 	plcbit CommandAborted;
 	plcbit Error;
@@ -2801,6 +2738,38 @@ typedef struct MC_0146_IS_TYP
 	plcbit prevRunning;
 	plcbit MaCamOffsetInitialized;
 } MC_0146_IS_TYP;
+
+typedef struct MC_0147_IS_TYP
+{	plcbit Active;
+	plcbit Busy;
+	plcbit Error;
+	unsigned char LockID;
+	unsigned char LockIDPar;
+	unsigned char LockIDFb;
+	unsigned short ErrorID;
+	struct MC_MPDC_PARAM_REF Parameters;
+	struct MC_ADV_MPDC_REF AdvancedParameters;
+	struct MC_ADV_INFO_MPDC_REF AdvancedInfo;
+	struct MC_CAMPROFILE_TYP PolyCam;
+	unsigned short PBCStatusOffset;
+	unsigned char PBCStatusRecIndex;
+	unsigned char state;
+	unsigned short PctrlSActParID;
+	unsigned short CurveIndex;
+	signed long CamStartPosition;
+	float Data[2000];
+	unsigned short CamIndexPos;
+	unsigned short CamIndexNeg;
+	plcstring InternalCamName[13];
+	plcstring ProcessCamName[13];
+	unsigned short ProcessCamIndex;
+	unsigned short ProcessNumberOfPoints;
+	unsigned long ProcessAdrPositions;
+	unsigned long ProcessAdrDeviations;
+	unsigned char CamsToProcess;
+	plcbit BacklashOnly;
+	unsigned short VarIndex;
+} MC_0147_IS_TYP;
 
 typedef struct MC_AbortTrigger
 {
@@ -5247,6 +5216,26 @@ typedef struct MC_BR_Phasing
 	plcbit InitDataActive;
 } MC_BR_Phasing_typ;
 
+typedef struct MC_BR_MechPosDeviationComp
+{
+	/* VAR_INPUT (analog) */
+	unsigned long Axis;
+	struct MC_MPDC_PARAM_REF Parameters;
+	struct MC_ADV_MPDC_REF AdvancedParameters;
+	/* VAR_OUTPUT (analog) */
+	unsigned short ErrorID;
+	struct MC_ADV_INFO_MPDC_REF AdvancedInfo;
+	/* VAR (analog) */
+	unsigned long C_Axis;
+	struct MC_0147_IS_TYP IS;
+	/* VAR_INPUT (digital) */
+	plcbit Enable;
+	/* VAR_OUTPUT (digital) */
+	plcbit Active;
+	plcbit Busy;
+	plcbit Error;
+} MC_BR_MechPosDeviationComp_typ;
+
 typedef struct MC_BR_PowerMeter
 {
 	/* VAR_INPUT (analog) */
@@ -5439,6 +5428,30 @@ typedef struct MC_BR_ReadParIDText
 	plcbit C_Done;
 	plcbit C_Error;
 } MC_BR_ReadParIDText_typ;
+
+typedef struct MC_BR_ReadParList
+{
+	/* VAR_INPUT (analog) */
+	unsigned long Axis;
+	unsigned long DataAddress;
+	/* VAR_OUTPUT (analog) */
+	unsigned short ErrorID;
+	/* VAR (analog) */
+	unsigned char LockIDPar;
+	unsigned short C_ErrorID;
+	unsigned long C_Axis;
+	unsigned long C_DataAddress;
+	unsigned char state;
+	/* VAR_INPUT (digital) */
+	plcbit Execute;
+	/* VAR_OUTPUT (digital) */
+	plcbit Done;
+	plcbit Busy;
+	plcbit Error;
+	/* VAR (digital) */
+	plcbit C_Error;
+	plcbit C_Done;
+} MC_BR_ReadParList_typ;
 
 typedef struct MC_BR_ReadParTraceStatus
 {
@@ -6917,147 +6930,147 @@ typedef struct MC_WriteParameter
 
 
 /* Prototyping of functions and function blocks */
-void MC_AbortTrigger(struct MC_AbortTrigger* inst);
-void MC_BR_AutCommand(struct MC_BR_AutCommand* inst);
-void MC_BR_AutControl(struct MC_BR_AutControl* inst);
-void MC_BR_AutoCamDwell(struct MC_BR_AutoCamDwell* inst);
-void MC_BR_AxisErrorCollector(struct MC_BR_AxisErrorCollector* inst);
-void MC_BR_BrakeControl(struct MC_BR_BrakeControl* inst);
-void MC_BR_BrakeOperation(struct MC_BR_BrakeOperation* inst);
-void MC_BR_CalcCamFromPoints(struct MC_BR_CalcCamFromPoints* inst);
-void MC_BR_CalcCamFromSections(struct MC_BR_CalcCamFromSections* inst);
-void MC_BR_CalcPointsFromCam(struct MC_BR_CalcPointsFromCam* inst);
-void MC_BR_CalcSectionsFromCam(struct MC_BR_CalcSectionsFromCam* inst);
-void MC_BR_CamIn(struct MC_BR_CamIn* inst);
-void MC_BR_CamDwell(struct MC_BR_CamDwell* inst);
-void MC_BR_CamTransition(struct MC_BR_CamTransition* inst);
-void MC_BR_CheckAutCompensation(struct MC_BR_CheckAutCompensation* inst);
-void MC_BR_CheckEndlessPosition(struct MC_BR_CheckEndlessPosition* inst);
-void MC_BR_CommandError(struct MC_BR_CommandError* inst);
-void MC_BR_ConfigPowerStageCheck(struct MC_BR_ConfigPowerStageCheck* inst);
-void MC_BR_CrossCutterControl(struct MC_BR_CrossCutterControl* inst);
-void MC_BR_CyclicRead(struct MC_BR_CyclicRead* inst);
-void MC_BR_CyclicReadDataInfo(struct MC_BR_CyclicReadDataInfo* inst);
-void MC_BR_CyclicWrite(struct MC_BR_CyclicWrite* inst);
-void MC_BR_DigitalCamSwitch(struct MC_BR_DigitalCamSwitch* inst);
-void MC_BR_DownloadCamProfileObj(struct MC_BR_DownloadCamProfileObj* inst);
-void MC_BR_DownloadCamProfileData(struct MC_BR_DownloadCamProfileData* inst);
-void MC_BR_DownloadParSequ(struct MC_BR_DownloadParSequ* inst);
-void MC_BR_EventMoveAbsolute(struct MC_BR_EventMoveAbsolute* inst);
-void MC_BR_EventMoveAdditive(struct MC_BR_EventMoveAdditive* inst);
-void MC_BR_EventMoveVelocity(struct MC_BR_EventMoveVelocity* inst);
-void MC_BR_GearIn(struct MC_BR_GearIn* inst);
-void MC_BR_GetCamMasterPosition(struct MC_BR_GetCamMasterPosition* inst);
-void MC_BR_GetCamSlavePosition(struct MC_BR_GetCamSlavePosition* inst);
-void MC_BR_GetErrorText(struct MC_BR_GetErrorText* inst);
-void MC_BR_GetHardwareInfo(struct MC_BR_GetHardwareInfo* inst);
-void MC_BR_GetParIDTransferInfo(struct MC_BR_GetParIDTransferInfo* inst);
-void MC_BR_HomeAcpEncoder(struct MC_BR_HomeAcpEncoder* inst);
-void MC_BR_InitAutData(struct MC_BR_InitAutData* inst);
-void MC_BR_InitAutEvent(struct MC_BR_InitAutEvent* inst);
-void MC_BR_InitAutPar(struct MC_BR_InitAutPar* inst);
-void MC_BR_InitAutState(struct MC_BR_InitAutState* inst);
-void MC_BR_InitAxisPar(struct MC_BR_InitAxisPar* inst);
-void MC_BR_InitAxisSubjectPar(struct MC_BR_InitAxisSubjectPar* inst);
-void MC_BR_InitCyclicRead(struct MC_BR_InitCyclicRead* inst);
-void MC_BR_InitCyclicWrite(struct MC_BR_InitCyclicWrite* inst);
-void MC_BR_InitEndlessPosition(struct MC_BR_InitEndlessPosition* inst);
-void MC_BR_InitEndlessPosAcpEnc(struct MC_BR_InitEndlessPosAcpEnc* inst);
-void MC_BR_InitMasterParIDTransfer(struct MC_BR_InitMasterParIDTransfer* inst);
-void MC_BR_InitModPos(struct MC_BR_InitModPos* inst);
-void MC_BR_InitParList(struct MC_BR_InitParList* inst);
-void MC_BR_InitParSequ(struct MC_BR_InitParSequ* inst);
-void MC_BR_InitParTabObj(struct MC_BR_InitParTabObj* inst);
-void MC_BR_InitReceiveNetworkData(struct MC_BR_InitReceiveNetworkData* inst);
-void MC_BR_InitReceiveNetworkEnc(struct MC_BR_InitReceiveNetworkEnc* inst);
-void MC_BR_InitReceiveParID(struct MC_BR_InitReceiveParID* inst);
-void MC_BR_InitSendParID(struct MC_BR_InitSendParID* inst);
-void MC_BR_JogVelocity(struct MC_BR_JogVelocity* inst);
-void MC_BR_JogLimitPosition(struct MC_BR_JogLimitPosition* inst);
-void MC_BR_JogTargetPosition(struct MC_BR_JogTargetPosition* inst);
-void MC_BR_LimitLoad(struct MC_BR_LimitLoad* inst);
-void MC_BR_LimitLoadCam(struct MC_BR_LimitLoadCam* inst);
-void MC_BR_LoadAxisPar(struct MC_BR_LoadAxisPar* inst);
-void MC_BR_MoveAbsoluteTriggStop(struct MC_BR_MoveAbsoluteTriggStop* inst);
-void MC_BR_MoveAdditiveTriggStop(struct MC_BR_MoveAdditiveTriggStop* inst);
-void MC_BR_MoveCyclicPosition(struct MC_BR_MoveCyclicPosition* inst);
-void MC_BR_MoveCyclicPositionExt(struct MC_BR_MoveCyclicPositionExt* inst);
-void MC_BR_MoveCyclicVelocity(struct MC_BR_MoveCyclicVelocity* inst);
-void MC_BR_MoveCyclicVelocityExt(struct MC_BR_MoveCyclicVelocityExt* inst);
-void MC_BR_MoveVelocityTriggStop(struct MC_BR_MoveVelocityTriggStop* inst);
-void MC_BR_NetTrace(struct MC_BR_NetTrace* inst);
-void MC_BR_NetworkInit(struct MC_BR_NetworkInit* inst);
-void MC_BR_Offset(struct MC_BR_Offset* inst);
-void MC_BR_OffsetVelocity(struct MC_BR_OffsetVelocity* inst);
-void MC_BR_OffsetZone(struct MC_BR_OffsetZone* inst);
-void MC_BR_GetParIDInfo(struct MC_BR_GetParIDInfo* inst);
-void MC_BR_ParTrace(struct MC_BR_ParTrace* inst);
-void MC_BR_ParTraceConfig(struct MC_BR_ParTraceConfig* inst);
-void MC_BR_Phasing(struct MC_BR_Phasing* inst);
-void MC_BR_PowerMeter(struct MC_BR_PowerMeter* inst);
-void MC_BR_ReadAutPosition(struct MC_BR_ReadAutPosition* inst);
-void MC_BR_ReadAxisError(struct MC_BR_ReadAxisError* inst);
-void MC_BR_ReadCyclicPosition(struct MC_BR_ReadCyclicPosition* inst);
-void MC_BR_ReadDriveStatus(struct MC_BR_ReadDriveStatus* inst);
-void MC_BR_ReadNetTraceStatus(struct MC_BR_ReadNetTraceStatus* inst);
-void MC_BR_ReadParID(struct MC_BR_ReadParID* inst);
-void MC_BR_ReadParIDText(struct MC_BR_ReadParIDText* inst);
-void MC_BR_ReadParTraceStatus(struct MC_BR_ReadParTraceStatus* inst);
-void MC_BR_ReceiveParIDOnPLC(struct MC_BR_ReceiveParIDOnPLC* inst);
-void MC_BR_ResetAutPar(struct MC_BR_ResetAutPar* inst);
-void MC_BR_SaveAxisPar(struct MC_BR_SaveAxisPar* inst);
-void MC_BR_SaveCamProfileObj(struct MC_BR_SaveCamProfileObj* inst);
-void MC_BR_SetHardwareInputs(struct MC_BR_SetHardwareInputs* inst);
-void MC_BR_SetupController(struct MC_BR_SetupController* inst);
-void MC_BR_SetupFromParTabObj(struct MC_BR_SetupFromParTabObj* inst);
-void MC_BR_SetupInductionMotor(struct MC_BR_SetupInductionMotor* inst);
-void MC_BR_SetupIsqRipple(struct MC_BR_SetupIsqRipple* inst);
-void MC_BR_SetupMotorPhasing(struct MC_BR_SetupMotorPhasing* inst);
-void MC_BR_SetupSynchronMotor(struct MC_BR_SetupSynchronMotor* inst);
-void MC_BR_Simulation(struct MC_BR_Simulation* inst);
-void MC_BR_TouchProbe(struct MC_BR_TouchProbe* inst);
-void MC_BR_VelocityControl(struct MC_BR_VelocityControl* inst);
-void MC_BR_WriteParID(struct MC_BR_WriteParID* inst);
-void MC_BR_WriteParIDText(struct MC_BR_WriteParIDText* inst);
-void MC_CamIn(struct MC_CamIn* inst);
-void MC_CamOut(struct MC_CamOut* inst);
-void MC_CamTableSelect(struct MC_CamTableSelect* inst);
-void MC_DigitalCamSwitch(struct MC_DigitalCamSwitch* inst);
-void MC_GearIn(struct MC_GearIn* inst);
-void MC_GearInPos(struct MC_GearInPos* inst);
-void MC_GearOut(struct MC_GearOut* inst);
-void MC_Halt(struct MC_Halt* inst);
-void MC_Home(struct MC_Home* inst);
-void MC_LimitLoad(struct MC_LimitLoad* inst);
-void MC_MoveAbsolute(struct MC_MoveAbsolute* inst);
-void MC_MoveAdditive(struct MC_MoveAdditive* inst);
-void MC_MoveVelocity(struct MC_MoveVelocity* inst);
-void MC_Phasing(struct MC_Phasing* inst);
-void MC_Power(struct MC_Power* inst);
-void MC_ReadActualPosition(struct MC_ReadActualPosition* inst);
-void MC_ReadActualTorque(struct MC_ReadActualTorque* inst);
-void MC_ReadActualVelocity(struct MC_ReadActualVelocity* inst);
-void MC_ReadAxisError(struct MC_ReadAxisError* inst);
-void MC_ReadBoolParameter(struct MC_ReadBoolParameter* inst);
-void MC_ReadDigitalInput(struct MC_ReadDigitalInput* inst);
-void MC_ReadDigitalOutput(struct MC_ReadDigitalOutput* inst);
-void MC_ReadParameter(struct MC_ReadParameter* inst);
-void MC_ReadStatus(struct MC_ReadStatus* inst);
-void MC_Reset(struct MC_Reset* inst);
-void MC_SetOverride(struct MC_SetOverride* inst);
-void MC_Stop(struct MC_Stop* inst);
-void MC_TouchProbe(struct MC_TouchProbe* inst);
-void MC_TorqueControl(struct MC_TorqueControl* inst);
-void MC_BR_TorqueControl(struct MC_BR_TorqueControl* inst);
-void MC_WriteBoolParameter(struct MC_WriteBoolParameter* inst);
-void MC_WriteDigitalOutput(struct MC_WriteDigitalOutput* inst);
-void MC_WriteParameter(struct MC_WriteParameter* inst);
+_BUR_PUBLIC void MC_AbortTrigger(struct MC_AbortTrigger* inst);
+_BUR_PUBLIC void MC_BR_AutCommand(struct MC_BR_AutCommand* inst);
+_BUR_PUBLIC void MC_BR_AutControl(struct MC_BR_AutControl* inst);
+_BUR_PUBLIC void MC_BR_AutoCamDwell(struct MC_BR_AutoCamDwell* inst);
+_BUR_PUBLIC void MC_BR_AxisErrorCollector(struct MC_BR_AxisErrorCollector* inst);
+_BUR_PUBLIC void MC_BR_BrakeControl(struct MC_BR_BrakeControl* inst);
+_BUR_PUBLIC void MC_BR_BrakeOperation(struct MC_BR_BrakeOperation* inst);
+_BUR_PUBLIC void MC_BR_CalcCamFromPoints(struct MC_BR_CalcCamFromPoints* inst);
+_BUR_PUBLIC void MC_BR_CalcCamFromSections(struct MC_BR_CalcCamFromSections* inst);
+_BUR_PUBLIC void MC_BR_CalcPointsFromCam(struct MC_BR_CalcPointsFromCam* inst);
+_BUR_PUBLIC void MC_BR_CalcSectionsFromCam(struct MC_BR_CalcSectionsFromCam* inst);
+_BUR_PUBLIC void MC_BR_CamIn(struct MC_BR_CamIn* inst);
+_BUR_PUBLIC void MC_BR_CamDwell(struct MC_BR_CamDwell* inst);
+_BUR_PUBLIC void MC_BR_CamTransition(struct MC_BR_CamTransition* inst);
+_BUR_PUBLIC void MC_BR_CheckAutCompensation(struct MC_BR_CheckAutCompensation* inst);
+_BUR_PUBLIC void MC_BR_CheckEndlessPosition(struct MC_BR_CheckEndlessPosition* inst);
+_BUR_PUBLIC void MC_BR_CommandError(struct MC_BR_CommandError* inst);
+_BUR_PUBLIC void MC_BR_ConfigPowerStageCheck(struct MC_BR_ConfigPowerStageCheck* inst);
+_BUR_PUBLIC void MC_BR_CrossCutterControl(struct MC_BR_CrossCutterControl* inst);
+_BUR_PUBLIC void MC_BR_CyclicRead(struct MC_BR_CyclicRead* inst);
+_BUR_PUBLIC void MC_BR_CyclicReadDataInfo(struct MC_BR_CyclicReadDataInfo* inst);
+_BUR_PUBLIC void MC_BR_CyclicWrite(struct MC_BR_CyclicWrite* inst);
+_BUR_PUBLIC void MC_BR_DigitalCamSwitch(struct MC_BR_DigitalCamSwitch* inst);
+_BUR_PUBLIC void MC_BR_DownloadCamProfileObj(struct MC_BR_DownloadCamProfileObj* inst);
+_BUR_PUBLIC void MC_BR_DownloadCamProfileData(struct MC_BR_DownloadCamProfileData* inst);
+_BUR_PUBLIC void MC_BR_DownloadParSequ(struct MC_BR_DownloadParSequ* inst);
+_BUR_PUBLIC void MC_BR_EventMoveAbsolute(struct MC_BR_EventMoveAbsolute* inst);
+_BUR_PUBLIC void MC_BR_EventMoveAdditive(struct MC_BR_EventMoveAdditive* inst);
+_BUR_PUBLIC void MC_BR_EventMoveVelocity(struct MC_BR_EventMoveVelocity* inst);
+_BUR_PUBLIC void MC_BR_GearIn(struct MC_BR_GearIn* inst);
+_BUR_PUBLIC void MC_BR_GetCamMasterPosition(struct MC_BR_GetCamMasterPosition* inst);
+_BUR_PUBLIC void MC_BR_GetCamSlavePosition(struct MC_BR_GetCamSlavePosition* inst);
+_BUR_PUBLIC void MC_BR_GetErrorText(struct MC_BR_GetErrorText* inst);
+_BUR_PUBLIC void MC_BR_GetHardwareInfo(struct MC_BR_GetHardwareInfo* inst);
+_BUR_PUBLIC void MC_BR_GetParIDTransferInfo(struct MC_BR_GetParIDTransferInfo* inst);
+_BUR_PUBLIC void MC_BR_HomeAcpEncoder(struct MC_BR_HomeAcpEncoder* inst);
+_BUR_PUBLIC void MC_BR_InitAutData(struct MC_BR_InitAutData* inst);
+_BUR_PUBLIC void MC_BR_InitAutEvent(struct MC_BR_InitAutEvent* inst);
+_BUR_PUBLIC void MC_BR_InitAutPar(struct MC_BR_InitAutPar* inst);
+_BUR_PUBLIC void MC_BR_InitAutState(struct MC_BR_InitAutState* inst);
+_BUR_PUBLIC void MC_BR_InitAxisPar(struct MC_BR_InitAxisPar* inst);
+_BUR_PUBLIC void MC_BR_InitAxisSubjectPar(struct MC_BR_InitAxisSubjectPar* inst);
+_BUR_PUBLIC void MC_BR_InitCyclicRead(struct MC_BR_InitCyclicRead* inst);
+_BUR_PUBLIC void MC_BR_InitCyclicWrite(struct MC_BR_InitCyclicWrite* inst);
+_BUR_PUBLIC void MC_BR_InitEndlessPosition(struct MC_BR_InitEndlessPosition* inst);
+_BUR_PUBLIC void MC_BR_InitEndlessPosAcpEnc(struct MC_BR_InitEndlessPosAcpEnc* inst);
+_BUR_PUBLIC void MC_BR_InitMasterParIDTransfer(struct MC_BR_InitMasterParIDTransfer* inst);
+_BUR_PUBLIC void MC_BR_InitModPos(struct MC_BR_InitModPos* inst);
+_BUR_PUBLIC void MC_BR_InitParList(struct MC_BR_InitParList* inst);
+_BUR_PUBLIC void MC_BR_InitParSequ(struct MC_BR_InitParSequ* inst);
+_BUR_PUBLIC void MC_BR_InitParTabObj(struct MC_BR_InitParTabObj* inst);
+_BUR_PUBLIC void MC_BR_InitReceiveNetworkData(struct MC_BR_InitReceiveNetworkData* inst);
+_BUR_PUBLIC void MC_BR_InitReceiveNetworkEnc(struct MC_BR_InitReceiveNetworkEnc* inst);
+_BUR_PUBLIC void MC_BR_InitReceiveParID(struct MC_BR_InitReceiveParID* inst);
+_BUR_PUBLIC void MC_BR_InitSendParID(struct MC_BR_InitSendParID* inst);
+_BUR_PUBLIC void MC_BR_JogVelocity(struct MC_BR_JogVelocity* inst);
+_BUR_PUBLIC void MC_BR_JogLimitPosition(struct MC_BR_JogLimitPosition* inst);
+_BUR_PUBLIC void MC_BR_JogTargetPosition(struct MC_BR_JogTargetPosition* inst);
+_BUR_PUBLIC void MC_BR_LimitLoad(struct MC_BR_LimitLoad* inst);
+_BUR_PUBLIC void MC_BR_LimitLoadCam(struct MC_BR_LimitLoadCam* inst);
+_BUR_PUBLIC void MC_BR_LoadAxisPar(struct MC_BR_LoadAxisPar* inst);
+_BUR_PUBLIC void MC_BR_MoveAbsoluteTriggStop(struct MC_BR_MoveAbsoluteTriggStop* inst);
+_BUR_PUBLIC void MC_BR_MoveAdditiveTriggStop(struct MC_BR_MoveAdditiveTriggStop* inst);
+_BUR_PUBLIC void MC_BR_MoveCyclicPosition(struct MC_BR_MoveCyclicPosition* inst);
+_BUR_PUBLIC void MC_BR_MoveCyclicPositionExt(struct MC_BR_MoveCyclicPositionExt* inst);
+_BUR_PUBLIC void MC_BR_MoveCyclicVelocity(struct MC_BR_MoveCyclicVelocity* inst);
+_BUR_PUBLIC void MC_BR_MoveCyclicVelocityExt(struct MC_BR_MoveCyclicVelocityExt* inst);
+_BUR_PUBLIC void MC_BR_MoveVelocityTriggStop(struct MC_BR_MoveVelocityTriggStop* inst);
+_BUR_PUBLIC void MC_BR_NetTrace(struct MC_BR_NetTrace* inst);
+_BUR_PUBLIC void MC_BR_NetworkInit(struct MC_BR_NetworkInit* inst);
+_BUR_PUBLIC void MC_BR_Offset(struct MC_BR_Offset* inst);
+_BUR_PUBLIC void MC_BR_OffsetVelocity(struct MC_BR_OffsetVelocity* inst);
+_BUR_PUBLIC void MC_BR_OffsetZone(struct MC_BR_OffsetZone* inst);
+_BUR_PUBLIC void MC_BR_GetParIDInfo(struct MC_BR_GetParIDInfo* inst);
+_BUR_PUBLIC void MC_BR_ParTrace(struct MC_BR_ParTrace* inst);
+_BUR_PUBLIC void MC_BR_ParTraceConfig(struct MC_BR_ParTraceConfig* inst);
+_BUR_PUBLIC void MC_BR_Phasing(struct MC_BR_Phasing* inst);
+_BUR_PUBLIC void MC_BR_MechPosDeviationComp(struct MC_BR_MechPosDeviationComp* inst);
+_BUR_PUBLIC void MC_BR_PowerMeter(struct MC_BR_PowerMeter* inst);
+_BUR_PUBLIC void MC_BR_ReadAutPosition(struct MC_BR_ReadAutPosition* inst);
+_BUR_PUBLIC void MC_BR_ReadAxisError(struct MC_BR_ReadAxisError* inst);
+_BUR_PUBLIC void MC_BR_ReadCyclicPosition(struct MC_BR_ReadCyclicPosition* inst);
+_BUR_PUBLIC void MC_BR_ReadDriveStatus(struct MC_BR_ReadDriveStatus* inst);
+_BUR_PUBLIC void MC_BR_ReadNetTraceStatus(struct MC_BR_ReadNetTraceStatus* inst);
+_BUR_PUBLIC void MC_BR_ReadParID(struct MC_BR_ReadParID* inst);
+_BUR_PUBLIC void MC_BR_ReadParIDText(struct MC_BR_ReadParIDText* inst);
+_BUR_PUBLIC void MC_BR_ReadParList(struct MC_BR_ReadParList* inst);
+_BUR_PUBLIC void MC_BR_ReadParTraceStatus(struct MC_BR_ReadParTraceStatus* inst);
+_BUR_PUBLIC void MC_BR_ReceiveParIDOnPLC(struct MC_BR_ReceiveParIDOnPLC* inst);
+_BUR_PUBLIC void MC_BR_ResetAutPar(struct MC_BR_ResetAutPar* inst);
+_BUR_PUBLIC void MC_BR_SaveAxisPar(struct MC_BR_SaveAxisPar* inst);
+_BUR_PUBLIC void MC_BR_SaveCamProfileObj(struct MC_BR_SaveCamProfileObj* inst);
+_BUR_PUBLIC void MC_BR_SetHardwareInputs(struct MC_BR_SetHardwareInputs* inst);
+_BUR_PUBLIC void MC_BR_SetupController(struct MC_BR_SetupController* inst);
+_BUR_PUBLIC void MC_BR_SetupFromParTabObj(struct MC_BR_SetupFromParTabObj* inst);
+_BUR_PUBLIC void MC_BR_SetupInductionMotor(struct MC_BR_SetupInductionMotor* inst);
+_BUR_PUBLIC void MC_BR_SetupIsqRipple(struct MC_BR_SetupIsqRipple* inst);
+_BUR_PUBLIC void MC_BR_SetupMotorPhasing(struct MC_BR_SetupMotorPhasing* inst);
+_BUR_PUBLIC void MC_BR_SetupSynchronMotor(struct MC_BR_SetupSynchronMotor* inst);
+_BUR_PUBLIC void MC_BR_Simulation(struct MC_BR_Simulation* inst);
+_BUR_PUBLIC void MC_BR_TouchProbe(struct MC_BR_TouchProbe* inst);
+_BUR_PUBLIC void MC_BR_VelocityControl(struct MC_BR_VelocityControl* inst);
+_BUR_PUBLIC void MC_BR_WriteParID(struct MC_BR_WriteParID* inst);
+_BUR_PUBLIC void MC_BR_WriteParIDText(struct MC_BR_WriteParIDText* inst);
+_BUR_PUBLIC void MC_CamIn(struct MC_CamIn* inst);
+_BUR_PUBLIC void MC_CamOut(struct MC_CamOut* inst);
+_BUR_PUBLIC void MC_CamTableSelect(struct MC_CamTableSelect* inst);
+_BUR_PUBLIC void MC_DigitalCamSwitch(struct MC_DigitalCamSwitch* inst);
+_BUR_PUBLIC void MC_GearIn(struct MC_GearIn* inst);
+_BUR_PUBLIC void MC_GearInPos(struct MC_GearInPos* inst);
+_BUR_PUBLIC void MC_GearOut(struct MC_GearOut* inst);
+_BUR_PUBLIC void MC_Halt(struct MC_Halt* inst);
+_BUR_PUBLIC void MC_Home(struct MC_Home* inst);
+_BUR_PUBLIC void MC_LimitLoad(struct MC_LimitLoad* inst);
+_BUR_PUBLIC void MC_MoveAbsolute(struct MC_MoveAbsolute* inst);
+_BUR_PUBLIC void MC_MoveAdditive(struct MC_MoveAdditive* inst);
+_BUR_PUBLIC void MC_MoveVelocity(struct MC_MoveVelocity* inst);
+_BUR_PUBLIC void MC_Phasing(struct MC_Phasing* inst);
+_BUR_PUBLIC void MC_Power(struct MC_Power* inst);
+_BUR_PUBLIC void MC_ReadActualPosition(struct MC_ReadActualPosition* inst);
+_BUR_PUBLIC void MC_ReadActualTorque(struct MC_ReadActualTorque* inst);
+_BUR_PUBLIC void MC_ReadActualVelocity(struct MC_ReadActualVelocity* inst);
+_BUR_PUBLIC void MC_ReadAxisError(struct MC_ReadAxisError* inst);
+_BUR_PUBLIC void MC_ReadBoolParameter(struct MC_ReadBoolParameter* inst);
+_BUR_PUBLIC void MC_ReadDigitalInput(struct MC_ReadDigitalInput* inst);
+_BUR_PUBLIC void MC_ReadDigitalOutput(struct MC_ReadDigitalOutput* inst);
+_BUR_PUBLIC void MC_ReadParameter(struct MC_ReadParameter* inst);
+_BUR_PUBLIC void MC_ReadStatus(struct MC_ReadStatus* inst);
+_BUR_PUBLIC void MC_Reset(struct MC_Reset* inst);
+_BUR_PUBLIC void MC_SetOverride(struct MC_SetOverride* inst);
+_BUR_PUBLIC void MC_Stop(struct MC_Stop* inst);
+_BUR_PUBLIC void MC_TouchProbe(struct MC_TouchProbe* inst);
+_BUR_PUBLIC void MC_TorqueControl(struct MC_TorqueControl* inst);
+_BUR_PUBLIC void MC_BR_TorqueControl(struct MC_BR_TorqueControl* inst);
+_BUR_PUBLIC void MC_WriteBoolParameter(struct MC_WriteBoolParameter* inst);
+_BUR_PUBLIC void MC_WriteDigitalOutput(struct MC_WriteDigitalOutput* inst);
+_BUR_PUBLIC void MC_WriteParameter(struct MC_WriteParameter* inst);
 
-
-
-#endif /* _ACP10_MC_ */
 
 #ifdef __cplusplus
 };
 #endif
+#endif /* _ACP10_MC_ */
 

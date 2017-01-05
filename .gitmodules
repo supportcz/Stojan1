@@ -1,0 +1,3 @@
+[submodule "Logical/MpAxisSample"]
+	path = Logical/MpAxisSample
+	url = https://github.com/supportcz/MpAxisSample.git

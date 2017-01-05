@@ -6,6 +6,10 @@
 
 #include <bur/plctypes.h>
 
+#ifndef _IEC_CONST
+#define _IEC_CONST _WEAK const
+#endif
+
 /* Datatypes and datatypes of function blocks */
 
 

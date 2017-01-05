@@ -6,6 +6,7 @@ VAR CONSTANT
 	mcABSOLUTE_NO_RESET : USINT := 2; (*definition for the shift input of MC_BR_Offset and MC_BR_Phasing*)
 	mcACKNOWLEDGE_ALL : UINT := 2; (*acknowledge all error records immediately*)
 	mcACT_CFG : UINT := 1;
+	mcACTUAL_POSITION : UINT := 1; (*position source for MPDC*)
 	mcACTUAL_VELOCITY : INT := 10; (*PLCopen motion parameter*)
 	mcADD_DATE_TIME : UINT := 1; (*additional data object type*)
 	mcALL_AXES : UDINT := 16#FFFFFFFF;
@@ -37,6 +38,8 @@ VAR CONSTANT
 	mcCHECK_HOMING_OFF : USINT := 1; (*disable homing check*)
 	mcCLOSE : USINT := 0;
 	mcCMD_ERROR : UINT := 1; (*error command*)
+    mcCMD_ERROR_COAST_TO_STANDSTILL : UINT := 5; (*error command*)
+    mcCMD_ERROR_INDUCTION_HALT : UINT := 6; (*error command*)
 	mcCMD_ERROR_STOP : UINT := 2; (*error command*)
 	mcCMD_ERROR_STOP_CTRL_OFF : UINT := 3; (*error command*)
 	mcCMD_ERROR_V_STOP_CTRL_OFF : UINT := 4; (*error command*)
@@ -52,6 +55,10 @@ VAR CONSTANT
 	mcDATOBJ : UINT := 0; (*data object type*)
 	mcDEFAULT_MOVE_PARAMETERS : INT := 1012; (*PLCopen motion parameter*)
 	mcDIRECT : USINT := 7; (*start mode*)
+	mcDIR_DEPENDENT : UINT := 1; (*mode for MPDC*)
+	mcDIR_DEPENDENT_BACKLASH : UINT := 2; (*mode for MPDC*)
+	mcDIR_INDEPENDENT : UINT := 3; (*mode for MPDC*)
+	mcDIR_INDEPENDENT_SPEED : UINT := 4; (*mode for MPDC*)
 	mcDISTANCE_BASED : UINT := 0; (*basis for cam movement (e.g. for MC_BR_CamTransition)*)
 	mcDITHER : USINT := 32; (*setup mode*)
 	mcEDGE_SENSITIVE : USINT := 4; (*additional mode for trigger event*)
@@ -60,6 +67,7 @@ VAR CONSTANT
 	mcENABLE_LIMIT_POS : INT := 4; (*PLCopen motion parameter*)
 	mcENABLE_POS_LAG_MONITORING : INT := 6; (*PLCopen motion parameter*)
 	mcENCODER : USINT := 0; (*setup mode*)
+	mcENCODER_POSITION : UINT := 2; (*position source for MPDC*)
 	mcEQUAL : UINT := 2;
 	mcEVERY_RECORD : UINT := 1; (*mode for MC_BR_CyclicRead*)
 	mcEXCEED_PERIOD : USINT := 8; (*movement direction*)
@@ -197,12 +205,15 @@ VAR CONSTANT
 	mcSAVE_RING_STARTIDX : UINT := 4437; (*trace command (0x1000 + 0x0155)*)
 	mcSE : UINT := 3;
 	mcSET_OFFSET : USINT := 34; (*setup mode*)
+	mcSET_POSITION : UINT := 0; (*position source for MPDC*)
 	mcSHIFT_FROM_EXPECTED : UINT := 50; (*input for MC_BR_TouchProbe*)
 	mcSHIFT_FROM_RESULT : UINT := 49; (*input for MC_BR_TouchProbe*)
 	mcSHORTEST_WAY : USINT := 3; (*synchronization mode, movement direction*)
+	mcSIGNAL_CHIRP : UINT := 1; (*excitation signal type for controller setup*)
+	mcSIGNAL_CHIRP_TRAPEZOID : UINT := 2; (*excitation signal type for controller setup*)
+	mcSIGNAL_PRBS : UINT := 0; (*excitation signal type for controller setup*)
 	mcSIMPLE_SINE_CURVE : UINT := 3; (*motion rule*)
 	mcSIMULATION_INIT : UINT := 512; (*initialize simulation parameters*)
-	mcSIMULATION_INIT_ON : UINT := 256; (*initialize and switch on simulation mode*)
 	mcSIMULATION_OFF : UINT := 259; (*switch off simulation mode*)
 	mcSIMULATION_ON : UINT := 258; (*switch on simulation mode*)
 	mcSIMULATION_READ : UINT := 265; (*read calculated simulation parameters*)
@@ -212,7 +223,9 @@ VAR CONSTANT
 	mcSPEED : USINT := 2; (*setup mode*)
     mcSTANDARD : USINT := 0; (*encoder count direction*)
 	mcSTART : UINT := 260;
+	mcSTART_N_FLANK : UINT := 128; (*start MPDC at negative flank*)
 	mcSTART_ONLY : USINT := 3; (*power evaluation mode*)
+	mcSTART_P_FLANK : UINT := 0; (*start MPDC at positive flank*)
 	mcSTEPPER : USINT := 31; (*setup mode*)
 	mcSTOP : UINT := 261;
 	mcSTOP_INDEX : INT := 1013; (*PLCopen motion parameter*)
@@ -259,4 +272,5 @@ VAR CONSTANT
 	mcWITH_FF : USINT := 0; (*torque limit mode*)
 	mcWITHOUT_FF : USINT := 1; (*torque limit mode*)
 	mcWRAP : UINT := 2;
+	mcWRITE_DIRECT : UINT := 256; (*cyclic write mode*)
 END_VAR

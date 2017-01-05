@@ -2,5 +2,6 @@ AS/system
 Binaries
 Diagnosis
 Temp
-*.isopen
-*.set
+/*.isopen
+BusNavigator.xostd
+/*.set
